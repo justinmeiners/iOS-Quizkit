@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 #import "ISQuiz.h"
 
-@interface ISSession : NSObject
+@interface ISSession : NSObject <NSCoding>
 {
     NSDate* _startDate;
     NSDictionary* _userData;
@@ -17,6 +17,8 @@
 @property(nonatomic, readonly)NSArray* responses;
 @property(nonatomic, retain)NSDictionary* userData;
 
+- (id)initWithCoder:(NSCoder *)aDecoder;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
 
 - (id)initWithQuiz:(ISQuiz*)quiz;
 

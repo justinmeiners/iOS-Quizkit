@@ -6,10 +6,34 @@
 
 #import "ISSession.h"
 
+static NSString * const _ISUserDataKey = @"userData";
+static NSString * const _ISStartDateKey = @"startDate";
+static NSString * const _ISResponsesKey = @"responses";
+
 @implementation ISSession
 @synthesize startDate = _startDate;
 @synthesize responses = _responses;
 @synthesize userData = _userData;
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        _responses = [[NSMutableArray alloc] init];
+        [_responses addObjectsFromArray:[aDecoder decodeObjectForKey:_ISResponsesKey]];
+        self.startDate = [aDecoder decodeObjectForKey:_ISStartDateKey];
+        self.userData = [aDecoder decodeObjectForKey:_ISUserDataKey];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_responses forKey:_ISResponsesKey];
+    [aCoder encodeObject:_startDate forKey:_ISStartDateKey];
+    [aCoder encodeObject:_userData forKey:_ISUserDataKey];
+}
 
 - (id)initWithQuiz:(ISQuiz*)quiz
 {

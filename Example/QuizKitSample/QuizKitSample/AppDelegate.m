@@ -1,10 +1,7 @@
-//
-//  AppDelegate.m
-//  QuizKitSample
-//
-//  Created by Justin Meiners on 2/20/13.
-//  Copyright (c) 2013 Infuse Medical. All rights reserved.
-//
+/*
+ Copyright (c) 2012 Inline Studios
+ Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+ */
 
 #import "AppDelegate.h"
 
