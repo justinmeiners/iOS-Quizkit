@@ -13,9 +13,9 @@
 
 @end
 
-@interface ISEmtyQuestionResponse : ISQuestionResponse
+@interface ISEmptyQuestionResponse : ISQuestionResponse
 
-+ (ISEmtyQuestionResponse*)emptyResponse;
++ (ISEmptyQuestionResponse*)emptyResponse;
 
 @end
 

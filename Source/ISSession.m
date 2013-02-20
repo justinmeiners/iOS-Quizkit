@@ -19,7 +19,7 @@
         
         for (int i = 0; i < quiz.questions.count; i ++)
         {
-            ISEmtyQuestionResponse* emptyResponse = [[ISEmtyQuestionResponse alloc] init];
+            ISEmptyQuestionResponse* emptyResponse = [[ISEmptyQuestionResponse alloc] init];
             [_responses addObject:emptyResponse];
             [emptyResponse release];
         }
@@ -41,7 +41,7 @@
 
 - (void)clearResponseAtIndex:(int)index
 {
-    [_responses replaceObjectAtIndex:index withObject:[ISEmtyQuestionResponse emptyResponse]];
+    [_responses replaceObjectAtIndex:index withObject:[ISEmptyQuestionResponse emptyResponse]];
 }
 
 - (BOOL)complete

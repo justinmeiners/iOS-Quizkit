@@ -30,9 +30,9 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
 
 @end
 
-@implementation ISEmtyQuestionResponse
+@implementation ISEmptyQuestionResponse
 
-+ (ISEmtyQuestionResponse*)emptyResponse
++ (ISEmptyQuestionResponse*)emptyResponse
 {
     return [[[self alloc] init] autorelease];
 }

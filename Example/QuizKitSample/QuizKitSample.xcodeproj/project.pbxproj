@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4B5D4A916D52131009E8CF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4A816D52131009E8CF9 /* UIKit.framework */; };
+		F4B5D4AB16D52131009E8CF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4AA16D52131009E8CF9 /* Foundation.framework */; };
+		F4B5D4AD16D52131009E8CF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4AC16D52131009E8CF9 /* CoreGraphics.framework */; };
+		F4B5D4B316D52131009E8CF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4B116D52131009E8CF9 /* InfoPlist.strings */; };
+		F4B5D4B516D52131009E8CF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4B416D52131009E8CF9 /* main.m */; };
+		F4B5D4B916D52132009E8CF9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4B816D52132009E8CF9 /* AppDelegate.m */; };
+		F4B5D4BB16D52132009E8CF9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4BA16D52132009E8CF9 /* Default.png */; };
+		F4B5D4BD16D52132009E8CF9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4BC16D52132009E8CF9 /* Default@2x.png */; };
+		F4B5D4BF16D52132009E8CF9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4BE16D52132009E8CF9 /* Default-568h@2x.png */; };
+		F4B5D4C216D52132009E8CF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4C116D52132009E8CF9 /* ViewController.m */; };
+		F4B5D4C516D52132009E8CF9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4C316D52132009E8CF9 /* ViewController.xib */; };
+		F4B5D4DD16D52154009E8CF9 /* ISGrader.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4CD16D52154009E8CF9 /* ISGrader.m */; };
+		F4B5D4DE16D52154009E8CF9 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */; };
+		F4B5D4DF16D52154009E8CF9 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D116D52154009E8CF9 /* ISOpenQuestion.m */; };
+		F4B5D4E016D52154009E8CF9 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D316D52154009E8CF9 /* ISQuestion.m */; };
+		F4B5D4E116D52154009E8CF9 /* ISQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D516D52154009E8CF9 /* ISQuiz.m */; };
+		F4B5D4E216D52154009E8CF9 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D816D52154009E8CF9 /* ISQuizParser.m */; };
+		F4B5D4E316D52154009E8CF9 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4DA16D52154009E8CF9 /* ISSession.m */; };
+		F4B5D4E416D52154009E8CF9 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4DC16D52154009E8CF9 /* ISTrueFalseQuestion.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F4B5D4A516D52131009E8CF9 /* QuizKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4B5D4A816D52131009E8CF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F4B5D4AA16D52131009E8CF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4B5D4AC16D52131009E8CF9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F4B5D4B016D52131009E8CF9 /* QuizKitSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuizKitSample-Info.plist"; sourceTree = "<group>"; };
+		F4B5D4B216D52131009E8CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4B5D4B416D52131009E8CF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F4B5D4B616D52131009E8CF9 /* QuizKitSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuizKitSample-Prefix.pch"; sourceTree = "<group>"; };
+		F4B5D4B716D52131009E8CF9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F4B5D4B816D52132009E8CF9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F4B5D4BA16D52132009E8CF9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F4B5D4BC16D52132009E8CF9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F4B5D4BE16D52132009E8CF9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F4B5D4C016D52132009E8CF9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F4B5D4C116D52132009E8CF9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F4B5D4C416D52132009E8CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		F4B5D4CC16D52154009E8CF9 /* ISGrader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISGrader.h; sourceTree = "<group>"; };
+		F4B5D4CD16D52154009E8CF9 /* ISGrader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGrader.m; sourceTree = "<group>"; };
+		F4B5D4CE16D52154009E8CF9 /* ISMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleChoiceQuestion.h; sourceTree = "<group>"; };
+		F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestion.m; sourceTree = "<group>"; };
+		F4B5D4D016D52154009E8CF9 /* ISOpenQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOpenQuestion.h; sourceTree = "<group>"; };
+		F4B5D4D116D52154009E8CF9 /* ISOpenQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOpenQuestion.m; sourceTree = "<group>"; };
+		F4B5D4D216D52154009E8CF9 /* ISQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuestion.h; sourceTree = "<group>"; };
+		F4B5D4D316D52154009E8CF9 /* ISQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuestion.m; sourceTree = "<group>"; };
+		F4B5D4D416D52154009E8CF9 /* ISQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuiz.h; sourceTree = "<group>"; };
+		F4B5D4D516D52154009E8CF9 /* ISQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuiz.m; sourceTree = "<group>"; };
+		F4B5D4D616D52154009E8CF9 /* ISQuizKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizKit.h; sourceTree = "<group>"; };
+		F4B5D4D716D52154009E8CF9 /* ISQuizParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizParser.h; sourceTree = "<group>"; };
+		F4B5D4D816D52154009E8CF9 /* ISQuizParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuizParser.m; sourceTree = "<group>"; };
+		F4B5D4D916D52154009E8CF9 /* ISSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSession.h; sourceTree = "<group>"; };
+		F4B5D4DA16D52154009E8CF9 /* ISSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSession.m; sourceTree = "<group>"; };
+		F4B5D4DB16D52154009E8CF9 /* ISTrueFalseQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTrueFalseQuestion.h; sourceTree = "<group>"; };
+		F4B5D4DC16D52154009E8CF9 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4B5D4A216D52131009E8CF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B5D4A916D52131009E8CF9 /* UIKit.framework in Frameworks */,
+				F4B5D4AB16D52131009E8CF9 /* Foundation.framework in Frameworks */,
+				F4B5D4AD16D52131009E8CF9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4B5D49C16D52131009E8CF9 = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4AE16D52131009E8CF9 /* QuizKitSample */,
+				F4B5D4A716D52131009E8CF9 /* Frameworks */,
+				F4B5D4A616D52131009E8CF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4B5D4A616D52131009E8CF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4A516D52131009E8CF9 /* QuizKitSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4B5D4A716D52131009E8CF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4A816D52131009E8CF9 /* UIKit.framework */,
+				F4B5D4AA16D52131009E8CF9 /* Foundation.framework */,
+				F4B5D4AC16D52131009E8CF9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4B5D4AE16D52131009E8CF9 /* QuizKitSample */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4CB16D52154009E8CF9 /* ISQuizKit */,
+				F4B5D4B716D52131009E8CF9 /* AppDelegate.h */,
+				F4B5D4B816D52132009E8CF9 /* AppDelegate.m */,
+				F4B5D4C016D52132009E8CF9 /* ViewController.h */,
+				F4B5D4C116D52132009E8CF9 /* ViewController.m */,
+				F4B5D4C316D52132009E8CF9 /* ViewController.xib */,
+				F4B5D4AF16D52131009E8CF9 /* Supporting Files */,
+			);
+			path = QuizKitSample;
+			sourceTree = "<group>";
+		};
+		F4B5D4AF16D52131009E8CF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4B016D52131009E8CF9 /* QuizKitSample-Info.plist */,
+				F4B5D4B116D52131009E8CF9 /* InfoPlist.strings */,
+				F4B5D4B416D52131009E8CF9 /* main.m */,
+				F4B5D4B616D52131009E8CF9 /* QuizKitSample-Prefix.pch */,
+				F4B5D4BA16D52132009E8CF9 /* Default.png */,
+				F4B5D4BC16D52132009E8CF9 /* Default@2x.png */,
+				F4B5D4BE16D52132009E8CF9 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4B5D4CB16D52154009E8CF9 /* ISQuizKit */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4CC16D52154009E8CF9 /* ISGrader.h */,
+				F4B5D4CD16D52154009E8CF9 /* ISGrader.m */,
+				F4B5D4CE16D52154009E8CF9 /* ISMultipleChoiceQuestion.h */,
+				F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */,
+				F4B5D4D016D52154009E8CF9 /* ISOpenQuestion.h */,
+				F4B5D4D116D52154009E8CF9 /* ISOpenQuestion.m */,
+				F4B5D4D216D52154009E8CF9 /* ISQuestion.h */,
+				F4B5D4D316D52154009E8CF9 /* ISQuestion.m */,
+				F4B5D4D416D52154009E8CF9 /* ISQuiz.h */,
+				F4B5D4D516D52154009E8CF9 /* ISQuiz.m */,
+				F4B5D4D616D52154009E8CF9 /* ISQuizKit.h */,
+				F4B5D4D716D52154009E8CF9 /* ISQuizParser.h */,
+				F4B5D4D816D52154009E8CF9 /* ISQuizParser.m */,
+				F4B5D4D916D52154009E8CF9 /* ISSession.h */,
+				F4B5D4DA16D52154009E8CF9 /* ISSession.m */,
+				F4B5D4DB16D52154009E8CF9 /* ISTrueFalseQuestion.h */,
+				F4B5D4DC16D52154009E8CF9 /* ISTrueFalseQuestion.m */,
+			);
+			name = ISQuizKit;
+			path = ../../../Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4B5D4A416D52131009E8CF9 /* QuizKitSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B5D4C816D52132009E8CF9 /* Build configuration list for PBXNativeTarget "QuizKitSample" */;
+			buildPhases = (
+				F4B5D4A116D52131009E8CF9 /* Sources */,
+				F4B5D4A216D52131009E8CF9 /* Frameworks */,
+				F4B5D4A316D52131009E8CF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuizKitSample;
+			productName = QuizKitSample;
+			productReference = F4B5D4A516D52131009E8CF9 /* QuizKitSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4B5D49D16D52131009E8CF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Infuse Medical";
+			};
+			buildConfigurationList = F4B5D4A016D52131009E8CF9 /* Build configuration list for PBXProject "QuizKitSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F4B5D49C16D52131009E8CF9;
+			productRefGroup = F4B5D4A616D52131009E8CF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4B5D4A416D52131009E8CF9 /* QuizKitSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4B5D4A316D52131009E8CF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B5D4B316D52131009E8CF9 /* InfoPlist.strings in Resources */,
+				F4B5D4BB16D52132009E8CF9 /* Default.png in Resources */,
+				F4B5D4BD16D52132009E8CF9 /* Default@2x.png in Resources */,
+				F4B5D4BF16D52132009E8CF9 /* Default-568h@2x.png in Resources */,
+				F4B5D4C516D52132009E8CF9 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4B5D4A116D52131009E8CF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4B5D4B516D52131009E8CF9 /* main.m in Sources */,
+				F4B5D4B916D52132009E8CF9 /* AppDelegate.m in Sources */,
+				F4B5D4C216D52132009E8CF9 /* ViewController.m in Sources */,
+				F4B5D4DD16D52154009E8CF9 /* ISGrader.m in Sources */,
+				F4B5D4DE16D52154009E8CF9 /* ISMultipleChoiceQuestion.m in Sources */,
+				F4B5D4DF16D52154009E8CF9 /* ISOpenQuestion.m in Sources */,
+				F4B5D4E016D52154009E8CF9 /* ISQuestion.m in Sources */,
+				F4B5D4E116D52154009E8CF9 /* ISQuiz.m in Sources */,
+				F4B5D4E216D52154009E8CF9 /* ISQuizParser.m in Sources */,
+				F4B5D4E316D52154009E8CF9 /* ISSession.m in Sources */,
+				F4B5D4E416D52154009E8CF9 /* ISTrueFalseQuestion.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F4B5D4B116D52131009E8CF9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4B5D4B216D52131009E8CF9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F4B5D4C316D52132009E8CF9 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4B5D4C416D52132009E8CF9 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4B5D4C616D52132009E8CF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F4B5D4C716D52132009E8CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4B5D4C916D52132009E8CF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
+				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F4B5D4CA16D52132009E8CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
+				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4B5D4A016D52131009E8CF9 /* Build configuration list for PBXProject "QuizKitSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B5D4C616D52132009E8CF9 /* Debug */,
+				F4B5D4C716D52132009E8CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B5D4C816D52132009E8CF9 /* Build configuration list for PBXNativeTarget "QuizKitSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4B5D4C916D52132009E8CF9 /* Debug */,
+				F4B5D4CA16D52132009E8CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4B5D49D16D52131009E8CF9 /* Project object */;
+}
