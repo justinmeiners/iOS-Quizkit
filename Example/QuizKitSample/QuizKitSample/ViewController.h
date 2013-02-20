@@ -5,7 +5,12 @@
 
 
 #import <UIKit/UIKit.h>
+#import "ISQuizKit.h"
 
 @interface ViewController : UIViewController
+{
+    ISSession* _session;
+}
 
+- (IBAction)startQuiz:(id)sender;
 @end

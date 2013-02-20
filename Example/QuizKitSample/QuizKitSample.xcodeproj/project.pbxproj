@@ -26,6 +26,9 @@
 		F4B5D4E216D52154009E8CF9 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D816D52154009E8CF9 /* ISQuizParser.m */; };
 		F4B5D4E316D52154009E8CF9 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4DA16D52154009E8CF9 /* ISSession.m */; };
 		F4B5D4E416D52154009E8CF9 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4DC16D52154009E8CF9 /* ISTrueFalseQuestion.m */; };
+		F4B5D4E716D53BA3009E8CF9 /* programming.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4E616D53BA3009E8CF9 /* programming.plist */; };
+		F4B5D4EB16D53C7B009E8CF9 /* OpenQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */; };
+		F4B5D4EC16D53C7B009E8CF9 /* OpenQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,10 @@
 		F4B5D4DA16D52154009E8CF9 /* ISSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSession.m; sourceTree = "<group>"; };
 		F4B5D4DB16D52154009E8CF9 /* ISTrueFalseQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTrueFalseQuestion.h; sourceTree = "<group>"; };
 		F4B5D4DC16D52154009E8CF9 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
+		F4B5D4E616D53BA3009E8CF9 /* programming.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = programming.plist; sourceTree = "<group>"; };
+		F4B5D4E816D53C7A009E8CF9 /* OpenQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenQuestionViewController.h; sourceTree = "<group>"; };
+		F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenQuestionViewController.m; sourceTree = "<group>"; };
+		F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenQuestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +121,10 @@
 				F4B5D4C016D52132009E8CF9 /* ViewController.h */,
 				F4B5D4C116D52132009E8CF9 /* ViewController.m */,
 				F4B5D4C316D52132009E8CF9 /* ViewController.xib */,
+				F4B5D4E816D53C7A009E8CF9 /* OpenQuestionViewController.h */,
+				F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */,
+				F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */,
+				F4B5D4E516D53BA3009E8CF9 /* quizzes */,
 				F4B5D4AF16D52131009E8CF9 /* Supporting Files */,
 			);
 			path = QuizKitSample;
@@ -156,6 +167,14 @@
 			);
 			name = ISQuizKit;
 			path = ../../../Source;
+			sourceTree = "<group>";
+		};
+		F4B5D4E516D53BA3009E8CF9 /* quizzes */ = {
+			isa = PBXGroup;
+			children = (
+				F4B5D4E616D53BA3009E8CF9 /* programming.plist */,
+			);
+			path = quizzes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +233,8 @@
 				F4B5D4BD16D52132009E8CF9 /* Default@2x.png in Resources */,
 				F4B5D4BF16D52132009E8CF9 /* Default-568h@2x.png in Resources */,
 				F4B5D4C516D52132009E8CF9 /* ViewController.xib in Resources */,
+				F4B5D4E716D53BA3009E8CF9 /* programming.plist in Resources */,
+				F4B5D4EC16D53C7B009E8CF9 /* OpenQuestionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +256,7 @@
 				F4B5D4E216D52154009E8CF9 /* ISQuizParser.m in Sources */,
 				F4B5D4E316D52154009E8CF9 /* ISSession.m in Sources */,
 				F4B5D4E416D52154009E8CF9 /* ISTrueFalseQuestion.m in Sources */,
+				F4B5D4EB16D53C7B009E8CF9 /* OpenQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +377,7 @@
 				F4B5D4CA16D52132009E8CF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

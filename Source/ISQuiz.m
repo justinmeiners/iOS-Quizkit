@@ -20,6 +20,7 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     if (self = [super init])
     {
         _questions = [[NSMutableArray alloc] init];
+        self.timeLimit = -1.0;
     }
     return self;
 }

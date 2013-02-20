@@ -7,16 +7,16 @@
 #import "ISSession.h"
 
 static NSString * const _ISUserDataKey = @"userData";
-static NSString * const _ISStartDateKey = @"startDate";
 static NSString * const _ISResponsesKey = @"responses";
+static NSString * const _ISTimeKey = @"time";
+static NSString * const _ISBonusTimeKey = @"bonusTime";
 
 @implementation ISSession
-@synthesize startDate = _startDate;
 @synthesize responses = _responses;
 @synthesize userData = _userData;
 @synthesize inSession = _inSession;
-@synthesize paused = _paused;
 @synthesize delegate = _delegate;
+@synthesize bonusTime = _bonusTime;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -24,9 +24,9 @@ static NSString * const _ISResponsesKey = @"responses";
     {
         _responses = [[NSMutableArray alloc] init];
         [_responses addObjectsFromArray:[aDecoder decodeObjectForKey:_ISResponsesKey]];
-        self.startDate = [aDecoder decodeObjectForKey:_ISStartDateKey];
         self.userData = [aDecoder decodeObjectForKey:_ISUserDataKey];
-        
+        _time = [aDecoder decodeDoubleForKey:_ISTimeKey];
+        self.bonusTime = [aDecoder decodeDoubleForKey:_ISBonusTimeKey];
     }
     return self;
 }
@@ -34,14 +34,17 @@ static NSString * const _ISResponsesKey = @"responses";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:_responses forKey:_ISResponsesKey];
-    [aCoder encodeObject:_startDate forKey:_ISStartDateKey];
     [aCoder encodeObject:_userData forKey:_ISUserDataKey];
+    [aCoder encodeDouble:_time forKey:_ISTimeKey];
+    [aCoder encodeDouble:_bonusTime forKey:_ISBonusTimeKey];
 }
 
 - (id)init
 {
     if (self = [super init])
     {
+        _bonusTime = 0.0;
+        _time = 0.0;
         _responses = [[NSMutableArray alloc] init];
     }
     return self;
@@ -55,16 +58,24 @@ static NSString * const _ISResponsesKey = @"responses";
 
 - (BOOL)start:(ISQuiz*)quiz
 {
-    self.startDate = [NSDate date];
+    if (_inSession)
+    {
+        NSLog(@"session already in session with quiz: %@", quiz);
+        return NO;
+    }
+    
+    _currentQuiz = [quiz retain];
     
     if (_responses.count == 0)
     {
-        for (int i = 0; i < quiz.questions.count; i ++)
+        for (int i = 0; i < _currentQuiz.questions.count; i ++)
         {
             ISEmptyQuestionResponse* emptyResponse = [[ISEmptyQuestionResponse alloc] init];
             [_responses addObject:emptyResponse];
             [emptyResponse release];
         }
+        
+        _time = 0.0;
     }
     else
     {
@@ -75,9 +86,14 @@ static NSString * const _ISResponsesKey = @"responses";
         }
     }
     
+    _sessionTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+                                                     target:self
+                                                   selector:@selector(tick:)
+                                                   userInfo:nil repeats:YES] retain];
+    
+    _startDate = [[NSDate date] retain];    
 
     _inSession = true;
-    _paused = false;
     
     if (_delegate && [_delegate respondsToSelector:@selector(sessionStarted:)])
     {
@@ -87,12 +103,31 @@ static NSString * const _ISResponsesKey = @"responses";
     return YES;
 }
 
-- (void)setPaused:(BOOL)paused
+- (void)tick:(NSTimer*)timer
 {
-    _paused = paused;
+    _time = [[NSDate date] timeIntervalSinceDate:_startDate];
+    
+    if (_currentQuiz.timeLimit > 0.0)
+    {
+        if (_time > _currentQuiz.timeLimit + _bonusTime)
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(sessionShouldStopAtTimeLimit:)])
+            {
+                if ([_delegate sessionShouldStopAtTimeLimit:self])
+                {
+                    [self stop];
+                }
+            }
+            else
+            {
+                [self stop];
+            }
+        }
+    }
 }
 
-- (void)finish
+
+- (void)stop
 {
     if (!_inSession)
     {
@@ -100,12 +135,20 @@ static NSString * const _ISResponsesKey = @"responses";
         return;
     }
     
-    _paused = false;
+    [_sessionTimer invalidate];
+    [_sessionTimer release];
+    _sessionTimer = NULL;
+        
+    _time = [[NSDate date] timeIntervalSinceDate:_startDate];
+    
     _inSession = false;
     
-    if (_delegate && [_delegate respondsToSelector:@selector(sessionFinished:)])
+    [_currentQuiz release];
+    _currentQuiz = NULL;
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(sessionStopped:)])
     {
-        [_delegate sessionFinished:self];
+        [_delegate sessionStopped:self];
     }
 }
 
@@ -120,8 +163,9 @@ static NSString * const _ISResponsesKey = @"responses";
     [_responses replaceObjectAtIndex:index withObject:[ISEmptyQuestionResponse emptyResponse]];
 }
 
-- (BOOL)complete
+- (NSTimeInterval)time
 {
+    return _time;
 }
 
 @end
