@@ -12,15 +12,15 @@ Features:
 - Open response questions with optional Levenshtein distance range
 - True/False questions
 - Full NSCodor support for quizzes, questions, and sessions.
-- Load quizzes from user created Plists.
+- Load quizzes from user created Plists and JSON.
 - Optional User Data on most structures.
 
 
 ```Objective-C
-// Load Quiz from user PLIST
+// Load Quiz from user plist
 [ISQuizParser quizFromContentsOfPlist:...];
 
-// Load Quiz from JSON
+// Load Quiz from JSON file
 [ISQuizParser quizFromContentsOfJSON:…];
 
 // Load Quiz from bundle

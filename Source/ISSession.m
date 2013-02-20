@@ -14,6 +14,9 @@ static NSString * const _ISResponsesKey = @"responses";
 @synthesize startDate = _startDate;
 @synthesize responses = _responses;
 @synthesize userData = _userData;
+@synthesize inSession = _inSession;
+@synthesize paused = _paused;
+@synthesize delegate = _delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -35,18 +38,11 @@ static NSString * const _ISResponsesKey = @"responses";
     [aCoder encodeObject:_userData forKey:_ISUserDataKey];
 }
 
-- (id)initWithQuiz:(ISQuiz*)quiz
+- (id)init
 {
     if (self = [super init])
     {
-        _responses = [[NSMutableArray arrayWithCapacity:quiz.questions.count] retain];
-        
-        for (int i = 0; i < quiz.questions.count; i ++)
-        {
-            ISEmptyQuestionResponse* emptyResponse = [[ISEmptyQuestionResponse alloc] init];
-            [_responses addObject:emptyResponse];
-            [emptyResponse release];
-        }
+        _responses = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -55,6 +51,62 @@ static NSString * const _ISResponsesKey = @"responses";
 {
     [_responses release];
     [super dealloc];
+}
+
+- (BOOL)start:(ISQuiz*)quiz
+{
+    self.startDate = [NSDate date];
+    
+    if (_responses.count == 0)
+    {
+        for (int i = 0; i < quiz.questions.count; i ++)
+        {
+            ISEmptyQuestionResponse* emptyResponse = [[ISEmptyQuestionResponse alloc] init];
+            [_responses addObject:emptyResponse];
+            [emptyResponse release];
+        }
+    }
+    else
+    {
+        if (_responses.count != quiz.questions.count)
+        {
+            NSLog(@"resuming session with incorrect quiz");
+            return NO;
+        }
+    }
+    
+
+    _inSession = true;
+    _paused = false;
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(sessionStarted:)])
+    {
+        [_delegate sessionStarted:self];
+    }
+    
+    return YES;
+}
+
+- (void)setPaused:(BOOL)paused
+{
+    _paused = paused;
+}
+
+- (void)finish
+{
+    if (!_inSession)
+    {
+        NSLog(@"ISSession finish when not in session");
+        return;
+    }
+    
+    _paused = false;
+    _inSession = false;
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(sessionFinished:)])
+    {
+        [_delegate sessionFinished:self];
+    }
 }
 
 - (void)setResponse:(ISQuestionResponse*)response
