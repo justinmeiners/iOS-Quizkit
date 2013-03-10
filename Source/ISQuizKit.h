@@ -10,4 +10,3 @@
 #import "ISMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
 #import "ISSession.h"
-#import "ISGrader.h"

@@ -18,7 +18,6 @@
 		F4B5D4BF16D52132009E8CF9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4BE16D52132009E8CF9 /* Default-568h@2x.png */; };
 		F4B5D4C216D52132009E8CF9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4C116D52132009E8CF9 /* ViewController.m */; };
 		F4B5D4C516D52132009E8CF9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4C316D52132009E8CF9 /* ViewController.xib */; };
-		F4B5D4DD16D52154009E8CF9 /* ISGrader.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4CD16D52154009E8CF9 /* ISGrader.m */; };
 		F4B5D4DE16D52154009E8CF9 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */; };
 		F4B5D4DF16D52154009E8CF9 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D116D52154009E8CF9 /* ISOpenQuestion.m */; };
 		F4B5D4E016D52154009E8CF9 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4D316D52154009E8CF9 /* ISQuestion.m */; };
@@ -29,6 +28,10 @@
 		F4B5D4E716D53BA3009E8CF9 /* programming.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4E616D53BA3009E8CF9 /* programming.plist */; };
 		F4B5D4EB16D53C7B009E8CF9 /* OpenQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */; };
 		F4B5D4EC16D53C7B009E8CF9 /* OpenQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */; };
+		F4E2E07216EC157A001F6C2B /* TrueFalseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E07016EC157A001F6C2B /* TrueFalseViewController.m */; };
+		F4E2E07316EC157A001F6C2B /* TrueFalseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2E07116EC157A001F6C2B /* TrueFalseViewController.xib */; };
+		F4E2E07716EC1610001F6C2B /* MultipleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E2E07516EC160F001F6C2B /* MultipleChoiceViewController.m */; };
+		F4E2E07816EC1610001F6C2B /* MultipleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2E07616EC160F001F6C2B /* MultipleChoiceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +51,6 @@
 		F4B5D4C016D52132009E8CF9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F4B5D4C116D52132009E8CF9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F4B5D4C416D52132009E8CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		F4B5D4CC16D52154009E8CF9 /* ISGrader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISGrader.h; sourceTree = "<group>"; };
-		F4B5D4CD16D52154009E8CF9 /* ISGrader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGrader.m; sourceTree = "<group>"; };
 		F4B5D4CE16D52154009E8CF9 /* ISMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleChoiceQuestion.h; sourceTree = "<group>"; };
 		F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestion.m; sourceTree = "<group>"; };
 		F4B5D4D016D52154009E8CF9 /* ISOpenQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOpenQuestion.h; sourceTree = "<group>"; };
@@ -69,6 +70,13 @@
 		F4B5D4E816D53C7A009E8CF9 /* OpenQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenQuestionViewController.h; sourceTree = "<group>"; };
 		F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenQuestionViewController.m; sourceTree = "<group>"; };
 		F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenQuestionViewController.xib; sourceTree = "<group>"; };
+		F4E2E06F16EC157A001F6C2B /* TrueFalseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrueFalseViewController.h; sourceTree = "<group>"; };
+		F4E2E07016EC157A001F6C2B /* TrueFalseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrueFalseViewController.m; sourceTree = "<group>"; };
+		F4E2E07116EC157A001F6C2B /* TrueFalseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrueFalseViewController.xib; sourceTree = "<group>"; };
+		F4E2E07416EC160F001F6C2B /* MultipleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceViewController.h; sourceTree = "<group>"; };
+		F4E2E07516EC160F001F6C2B /* MultipleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceViewController.m; sourceTree = "<group>"; };
+		F4E2E07616EC160F001F6C2B /* MultipleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleChoiceViewController.xib; sourceTree = "<group>"; };
+		F4E2E07916EC1FFC001F6C2B /* QuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +126,19 @@
 				F4B5D4CB16D52154009E8CF9 /* ISQuizKit */,
 				F4B5D4B716D52131009E8CF9 /* AppDelegate.h */,
 				F4B5D4B816D52132009E8CF9 /* AppDelegate.m */,
+				F4E2E07916EC1FFC001F6C2B /* QuizController.h */,
 				F4B5D4C016D52132009E8CF9 /* ViewController.h */,
 				F4B5D4C116D52132009E8CF9 /* ViewController.m */,
 				F4B5D4C316D52132009E8CF9 /* ViewController.xib */,
 				F4B5D4E816D53C7A009E8CF9 /* OpenQuestionViewController.h */,
 				F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */,
 				F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */,
+				F4E2E06F16EC157A001F6C2B /* TrueFalseViewController.h */,
+				F4E2E07016EC157A001F6C2B /* TrueFalseViewController.m */,
+				F4E2E07116EC157A001F6C2B /* TrueFalseViewController.xib */,
+				F4E2E07416EC160F001F6C2B /* MultipleChoiceViewController.h */,
+				F4E2E07516EC160F001F6C2B /* MultipleChoiceViewController.m */,
+				F4E2E07616EC160F001F6C2B /* MultipleChoiceViewController.xib */,
 				F4B5D4E516D53BA3009E8CF9 /* quizzes */,
 				F4B5D4AF16D52131009E8CF9 /* Supporting Files */,
 			);
@@ -147,8 +162,6 @@
 		F4B5D4CB16D52154009E8CF9 /* ISQuizKit */ = {
 			isa = PBXGroup;
 			children = (
-				F4B5D4CC16D52154009E8CF9 /* ISGrader.h */,
-				F4B5D4CD16D52154009E8CF9 /* ISGrader.m */,
 				F4B5D4CE16D52154009E8CF9 /* ISMultipleChoiceQuestion.h */,
 				F4B5D4CF16D52154009E8CF9 /* ISMultipleChoiceQuestion.m */,
 				F4B5D4D016D52154009E8CF9 /* ISOpenQuestion.h */,
@@ -235,6 +248,8 @@
 				F4B5D4C516D52132009E8CF9 /* ViewController.xib in Resources */,
 				F4B5D4E716D53BA3009E8CF9 /* programming.plist in Resources */,
 				F4B5D4EC16D53C7B009E8CF9 /* OpenQuestionViewController.xib in Resources */,
+				F4E2E07316EC157A001F6C2B /* TrueFalseViewController.xib in Resources */,
+				F4E2E07816EC1610001F6C2B /* MultipleChoiceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +263,6 @@
 				F4B5D4B516D52131009E8CF9 /* main.m in Sources */,
 				F4B5D4B916D52132009E8CF9 /* AppDelegate.m in Sources */,
 				F4B5D4C216D52132009E8CF9 /* ViewController.m in Sources */,
-				F4B5D4DD16D52154009E8CF9 /* ISGrader.m in Sources */,
 				F4B5D4DE16D52154009E8CF9 /* ISMultipleChoiceQuestion.m in Sources */,
 				F4B5D4DF16D52154009E8CF9 /* ISOpenQuestion.m in Sources */,
 				F4B5D4E016D52154009E8CF9 /* ISQuestion.m in Sources */,
@@ -257,6 +271,8 @@
 				F4B5D4E316D52154009E8CF9 /* ISSession.m in Sources */,
 				F4B5D4E416D52154009E8CF9 /* ISTrueFalseQuestion.m in Sources */,
 				F4B5D4EB16D53C7B009E8CF9 /* OpenQuestionViewController.m in Sources */,
+				F4E2E07216EC157A001F6C2B /* TrueFalseViewController.m in Sources */,
+				F4E2E07716EC1610001F6C2B /* MultipleChoiceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

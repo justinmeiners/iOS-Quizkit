@@ -123,6 +123,8 @@
             }
             else
             {
+                [quiz release];
+                [question release];
                 NSLog(@"missing question answer");
                 return nil;
             }
@@ -163,6 +165,7 @@
             
             if (![self verify:options class:[NSArray class]])
             {
+                [question release];
                 NSLog(@"missing multiple choice options");
                 return nil;
             }
@@ -196,6 +199,7 @@
             
             if (![self verify:[questionDict objectForKey:kISAnswerKey] class:[NSNumber class]])
             {
+                [question release];
                 NSLog(@"missing annswer");
                 return nil;
             }

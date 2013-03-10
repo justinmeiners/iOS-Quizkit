@@ -18,6 +18,11 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
 @synthesize delegate = _delegate;
 @synthesize bonusTime = _bonusTime;
 
++ (ISSession*)session
+{
+    return [[[self alloc] init] autorelease];
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super init])

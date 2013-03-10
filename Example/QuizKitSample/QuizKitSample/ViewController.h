@@ -6,11 +6,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ISQuizKit.h"
+#import "QuizController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <QuizController, UINavigationControllerDelegate>
 {
+    IBOutlet UILabel* _scoreLabel;
     ISSession* _session;
+    int _questionIndex;
+    ISQuiz* _quiz;
 }
 
 - (IBAction)startQuiz:(id)sender;
+- (void)nextQuestion;
 @end

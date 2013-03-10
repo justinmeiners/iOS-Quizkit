@@ -39,6 +39,8 @@
 @property(nonatomic, assign)id<ISSessionDelegate> delegate;
 @property(nonatomic, assign)NSTimeInterval bonusTime;
 
++ (ISSession*)session;
+
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 

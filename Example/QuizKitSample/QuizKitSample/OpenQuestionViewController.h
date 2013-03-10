@@ -5,14 +5,18 @@
 
 #import <UIKit/UIKit.h>
 #import "ISQuizKit.h"
+#import "QuizController.h"
 
-@interface OpenQuestionViewController : UIViewController
+@interface OpenQuestionViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UITextView* _questionTextView;
     IBOutlet UITextField* _responseField;
+    ISOpenQuestion* _question;
+    id <QuizController> _controller;
 }
 
 - (id)initWithOpenQuestion:(ISOpenQuestion*)question
-                  response:(ISOpenQuestionResponse*)response;
+                  response:(ISOpenQuestionResponse*)response
+                controller:(id <QuizController>)controller;
 
 @end
