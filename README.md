@@ -20,10 +20,10 @@ Features:
 [ISQuizParser quizFromContentsOfPlist:...];
 
 // Load Quiz from JSON file
-[ISQuizParser quizFromContentsOfJSON:…];
+[ISQuizParser quizFromContentsOfJSON:...];
 
 // Load Quiz from bundle
-[ISQuizParser quizNamed:…];
+[ISQuizParser quizNamed:...];
 
 ```
 
@@ -41,6 +41,6 @@ ISSession* session = [ISSession session];
 
 // Grading
 ISGradingResult* result = [quiz gradeSession:session];
-NSLog(@"%i/%i", result.points, result.pointsPossible);
+NSLog(@"Score: %i/%i", result.points, result.pointsPossible);
 
 ```
