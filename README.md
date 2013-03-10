@@ -1,7 +1,7 @@
 iOS-Quizkit
 ===========
 
-iOS-Quizkit is an Objective-C API for creating quiz and test apps. 
+iOS-Quizkit is an Objective-C API for creating applications with quiz and test features. 
 For flexibility, the API focuses completely on the model layer and makes no attempt to offer a UI solution.
 
 Included is a quick sample app with the library integrated. It provides an example of how the API might be integrated into an application.
@@ -35,15 +35,12 @@ ISSession* session = [ISSession session];
 
 // Submit answers
 [session setRespone:[ISOpenQuestionResponse responseWithResponse:...] atIndex:0];
-
 [session setRespone:[ISTrueFalseQuestionResponse responseWithResponse:...] atIndex:1];
 
 [session stop];
 
 // Grading
-
 ISGradingResult* result = [quiz gradeSession:session];
-
 NSLog(@"%i/%i", result.points, result.pointsPossible);
 
 ```
