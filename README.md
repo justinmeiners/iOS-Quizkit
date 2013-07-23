@@ -6,6 +6,8 @@ For flexibility, the API focuses completely on the model layer and makes no atte
 
 Included is a quick sample app with the library integrated. It provides an example of how the API might be integrated into an application.
 
+**Note**: The sample app is not complete and does not work as expected :) 
+
 Features:
 - Multiple choice questions
 - Open response questions with optional Levenshtein distance approximation
