@@ -79,7 +79,7 @@
 			<key>type</key>
 			<string>trueFalse</string>
 			<key>text</key>
-			<string>Xcode Sucks</string>
+			<string>Is Xcode slow?</string>
 			<key>answer</key>
 			<integer>1</integer>
 		</dict>
