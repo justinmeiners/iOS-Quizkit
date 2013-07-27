@@ -27,8 +27,6 @@
 {
     NSDate* _startDate;
     NSMutableArray* _responses;
-    BOOL _inSession;
-    id <ISSessionDelegate> _delegate;
     NSTimeInterval _time;
     NSTimeInterval _bonusTime;
     NSTimer* _sessionTimer;

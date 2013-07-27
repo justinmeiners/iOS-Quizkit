@@ -16,6 +16,7 @@ Features:
 - Load quizzes from user created Plists and JSON.
 - Optional User Data on most structures.
 - Automatic or custom scoring
+- Retroactive session grading
 
 ```Objective-C
 // Load Quiz from user plist
@@ -36,8 +37,8 @@ ISSession* session = [ISSession session];
 [session start:quiz];
 
 // Submit answers
-[session setRespone:[ISOpenQuestionResponse responseWithResponse:...] atIndex:0];
-[session setRespone:[ISTrueFalseQuestionResponse responseWithResponse:...] atIndex:1];
+[session setResponse:[ISOpenQuestionResponse responseWithResponse:...] atIndex:0];
+[session setResponse:[ISTrueFalseQuestionResponse responseWithResponse:...] atIndex:1];
 
 [session stop];
 
