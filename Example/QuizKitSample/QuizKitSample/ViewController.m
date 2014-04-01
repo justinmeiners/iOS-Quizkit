@@ -30,7 +30,7 @@
 
 - (IBAction)startQuiz:(id)sender
 {
-    _quiz = [[ISQuizParser quizNamed:@"programming.plist"] retain];
+    _quiz = [ISQuizParser quizNamed:@"programming.plist"];
     
     _scoreLabel.text = @"";
 
@@ -60,7 +60,7 @@
         return;
     }
     
-    ISQuestion* question = [_quiz.questions objectAtIndex:_questionIndex];
+    ISQuestion* question = (_quiz.questions)[_questionIndex];
     
     if ([question isKindOfClass:[ISOpenQuestion class]])
     {
@@ -68,7 +68,6 @@
                                                                                                  response:NULL
                                                                                                controller:self];
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     else if ([question isKindOfClass:[ISMultipleChoiceQuestion class]])
     {
@@ -76,7 +75,6 @@
                                                                                                                response:NULL
                                                                                                              controller:self];
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     else if ([question isKindOfClass:[ISTrueFalseQuestion class]])
     {
@@ -84,7 +82,6 @@
                                                                                                 response:NULL
                                                                                               controller:self];
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     
     _questionIndex += 1;

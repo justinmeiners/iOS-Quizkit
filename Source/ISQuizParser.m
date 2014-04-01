@@ -55,7 +55,7 @@
 {
     NSDictionary* plist = [[NSDictionary alloc] initWithContentsOfFile:file];
 
-    return [self quizFromDictionary:[plist autorelease]];
+    return [self quizFromDictionary:plist];
 }
 
 + (ISQuiz*)quizFromContentsOfJSON:(NSString*)jsonFile
@@ -94,7 +94,7 @@
 
 + (ISQuiz*)quizFromDictionary:(NSDictionary*)dictionary
 {
-    NSArray* questions = [dictionary objectForKey:kISQuestionsKey];
+    NSArray* questions = dictionary[kISQuestionsKey];
     
     if (![self verify:questions class:[NSArray class]])
     {
@@ -106,7 +106,7 @@
     
     for (NSDictionary* questionDict in questions)
     {
-        NSString* type = [questionDict objectForKey:kISTypeKey];
+        NSString* type = questionDict[kISTypeKey];
         
         ISQuestion* newQuestion = nil;
         
@@ -114,23 +114,21 @@
         {
             ISOpenQuestion* question = [[ISOpenQuestion alloc] init];
             
-            if ([questionDict objectForKey:kISAnswerKey])
+            if (questionDict[kISAnswerKey])
             {
-                [question addAnswer:[questionDict objectForKey:kISAnswerKey]];
+                [question addAnswer:questionDict[kISAnswerKey]];
             }
-            else if ([questionDict objectForKey:kISAnswersKey])
+            else if (questionDict[kISAnswersKey])
             {
-                [question addAnswers:[questionDict objectForKey:kISAnswersKey]];
+                [question addAnswers:questionDict[kISAnswersKey]];
             }
             else
             {
-                [quiz release];
-                [question release];
                 NSLog(@"missing question answer");
                 return nil;
             }
             
-            NSString* matchMode = [questionDict objectForKey:kISMatchModeKey];
+            NSString* matchMode = questionDict[kISMatchModeKey];
             
             if (matchMode)
             {
@@ -154,7 +152,6 @@
             }
             
             [quiz addQuestion:question];
-            [question release];
             
             newQuestion = question;
         }
@@ -162,11 +159,10 @@
         {
             ISMultipleChoiceQuestion* question = [[ISMultipleChoiceQuestion alloc] init];
         
-            NSArray* options = [questionDict objectForKey:kISOptionsKey];
+            NSArray* options = questionDict[kISOptionsKey];
             
             if (![self verify:options class:[NSArray class]])
             {
-                [question release];
                 NSLog(@"missing multiple choice options");
                 return nil;
             }
@@ -174,11 +170,11 @@
             for (NSDictionary* optionDict in options)
             {
                 ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
-                option.text = [optionDict objectForKey:kISTextKey];
+                option.text = optionDict[kISTextKey];
                 
-                if ([optionDict objectForKey:kISCorrectKey])
+                if (optionDict[kISCorrectKey])
                 {
-                    option.correct = [[optionDict objectForKey:kISCorrectKey] boolValue];
+                    option.correct = [optionDict[kISCorrectKey] boolValue];
                 }
                 else
                 {
@@ -186,11 +182,9 @@
                 }
                 
                 [question addOption:option];
-                [option release];
             }
             
             [quiz addQuestion:question];
-            [question release];
             
             newQuestion = question;
         }
@@ -198,16 +192,14 @@
         {
             ISTrueFalseQuestion* question = [[ISTrueFalseQuestion alloc] init];
             
-            if (![self verify:[questionDict objectForKey:kISAnswerKey] class:[NSNumber class]])
+            if (![self verify:questionDict[kISAnswerKey] class:[NSNumber class]])
             {
-                [question release];
                 NSLog(@"missing annswer");
                 return nil;
             }
             
-            question.answer = [[questionDict objectForKey:kISAnswerKey] boolValue];
+            question.answer = [questionDict[kISAnswerKey] boolValue];
             [quiz addQuestion:question];
-            [question release];
             
             newQuestion = question;
         }
@@ -217,15 +209,15 @@
             continue;
         }
                
-        newQuestion.text = [questionDict objectForKey:kISTextKey];
+        newQuestion.text = questionDict[kISTextKey];
         
-        if ([questionDict objectForKey:kISScoreValueKey])
+        if (questionDict[kISScoreValueKey])
         {
-            newQuestion.scoreValue = [[questionDict objectForKey:kISScoreValueKey] intValue];
+            newQuestion.scoreValue = [questionDict[kISScoreValueKey] intValue];
         }
     }
     
-    return [quiz autorelease];
+    return quiz;
 }
 
 @end

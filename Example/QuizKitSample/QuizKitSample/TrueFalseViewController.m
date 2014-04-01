@@ -29,7 +29,6 @@
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
 }
 
 - (void)next:(id)sender

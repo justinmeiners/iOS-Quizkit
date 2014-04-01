@@ -35,7 +35,7 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
 
 + (ISEmptyQuestionResponse*)emptyResponse
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 @end
@@ -56,12 +56,6 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
     return self;
 }
 
-- (void)dealloc
-{
-    self.text = nil;
-    self.userData = nil;
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

@@ -26,7 +26,7 @@
 @end
 
 @interface ISMultipleChoiceOption : NSObject <NSCoding>
-@property(nonatomic, retain)NSDictionary* userData;
+@property(nonatomic, strong)NSDictionary* userData;
 @property(nonatomic, copy)NSString* text;
 @property(nonatomic, assign)BOOL correct;
 

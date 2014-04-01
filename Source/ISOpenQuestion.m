@@ -16,7 +16,7 @@ static NSString * const _ISMatchModeKey = @"matchMode";
 
 + (ISOpenQuestionResponse*)responseWithResponse:(NSString*)response
 {
-    return [[[self alloc] initWithResponse:response] autorelease];
+    return [[self alloc] initWithResponse:response];
 }
 
 - (id)init
@@ -28,11 +28,6 @@ static NSString * const _ISMatchModeKey = @"matchMode";
     return self;
 }
 
-- (void)dealloc
-{
-    self.response = nil;
-    [super dealloc];
-}
 
 - (id)initWithResponse:(NSString*)response
 {
@@ -146,11 +141,6 @@ static const ISMatchFunc_t _ISCloseMatchFunc = ^BOOL(NSString *answer, NSString 
     return self;
 }
 
-- (void)dealloc
-{
-    [_answers release];
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -179,14 +169,10 @@ static const ISMatchFunc_t _ISCloseMatchFunc = ^BOOL(NSString *answer, NSString 
 
 - (void)setCustomMatchFunc:(ISMatchFunc_t)custommatchFunc
 {
-    if (_customMatchFunc)
-    {
-        Block_release(_customMatchFunc);
-    }
     
     if (custommatchFunc)
     {
-        _customMatchFunc = Block_copy(custommatchFunc);
+        _customMatchFunc = [custommatchFunc copy];
     }
     else
     {

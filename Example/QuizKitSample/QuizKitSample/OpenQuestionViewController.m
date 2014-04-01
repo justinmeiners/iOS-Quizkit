@@ -7,6 +7,8 @@
 
 @interface OpenQuestionViewController ()
 
+- (void)scoreAndProgress;
+
 @end
 
 @implementation OpenQuestionViewController
@@ -31,7 +33,6 @@
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -45,19 +46,24 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [_controller nextQuestion];
+    [self scoreAndProgress];
     return true;
 }
 
 - (void)next:(id)sender
 {
-    [_controller nextQuestion];
+    [self scoreAndProgress];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scoreAndProgress {
+    
+    [_controller nextQuestion];
 }
 
 @end

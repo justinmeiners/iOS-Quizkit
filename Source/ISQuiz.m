@@ -35,8 +35,8 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     
     for (int i = 0; i < totalQuestions; i ++)
     {
-        ISQuestion* question = [quiz.questions objectAtIndex:i];
-        ISQuestionResponse* response = [session.responses objectAtIndex:i];
+        ISQuestion* question = (quiz.questions)[i];
+        ISQuestionResponse* response = (session.responses)[i];
         
         BOOL correct = [question responseCorrect:response];
         
@@ -56,7 +56,7 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     result.questionsCorrect = correctQuestions;
     result.questionsPossible = totalQuestions;
     result.questionPercentage = (float)correctQuestions / (float)totalQuestions;
-    return [result autorelease];
+    return result;
 }
 
 - (id)init
@@ -69,11 +69,6 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     return self;
 }
 
-- (void)dealloc
-{
-    [_questions release];
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)decoder
 {

@@ -355,6 +355,7 @@
 		F4B5D4C916D52132009E8CF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
 				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";
@@ -366,6 +367,7 @@
 		F4B5D4CA16D52132009E8CF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
 				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";

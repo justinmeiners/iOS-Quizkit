@@ -15,7 +15,7 @@ static NSString * const _ISResponseKey = @"response";
 
 + (ISTrueFalseResponse*)responseWithResponse:(BOOL)response
 {
-    return [[[self alloc] initWithResponse:response] autorelease];
+    return [[self alloc] initWithResponse:response];
 }
 
 - (id)initWithResponse:(BOOL)response
@@ -64,10 +64,6 @@ static NSString * const _ISResponseKey = @"response";
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

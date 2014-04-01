@@ -18,7 +18,7 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 
 + (ISMultipleChoiceResponse*)responseWithAnswerIndex:(int)answerIndex
 {
-    return [[[self alloc] initWithAnswerIndex:answerIndex] autorelease];
+    return [[self alloc] initWithAnswerIndex:answerIndex];
 }
 
 - (id)init
@@ -65,7 +65,7 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 
 + (ISMultipleChoiceResponse*)responseWithIndex:(int)index
 {
-    return [[[self alloc] initWithIndex:index] autorelease];
+    return [[ISMultipleChoiceResponse alloc] initWithIndex:index];
 }
 @end
 
@@ -118,12 +118,6 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
     return self;
 }
 
-- (void)dealloc
-{
-    self.text = nil;
-    self.userData = nil;
-    [super dealloc];
-}
 
 - (NSString*)description
 {
@@ -134,7 +128,7 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 
 + (ISMultipleChoiceOption*)optionWithText:(NSString*)text correct:(BOOL)correct
 {
-    return [[[ISMultipleChoiceOption alloc] initWithText:text correct:correct] autorelease];
+    return [[ISMultipleChoiceOption alloc] initWithText:text correct:correct];
 }
 
 @end
@@ -168,16 +162,11 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
     return self;
 }
 
-- (void)dealloc
-{
-    [_options release];
-    [super dealloc];
-}
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, option count: %i>",
-            NSStringFromClass([self class]), self, _options.count];
+    return [NSString stringWithFormat:@"<%@: %p, option count: %lu>",
+            NSStringFromClass([self class]), self, (unsigned long)_options.count];
 }
 
 - (void)addOption:(ISMultipleChoiceOption*)option
@@ -211,7 +200,7 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
         return NO;
     }
     
-    ISMultipleChoiceOption* option = [_options objectAtIndex:index];
+    ISMultipleChoiceOption* option = _options[index];
     return option.correct;
 }
 
