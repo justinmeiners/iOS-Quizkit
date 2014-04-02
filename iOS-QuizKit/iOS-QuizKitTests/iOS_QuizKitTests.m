@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ISQuizKit.h"
 
 @interface iOS_QuizKitTests : XCTestCase
 
@@ -26,9 +27,67 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testQuizLoad
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test.plist"];
+    
+    XCTAssertNotNil(quiz, @"quiz should not be nil");
+}
+
+- (void)testQuizQuestionCount
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test.plist"];
+    
+    XCTAssertTrue((quiz.questions.count == 5), @"question count %d should == 5",quiz.questions.count);
+}
+
+- (void)testQuizSessionCreation
+{
+    ISSession* session = [ISSession session];
+    
+    XCTAssertNotNil(session, @"session should not be nil");
+}
+
+- (void)testQuizSessionGradeAllCorrectResponses
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"NSObject"] atIndex:0];
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"gcd"] atIndex:1];
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"NSOBJECT"] atIndex:2];
+    [session setResponse:[ISMultipleChoiceResponse responseWithAnswerIndex:0] atIndex:3];
+    [session setResponse:[ISTrueFalseResponse responseWithResponse:YES] atIndex:4];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 6), @"result.pointPercentage %d should == 6",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 6), @"result.pointsPossible %d should == 6",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeAllIncorrectResponses
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"NSViewController"] atIndex:0];
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"runtime"] atIndex:1];
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"no idea"] atIndex:2];
+    [session setResponse:[ISMultipleChoiceResponse responseWithAnswerIndex:1] atIndex:3];
+    [session setResponse:[ISTrueFalseResponse responseWithResponse:NO] atIndex:4];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 6",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 6), @"result.pointsPossible %d should == 6",result.pointsPossible);
 }
 
 @end
