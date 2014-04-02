@@ -13,11 +13,13 @@
 - (id)initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                        response:(ISTrueFalseResponse*)response
                      controller:(id <QuizController>)controller
+                  responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {
-    if (self = [super initWithNibName:@"TrueFalseViewController" bundle:NULL])
+    
+    if (self = [super initWithController:controller responceGivenBlock:responceGiven])
     {
         _question = question;
-        _controller = controller;
+        _response = response;
     }
     return self;
 }
@@ -33,7 +35,7 @@
 
 - (void)next:(id)sender
 {
-    [_controller nextQuestion];
+    [self.controller nextQuestion];
 }
 
 - (void)didReceiveMemoryWarning

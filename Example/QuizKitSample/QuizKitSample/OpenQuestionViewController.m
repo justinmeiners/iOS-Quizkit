@@ -16,11 +16,13 @@
 - (id)initWithOpenQuestion:(ISOpenQuestion*)question
                   response:(ISOpenQuestionResponse*)response
                 controller:(id <QuizController>)controller
+             responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {
-    if (self = [super initWithNibName:@"OpenQuestionViewController" bundle:NULL])
+
+    if (self = [super initWithController:controller responceGivenBlock:responceGiven])
     {
         _question = question;
-        _controller = controller;
+        _response = response;
     }
     return self;
 }
@@ -63,7 +65,17 @@
 
 - (void)scoreAndProgress {
     
-    [_controller nextQuestion];
+    if(_response) {
+        _response.response = _responseField.text;
+    } else {
+        _response = [ISOpenQuestionResponse responseWithResponse:_responseField.text];
+    }
+    
+    if(self.questionResponseWasGiven) {
+        self.questionResponseWasGiven(_response);
+    }
+    
+    [self.controller nextQuestion];
 }
 
 @end

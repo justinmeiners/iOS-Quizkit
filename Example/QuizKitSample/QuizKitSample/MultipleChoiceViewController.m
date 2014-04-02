@@ -14,11 +14,12 @@
 - (id)initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
                             response:(ISMultipleChoiceOption*)response
                           controller:(id <QuizController>)controller
+                       responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {
-    if (self = [super initWithNibName:@"MultipleChoiceViewController" bundle:NULL])
+    if (self = [super initWithController:controller responceGivenBlock:responceGiven])
     {
         _question = question;
-        _controller = controller;
+        _response = response;
     }
     return self;
 }
@@ -35,7 +36,7 @@
 
 - (void)next:(id)sender
 {
-    [_controller nextQuestion];
+    [self.controller nextQuestion];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

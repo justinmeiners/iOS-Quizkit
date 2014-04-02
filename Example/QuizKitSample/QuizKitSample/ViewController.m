@@ -62,25 +62,40 @@
     
     ISQuestion* question = (_quiz.questions)[_questionIndex];
     
+    ISQuestionResponse* response = (_session.responses)[_questionIndex];
+    
+    int questionIndex = _questionIndex;
+    
     if ([question isKindOfClass:[ISOpenQuestion class]])
     {
+       
         OpenQuestionViewController* controller = [[OpenQuestionViewController alloc] initWithOpenQuestion:(ISOpenQuestion*)question
-                                                                                                 response:NULL
-                                                                                               controller:self];
+                                                                                                 response:nil
+                                                                                               controller:self
+                                                                                            responceGiven:^(ISQuestionResponse *response) {
+            [_session setResponse:response atIndex:questionIndex];
+        }];
+                                                  
         [self.navigationController pushViewController:controller animated:true];
     }
     else if ([question isKindOfClass:[ISMultipleChoiceQuestion class]])
     {
         MultipleChoiceViewController* controller = [[MultipleChoiceViewController alloc] initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
-                                                                                                               response:NULL
-                                                                                                             controller:self];
+                                                                                                               response:response
+                                                                                                             controller:self
+                                                                                                          responceGiven:^(ISQuestionResponse *response) {
+                                                                                                                 [_session setResponse:response atIndex:questionIndex];
+                                                                                                             }];
         [self.navigationController pushViewController:controller animated:true];
     }
     else if ([question isKindOfClass:[ISTrueFalseQuestion class]])
     {
         TrueFalseViewController* controller = [[TrueFalseViewController alloc] initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                                                                                                 response:NULL
-                                                                                              controller:self];
+                                                                                              controller:self
+                                                                                           responceGiven:^(ISQuestionResponse *response) {
+                                                                                                  [_session setResponse:response atIndex:questionIndex];
+                                                                                              }];
         [self.navigationController pushViewController:controller animated:true];
     }
     
