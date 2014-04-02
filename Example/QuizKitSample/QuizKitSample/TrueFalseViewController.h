@@ -10,10 +10,11 @@
 
 @interface TrueFalseViewController : BaseQuestionViewController
 {
-    IBOutlet UITextView* _questionTextView;
     ISTrueFalseQuestion* _question;
     ISTrueFalseResponse* _response;
 }
+@property (weak, nonatomic) IBOutlet UITextView *questionText;
+@property (weak, nonatomic) IBOutlet UISwitch *answerSwitch;
 
 - (id)initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                        response:(ISTrueFalseResponse*)response

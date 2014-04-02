@@ -7,6 +7,8 @@
 
 @interface MultipleChoiceViewController ()
 
+- (void)scoreAndProgress;
+
 @end
 
 @implementation MultipleChoiceViewController
@@ -36,7 +38,7 @@
 
 - (void)next:(id)sender
 {
-    [self.controller nextQuestion];
+    [self scoreAndProgress];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -59,6 +61,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scoreAndProgress {
+    
+    if(_response) {
+        _response.answerIndex = (int)[_pickerView selectedRowInComponent:0];
+    } else {
+        _response = [ISMultipleChoiceResponse responseWithAnswerIndex:(int)[_pickerView selectedRowInComponent:0]];
+    }
+    
+    [super scoreAndProgressWithResponse:_response];
 }
 
 @end

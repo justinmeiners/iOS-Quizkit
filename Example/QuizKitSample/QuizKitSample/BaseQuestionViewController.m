@@ -1,10 +1,7 @@
-//
-//  BaseQuestionViewController.m
-//  QuizKitSample
-//
-//  Created by Christian French on 01/04/2014.
-//  Copyright (c) 2014 Infuse Medical. All rights reserved.
-//
+/*
+ Copyright (c) 2012 Inline Studios
+ Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+ */
 
 #import "BaseQuestionViewController.h"
 
@@ -22,6 +19,15 @@
     }
     
     return self;
+}
+
+- (void)scoreAndProgressWithResponse:(ISQuestionResponse*)response {
+    
+    if(_questionResponseWasGiven) {
+        _questionResponseWasGiven(response);
+    }
+    
+    [_controller nextQuestion];
 }
 
 @end

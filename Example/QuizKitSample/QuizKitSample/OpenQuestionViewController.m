@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _questionTextView.text = _question.text;
+    _questionText.text = _question.text;
     _responseField.delegate = self;
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
@@ -71,11 +71,7 @@
         _response = [ISOpenQuestionResponse responseWithResponse:_responseField.text];
     }
     
-    if(self.questionResponseWasGiven) {
-        self.questionResponseWasGiven(_response);
-    }
-    
-    [self.controller nextQuestion];
+    [super scoreAndProgressWithResponse:_response];
 }
 
 @end

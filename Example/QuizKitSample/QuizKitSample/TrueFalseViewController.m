@@ -6,6 +6,8 @@
 
 @interface TrueFalseViewController ()
 
+- (void)scoreAndProgress;
+
 @end
 
 @implementation TrueFalseViewController
@@ -27,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _questionTextView.text = _question.text;
+    _questionText.text = _question.text;
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
@@ -35,13 +37,24 @@
 
 - (void)next:(id)sender
 {
-    [self.controller nextQuestion];
+    [self scoreAndProgress];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scoreAndProgress {
+    
+    if(_response) {
+        _response.response = _answerSwitch.isOn;
+    } else {
+        _response = [ISTrueFalseResponse responseWithResponse:_answerSwitch.isOn];
+    }
+    
+    [super scoreAndProgressWithResponse:_response];
 }
 
 @end

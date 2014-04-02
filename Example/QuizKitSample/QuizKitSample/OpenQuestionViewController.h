@@ -8,11 +8,11 @@
 
 @interface OpenQuestionViewController : BaseQuestionViewController <UITextFieldDelegate>
 {
-    IBOutlet UITextView* _questionTextView;
-    IBOutlet UITextField* _responseField;
     ISOpenQuestion* _question;
     ISOpenQuestionResponse* _response;
 }
+@property (weak, nonatomic) IBOutlet UITextView *questionText;
+@property (weak, nonatomic) IBOutlet UITextField *responseField;
 
 - (id)initWithOpenQuestion:(ISOpenQuestion*)question
                   response:(ISOpenQuestionResponse*)response

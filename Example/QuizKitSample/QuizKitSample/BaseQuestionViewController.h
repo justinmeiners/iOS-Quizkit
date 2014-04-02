@@ -17,4 +17,6 @@ typedef void(^ISQuestionResponseWasGiven)(ISQuestionResponse* response);
 
 -(id)initWithController:(id <QuizController>)controller responceGivenBlock:(ISQuestionResponseWasGiven)responceGiven;
 
+- (void)scoreAndProgressWithResponse:(ISQuestionResponse*)response;
+
 @end
