@@ -28,7 +28,7 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
 + (ISGradingResult*)gradeSession:(ISSession*)session quiz:(ISQuiz*)quiz
 {
     int totalPoints = 0;
-    int totalQuestions = quiz.questions.count;
+    int totalQuestions = (int)quiz.questions.count;
     
     int correctQuestions = 0;
     int correctPoints = 0;

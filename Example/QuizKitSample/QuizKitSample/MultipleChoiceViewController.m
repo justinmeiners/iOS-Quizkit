@@ -12,7 +12,7 @@
 @implementation MultipleChoiceViewController
 
 - (id)initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
-                            response:(ISMultipleChoiceOption*)response
+                            response:(ISMultipleChoiceResponse*)response
                           controller:(id <QuizController>)controller
                        responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {

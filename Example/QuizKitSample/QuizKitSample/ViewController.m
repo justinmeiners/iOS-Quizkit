@@ -62,8 +62,6 @@
     
     ISQuestion* question = (_quiz.questions)[_questionIndex];
     
-    ISQuestionResponse* response = (_session.responses)[_questionIndex];
-    
     int questionIndex = _questionIndex;
     
     if ([question isKindOfClass:[ISOpenQuestion class]])
@@ -81,7 +79,7 @@
     else if ([question isKindOfClass:[ISMultipleChoiceQuestion class]])
     {
         MultipleChoiceViewController* controller = [[MultipleChoiceViewController alloc] initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
-                                                                                                               response:response
+                                                                                                               response:NULL
                                                                                                              controller:self
                                                                                                           responceGiven:^(ISQuestionResponse *response) {
                                                                                                                  [_session setResponse:response atIndex:questionIndex];
