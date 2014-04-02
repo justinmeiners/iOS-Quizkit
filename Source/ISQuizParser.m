@@ -15,7 +15,8 @@
 + (ISQuiz*)quizNamed:(NSString*)name
 {
     NSString* extension = [[name pathExtension] lowercaseString];
-    NSString* fullpath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString* fullpath = [bundle pathForResource:name ofType:nil];
     
     if ([extension isEqualToString:@"plist"])
     {
