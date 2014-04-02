@@ -19,6 +19,20 @@
 		AAC108F518EC5092003ED169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DD18EC5092003ED169 /* UIKit.framework */; };
 		AAC108FD18EC5092003ED169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAC108FB18EC5092003ED169 /* InfoPlist.strings */; };
 		AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */; };
+		AAC1093618EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */; };
+		AAC1093718EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */; };
+		AAC1093818EC5554003ED169 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */; };
+		AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */; };
+		AAC1093A18EC5554003ED169 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092C18EC5554003ED169 /* ISQuestion.m */; };
+		AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092C18EC5554003ED169 /* ISQuestion.m */; };
+		AAC1093C18EC5554003ED169 /* ISQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092E18EC5554003ED169 /* ISQuiz.m */; };
+		AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092E18EC5554003ED169 /* ISQuiz.m */; };
+		AAC1093E18EC5554003ED169 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093118EC5554003ED169 /* ISQuizParser.m */; };
+		AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093118EC5554003ED169 /* ISQuizParser.m */; };
+		AAC1094018EC5554003ED169 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093318EC5554003ED169 /* ISSession.m */; };
+		AAC1094118EC5554003ED169 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093318EC5554003ED169 /* ISSession.m */; };
+		AAC1094218EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
+		AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +62,21 @@
 		AAC108FA18EC5092003ED169 /* iOS-QuizKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-QuizKitTests-Info.plist"; sourceTree = "<group>"; };
 		AAC108FC18EC5092003ED169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitTests.m; sourceTree = "<group>"; };
+		AAC1092718EC5554003ED169 /* ISMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleChoiceQuestion.h; sourceTree = "<group>"; };
+		AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestion.m; sourceTree = "<group>"; };
+		AAC1092918EC5554003ED169 /* ISOpenQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOpenQuestion.h; sourceTree = "<group>"; };
+		AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOpenQuestion.m; sourceTree = "<group>"; };
+		AAC1092B18EC5554003ED169 /* ISQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuestion.h; sourceTree = "<group>"; };
+		AAC1092C18EC5554003ED169 /* ISQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuestion.m; sourceTree = "<group>"; };
+		AAC1092D18EC5554003ED169 /* ISQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuiz.h; sourceTree = "<group>"; };
+		AAC1092E18EC5554003ED169 /* ISQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuiz.m; sourceTree = "<group>"; };
+		AAC1092F18EC5554003ED169 /* ISQuizKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizKit.h; sourceTree = "<group>"; };
+		AAC1093018EC5554003ED169 /* ISQuizParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizParser.h; sourceTree = "<group>"; };
+		AAC1093118EC5554003ED169 /* ISQuizParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuizParser.m; sourceTree = "<group>"; };
+		AAC1093218EC5554003ED169 /* ISSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSession.h; sourceTree = "<group>"; };
+		AAC1093318EC5554003ED169 /* ISSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSession.m; sourceTree = "<group>"; };
+		AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTrueFalseQuestion.h; sourceTree = "<group>"; };
+		AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +106,7 @@
 		AAC108CD18EC5092003ED169 = {
 			isa = PBXGroup;
 			children = (
+				AAC1092618EC5554003ED169 /* Source */,
 				AAC108DF18EC5092003ED169 /* iOS-QuizKit */,
 				AAC108F818EC5092003ED169 /* iOS-QuizKitTests */,
 				AAC108D818EC5092003ED169 /* Frameworks */,
@@ -142,6 +172,29 @@
 				AAC108FB18EC5092003ED169 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAC1092618EC5554003ED169 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AAC1092718EC5554003ED169 /* ISMultipleChoiceQuestion.h */,
+				AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */,
+				AAC1092918EC5554003ED169 /* ISOpenQuestion.h */,
+				AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */,
+				AAC1092B18EC5554003ED169 /* ISQuestion.h */,
+				AAC1092C18EC5554003ED169 /* ISQuestion.m */,
+				AAC1092D18EC5554003ED169 /* ISQuiz.h */,
+				AAC1092E18EC5554003ED169 /* ISQuiz.m */,
+				AAC1092F18EC5554003ED169 /* ISQuizKit.h */,
+				AAC1093018EC5554003ED169 /* ISQuizParser.h */,
+				AAC1093118EC5554003ED169 /* ISQuizParser.m */,
+				AAC1093218EC5554003ED169 /* ISSession.h */,
+				AAC1093318EC5554003ED169 /* ISSession.m */,
+				AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */,
+				AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */,
+			);
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC1093C18EC5554003ED169 /* ISQuiz.m in Sources */,
+				AAC1093618EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
+				AAC1093818EC5554003ED169 /* ISOpenQuestion.m in Sources */,
 				AAC108EA18EC5092003ED169 /* ISAppDelegate.m in Sources */,
+				AAC1093A18EC5554003ED169 /* ISQuestion.m in Sources */,
+				AAC1093E18EC5554003ED169 /* ISQuizParser.m in Sources */,
+				AAC1094218EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */,
+				AAC1094018EC5554003ED169 /* ISSession.m in Sources */,
 				AAC108E618EC5092003ED169 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC1093718EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
 				AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */,
+				AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */,
+				AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */,
+				AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */,
+				AAC1094118EC5554003ED169 /* ISSession.m in Sources */,
+				AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */,
+				AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +507,7 @@
 				AAC1090418EC5092003ED169 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAC1090518EC5092003ED169 /* Build configuration list for PBXNativeTarget "iOS-QuizKitTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +516,7 @@
 				AAC1090718EC5092003ED169 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
