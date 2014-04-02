@@ -34,6 +34,7 @@
 		AAC1094218EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
 		AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
 		AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC1094618EC62F8003ED169 /* quiz_test.plist */; };
+		AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTrueFalseQuestion.h; sourceTree = "<group>"; };
 		AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
 		AAC1094618EC62F8003ED169 /* quiz_test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test.plist; sourceTree = "<group>"; };
+		AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitMultiChoiceGradeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */,
+				AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */,
 				AAC108F918EC5092003ED169 /* Supporting Files */,
 			);
 			path = "iOS-QuizKitTests";
@@ -317,6 +320,7 @@
 				AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */,
 				AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */,
 				AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */,
+				AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */,
 				AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */,
 				AAC1094118EC5554003ED169 /* ISSession.m in Sources */,
 				AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */,
