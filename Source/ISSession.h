@@ -35,7 +35,7 @@
 @property(nonatomic, readonly)NSArray* responses;
 @property(nonatomic, strong)NSDictionary* userData;
 @property(nonatomic, readonly)BOOL inSession;
-@property(nonatomic, weak)id<ISSessionDelegate> delegate;
+@property(nonatomic, assign)id<ISSessionDelegate> delegate;
 @property(nonatomic, assign)NSTimeInterval bonusTime;
 
 + (ISSession*)session;
