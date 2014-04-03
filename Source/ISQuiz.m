@@ -12,18 +12,11 @@ static NSString * const _ISQuestionsKey = @"questions";
 static NSString * const _ISTimeLimitKey = @"timeLimit";
 
 @implementation ISGradingResult
-@synthesize pointPercentage = _pointPercentage;
-@synthesize pointsPossible = _pointsPossible;
-@synthesize points = _points;
-@synthesize questionsCorrect = _questionsCorrect;
-@synthesize questionsPossible = _questionsPossible;
-@synthesize questionPercentage = _questionPercentage;
+
 @end
 
 
 @implementation ISQuiz
-@synthesize questions = _questions;
-@synthesize timeLimit = _timeLimit;
 
 + (ISGradingResult*)gradeSession:(ISSession*)session quiz:(ISQuiz*)quiz
 {

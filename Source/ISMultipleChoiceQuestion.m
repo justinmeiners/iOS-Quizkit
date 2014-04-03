@@ -14,7 +14,6 @@ static NSString * const _ISOptionsKey = @"options";
 static NSString * const _ISAnswerIndexKey = @"answerIndex";
 
 @implementation ISMultipleChoiceResponse
-@synthesize answerIndex = _answerIndex;
 
 + (ISMultipleChoiceResponse*)responseWithAnswerIndex:(int)answerIndex
 {
@@ -70,9 +69,6 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 @end
 
 @implementation ISMultipleChoiceOption
-@synthesize text = _text;
-@synthesize correct = _correct;
-@synthesize userData = _userData;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -134,7 +130,6 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 @end
 
 @implementation ISMultipleChoiceQuestion
-@synthesize options = _options;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

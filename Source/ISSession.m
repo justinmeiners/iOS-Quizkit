@@ -12,11 +12,6 @@ static NSString * const _ISTimeKey = @"time";
 static NSString * const _ISBonusTimeKey = @"bonusTime";
 
 @implementation ISSession
-@synthesize responses = _responses;
-@synthesize userData = _userData;
-@synthesize inSession = _inSession;
-@synthesize delegate = _delegate;
-@synthesize bonusTime = _bonusTime;
 
 + (ISSession*)session
 {

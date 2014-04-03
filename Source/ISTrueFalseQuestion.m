@@ -11,7 +11,6 @@ static NSString * const _ISAnswerKey = @"answer";
 static NSString * const _ISResponseKey = @"response";
 
 @implementation ISTrueFalseResponse
-@synthesize response = _response;
 
 + (ISTrueFalseResponse*)responseWithResponse:(BOOL)response
 {

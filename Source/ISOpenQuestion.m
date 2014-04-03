@@ -12,7 +12,6 @@ static NSString * const _ISAnswersKey = @"answers";
 static NSString * const _ISMatchModeKey = @"matchMode";
 
 @implementation ISOpenQuestionResponse
-@synthesize response = _response;
 
 + (ISOpenQuestionResponse*)responseWithResponse:(NSString*)response
 {
@@ -105,9 +104,6 @@ static const ISMatchFunc_t _ISCloseMatchFunc = ^BOOL(NSString *answer, NSString 
 };
 
 @implementation ISOpenQuestion
-@synthesize answers = _answers;
-@synthesize matchMode = _matchMode;
-@synthesize customMatchFunc = _customMatchFunc;
 
 - (id)initWithAnswers:(NSArray*)answers
 {

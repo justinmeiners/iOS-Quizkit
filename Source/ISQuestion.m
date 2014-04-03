@@ -13,7 +13,6 @@ static NSString * const _ISTypeKey = @"type";
 static NSString * const _ISScoreValueKey = @"scoreValue";
 
 @implementation ISQuestionResponse
-@synthesize userData = _userData;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -41,9 +40,6 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
 @end
 
 @implementation ISQuestion
-@synthesize text = _text;
-@synthesize userData = _userData;
-@synthesize scoreValue = _scoreValue;
 
 - (id)init
 {
