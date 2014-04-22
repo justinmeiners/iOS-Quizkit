@@ -33,7 +33,7 @@
     _quiz = [ISQuizParser quizNamed:@"programming.plist"];
     
     _scoreLabel.text = @"";
-
+    
     _session = [[ISSession alloc] init];
     [_session start:_quiz];
     

@@ -85,7 +85,7 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
                                                    selector:@selector(tick:)
                                                    userInfo:nil repeats:YES];
     
-    _startDate = [NSDate date];    
+    self.startDate = [NSDate date];
 
     _inSession = true;
     
