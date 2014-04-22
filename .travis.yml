@@ -1,4 +1,8 @@
 language: objective-c
 
+before_install:
+  - brew update
+  - brew upgrade xctool
+
 script: 
 - xctool test -project iOS-QuizKit/iOS-QuizKit.xcodeproj -scheme iOS-QuizKitTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
