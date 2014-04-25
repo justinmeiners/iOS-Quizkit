@@ -12,19 +12,39 @@ static NSString * const _ISUserDataKey = @"userData";
 static NSString * const _ISCorrectKey = @"correct";
 static NSString * const _ISOptionsKey = @"options";
 static NSString * const _ISAnswerIndexKey = @"answerIndex";
+static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
 
 @implementation ISMultipleChoiceResponse
 
+-(int)answerIndex {
+    
+    if(_answerIndexes.count > 0) {
+        
+        NSNumber* answerIndex = _answerIndexes[0];
+        
+        return answerIndex.intValue;
+        
+    } else {
+        
+        return -1;
+    }
+}
+
 + (ISMultipleChoiceResponse*)responseWithAnswerIndex:(int)answerIndex
 {
-    return [[self alloc] initWithAnswerIndex:answerIndex];
+    return [[self alloc] initWithAnswerIndexes:@[[NSNumber numberWithInt: answerIndex]]];
+}
+
++ (ISMultipleChoiceResponse*)responseWithAnswerIndexes:(NSArray*)answerIndexes
+{
+    return [[self alloc] initWithAnswerIndexes:answerIndexes];
 }
 
 - (id)init
 {
     if (self = [super init])
     {
-        _answerIndex = -1;
+        _answerIndexes = @[];
     }
     return self;
 }
@@ -33,7 +53,16 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     if (self = [super init])
     {
-        _answerIndex = answerIndex;
+        _answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+    }
+    return self;
+}
+
+- (id)initWithAnswerIndexes:(NSArray*)answerIndexes
+{
+    if (self = [super init])
+    {
+        _answerIndexes = answerIndexes;
     }
     return self;
 }
@@ -42,7 +71,17 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.answerIndex = [aDecoder decodeIntForKey:_ISAnswerIndexKey];
+        if([aDecoder decodeIntForKey:_ISAnswerIndexKey]) {
+        
+            int answerIndex = [aDecoder decodeIntForKey:_ISAnswerIndexKey];
+        
+            self.answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+            
+        } else {
+        
+            self.answerIndexes = [aDecoder decodeObjectForKey:_ISAnswerIndexesKey];
+            
+        }
     }
     return self;
 }
@@ -50,22 +89,37 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [super encodeWithCoder:aCoder];
-    [aCoder encodeInt:_answerIndex forKey:_ISAnswerIndexKey];
+    [aCoder encodeObject:_answerIndexes forKey:_ISAnswerIndexesKey];
 }
 
 - (id)initWithIndex:(int)answerIndex
 {
     if (self = [super init])
     {
-        _answerIndex = answerIndex;
+        _answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+    }
+    return self;
+}
+
+- (id)initWithIndexes:(NSArray*)answerIndexes
+{
+    if (self = [super init])
+    {
+        _answerIndexes = answerIndexes;
     }
     return self;
 }
 
 + (ISMultipleChoiceResponse*)responseWithIndex:(int)index
 {
-    return [[ISMultipleChoiceResponse alloc] initWithIndex:index];
+    return [[ISMultipleChoiceResponse alloc] initWithIndexes: @[[NSNumber numberWithInt: index]]];
 }
+
++ (ISMultipleChoiceResponse*)responseWithIndexes:(NSArray*)indexes
+{
+    return [[ISMultipleChoiceResponse alloc] initWithIndexes:indexes];
+}
+
 @end
 
 @implementation ISMultipleChoiceOption
@@ -186,17 +240,30 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
         return NO;
     }
     
+    BOOL correct = YES;
+    
     ISMultipleChoiceResponse* casted = (ISMultipleChoiceResponse*)response;
     
-    int index = [casted answerIndex];
-    
-    if (index < 0 || index > _options.count)
-    {
-        return NO;
+    for (NSNumber *indexNumber in casted.answerIndexes) {
+        
+        int index = indexNumber.intValue;
+        
+        if (index < 0 || index > _options.count)
+        {
+            correct = NO;
+            break;
+        }
+        
+        ISMultipleChoiceOption* option = _options[index];
+        
+        if(!option.correct) {
+            
+            correct = NO;
+            break;
+        }
     }
     
-    ISMultipleChoiceOption* option = _options[index];
-    return option.correct;
+    return correct;
 }
 
 
