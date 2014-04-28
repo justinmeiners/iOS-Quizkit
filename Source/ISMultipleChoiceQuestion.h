@@ -48,10 +48,10 @@
 @end
 
 @interface ISMultipleChoiceQuestion : ISQuestion
-{
-    NSMutableArray* _options;
-}
-@property(nonatomic, readonly)NSArray* options;
+
+@property(nonatomic, strong, readonly)NSArray* options;
+@property(nonatomic, strong, readonly)NSArray* correctOptions;
+@property(nonatomic, strong)NSNumber* selectableOptions;
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
@@ -61,6 +61,8 @@
 - (void)removeAllOptions;
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response;
+
+-(NSArray*)calculateCorrectFromOptions:(NSArray*)options;
 
 @end
 

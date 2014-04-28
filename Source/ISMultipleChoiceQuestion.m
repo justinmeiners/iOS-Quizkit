@@ -189,8 +189,11 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        _options = [[NSMutableArray alloc] init];
-        [_options addObjectsFromArray:[aDecoder decodeObjectForKey:_ISOptionsKey]];
+        _options = [NSArray arrayWithArray:[aDecoder decodeObjectForKey:_ISOptionsKey]];
+        
+        _correctOptions = [self calculateCorrectFromOptions:_options];
+        
+        _selectableOptions = @1;
     }
     return self;
 }
@@ -206,7 +209,9 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
 {
     if (self = [super init])
     {
-        _options = [[NSMutableArray alloc] init];
+        _options = [NSArray new];
+        _correctOptions = [NSArray new];
+        _selectableOptions = @1;
     }
     return self;
 }
@@ -220,17 +225,23 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
 
 - (void)addOption:(ISMultipleChoiceOption*)option
 {
-    [_options addObject:option];
+    _options = [_options arrayByAddingObject:option];
+    
+    _correctOptions = [self calculateCorrectFromOptions:_options];
 }
 
 - (void)addOptions:(NSArray*)options
 {
-    [_options addObjectsFromArray:options];
+    _options = [_options arrayByAddingObjectsFromArray:options];
+    
+    _correctOptions = [self calculateCorrectFromOptions:_options];
 }
 
 - (void)removeAllOptions
 {
-    [_options removeAllObjects];
+    _options = @[];
+    
+    _correctOptions = @[];
 }
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response
@@ -240,11 +251,16 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
         return NO;
     }
     
+    ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
+    
+    if(multipleChoiceResponse.answerIndexes.count < _selectableOptions.integerValue || multipleChoiceResponse.answerIndexes.count > _selectableOptions.integerValue ) {
+        
+        return NO;
+    }
+    
     BOOL correct = YES;
     
-    ISMultipleChoiceResponse* casted = (ISMultipleChoiceResponse*)response;
-    
-    for (NSNumber *indexNumber in casted.answerIndexes) {
+    for (NSNumber *indexNumber in multipleChoiceResponse.answerIndexes) {
         
         int index = indexNumber.intValue;
         
@@ -264,6 +280,20 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
     }
     
     return correct;
+}
+
+-(NSArray*)calculateCorrectFromOptions:(NSArray*)options {
+    
+    NSMutableArray* array = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in options) {
+        if(option.correct) {
+        
+            [array addObject:option];
+        }
+    }
+    
+    return [NSArray arrayWithArray:array];
 }
 
 

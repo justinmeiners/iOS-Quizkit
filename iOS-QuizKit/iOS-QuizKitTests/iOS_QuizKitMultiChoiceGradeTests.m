@@ -75,14 +75,14 @@
     
     [question addOptions:@[option1,option2]];
     
-    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]];
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0]];
     
     BOOL correct = [question responseCorrect:response];
     
     XCTAssertTrue(correct, @"answer should be correct");
 }
 
-- (void)testCorrectTwoSelectedOptionsFromFourCorrect
+- (void)test_TwoCorrectSelected_FourCorrectOptions
 {
     ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
     
@@ -96,6 +96,8 @@
     
     [question addOptions:@[option1,option2,option3,option4]];
     
+    question.selectableOptions = @2;
+    
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]];
     
     BOOL correct = [question responseCorrect:response];
@@ -103,7 +105,7 @@
     XCTAssertTrue(correct, @"answer should be correct");
 }
 
-- (void)testCorrectTwoSelectedOptionsFromFourTwoCorrect
+- (void)test_FirstAndSecondSelectedCorrectOptions_FromFourOptions
 {
     ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
     
@@ -117,6 +119,8 @@
     
     [question addOptions:@[option1,option2,option3,option4]];
     
+    question.selectableOptions = @2;
+    
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]];
     
     BOOL correct = [question responseCorrect:response];
@@ -124,7 +128,7 @@
     XCTAssertTrue(correct, @"answer should be correct");
 }
 
-- (void)testCorrectTwoSelectedOptionsFromFourFirstAndLastCorrect
+- (void)test_FirstAndLastTwoSelectedCorrectOptions_FromFourOptions
 {
     ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
     
@@ -138,6 +142,8 @@
     
     [question addOptions:@[option1,option2,option3,option4]];
     
+    question.selectableOptions = @2;
+    
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@3]];
     
     BOOL correct = [question responseCorrect:response];
@@ -145,7 +151,7 @@
     XCTAssertTrue(correct, @"answer should be correct");
 }
 
-- (void)testCorrectTwoSelectedOptionsFromFourSecondAndThirdCorrect
+- (void)test_SecondAndThirdTwoSelectedCorrectOptions_FromFourOptions
 {
     ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
     
@@ -158,6 +164,8 @@
     ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
     
     [question addOptions:@[option1,option2,option3,option4]];
+    
+    question.selectableOptions = @2;
     
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@1,@2]];
     
@@ -202,6 +210,73 @@
     [question addOptions:@[option1,option2,option3,option4]];
     
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@3]];
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+}
+
+-(void)test_OneCorrectSelected_FromTwoCorrectOptions_WithFourPossibleOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:NO];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    question.selectableOptions = @2;
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@1]];
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+}
+
+-(void)test_OneInCorrectSelected_FromTwoCorrectOptions_WithFourPossibleOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:NO];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    question.selectableOptions = @2;
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0]];
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+}
+
+-(void)test_ThreeSelected_FromTwoCorrectOptions_WithFourPossibleOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:NO];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@1,@2,@3]];
     
     BOOL correct = [question responseCorrect:response];
     
