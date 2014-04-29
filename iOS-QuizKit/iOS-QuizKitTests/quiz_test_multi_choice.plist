@@ -11,21 +11,23 @@
 			<array>
 				<dict>
 					<key>text</key>
-					<string>C</string>
+					<string>One</string>
 					<key>correct</key>
 					<integer>1</integer>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>C++</string>
+					<string>Two</string>
+					<key>correct</key>
+					<integer>1</integer>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>Java</string>
+					<string>Three</string>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>Ruby</string>
+					<string>Four</string>
 				</dict>
 			</array>
 			<key>text</key>

@@ -35,6 +35,7 @@
 		AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
 		AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC1094618EC62F8003ED169 /* quiz_test.plist */; };
 		AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */; };
+		AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
 		AAC1094618EC62F8003ED169 /* quiz_test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test.plist; sourceTree = "<group>"; };
 		AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitMultiChoiceGradeTests.m; sourceTree = "<group>"; };
+		AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_choice.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		AAC108F918EC5092003ED169 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */,
 				AAC1094618EC62F8003ED169 /* quiz_test.plist */,
 				AAC108FA18EC5092003ED169 /* iOS-QuizKitTests-Info.plist */,
 				AAC108FB18EC5092003ED169 /* InfoPlist.strings */,
@@ -290,6 +293,7 @@
 			files = (
 				AAC108FD18EC5092003ED169 /* InfoPlist.strings in Resources */,
 				AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */,
+				AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

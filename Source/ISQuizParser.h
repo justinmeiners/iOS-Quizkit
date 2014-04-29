@@ -23,7 +23,7 @@ static NSString * const kISOptionsKey = @"options";
 static NSString * const kISCorrectKey = @"correct";
 static NSString * const kISMatchModeKey = @"matchMode";
 static NSString * const kISScoreValueKey = @"scoreValue";
-
+static NSString * const kISSelectableOptionsKey = @"selectableOptions";
 
 @interface ISQuizParser : NSObject
 

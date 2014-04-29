@@ -160,6 +160,12 @@
         {
             ISMultipleChoiceQuestion* question = [[ISMultipleChoiceQuestion alloc] init];
         
+            if(questionDict[kISSelectableOptionsKey]) {
+            
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
             NSArray* options = questionDict[kISOptionsKey];
             
             if (![self verify:options class:[NSArray class]])

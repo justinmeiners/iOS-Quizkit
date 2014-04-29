@@ -83,11 +83,49 @@
     
     ISGradingResult* result = [quiz gradeSession:session];
     
-    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
     
-    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 6",result.points);
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
     
     XCTAssertTrue((result.pointsPossible == 6), @"result.pointsPossible %d should == 6",result.pointsPossible);
+}
+
+/*
+ Testing that the MultiChoice questions deserialize corectly
+ */
+
+- (void)testQuizSessionGradeAllMultiChoiceQuestionsCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]] atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 2), @"result.pointPercentage %d should == 2",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 2), @"result.pointsPossible %d should == 2",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeAllMultiChoiceQuestionsIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@1,@2]] atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 2), @"result.pointsPossible %d should == 2",result.pointsPossible);
 }
 
 @end
