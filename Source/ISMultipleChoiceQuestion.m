@@ -13,6 +13,7 @@ static NSString * const _ISCorrectKey = @"correct";
 static NSString * const _ISOptionsKey = @"options";
 static NSString * const _ISAnswerIndexKey = @"answerIndex";
 static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
+static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
 
 @implementation ISMultipleChoiceResponse
 
@@ -193,7 +194,15 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
         
         _correctOptions = [self calculateCorrectFromOptions:_options];
         
-        _selectableOptions = @1;
+        if([aDecoder decodeObjectForKey:_ISSelectableOptionsKey]) {
+            
+            _selectableOptions = [aDecoder decodeObjectForKey:_ISSelectableOptionsKey];
+        } else {
+            
+            _selectableOptions = @1;
+        }
+        
+        
     }
     return self;
 }
@@ -202,6 +211,7 @@ static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
 {
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:_options forKey:_ISOptionsKey];
+    [aCoder encodeObject:_selectableOptions forKey:_ISSelectableOptionsKey];
 }
 
 
