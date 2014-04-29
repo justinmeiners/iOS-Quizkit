@@ -5,4 +5,4 @@ before_install:
   - brew upgrade xctool
 
 script: 
-- xctool test -freshSimulator -freshInstall -project iOS-QuizKit/iOS-QuizKit.xcodeproj -scheme iOS-QuizKitTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool test -freshInstall -project iOS-QuizKit/iOS-QuizKit.xcodeproj -scheme iOS-QuizKitTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
