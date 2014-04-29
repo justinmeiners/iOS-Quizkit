@@ -101,14 +101,15 @@
     ISSession* session = [ISSession session];
     
     [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]] atIndex:0];
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@0,@1,@2]] atIndex:1];
     
     ISGradingResult* result = [quiz gradeSession:session];
     
     XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
     
-    XCTAssertTrue((result.points == 2), @"result.pointPercentage %d should == 2",result.points);
+    XCTAssertTrue((result.points == 5), @"result.pointPercentage %d should == 5",result.points);
     
-    XCTAssertTrue((result.pointsPossible == 2), @"result.pointsPossible %d should == 2",result.pointsPossible);
+    XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
 }
 
 - (void)testQuizSessionGradeAllMultiChoiceQuestionsIncorrect
@@ -118,6 +119,7 @@
     ISSession* session = [ISSession session];
     
     [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@1,@2]] atIndex:0];
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[@1,@2,@3]] atIndex:1];
     
     ISGradingResult* result = [quiz gradeSession:session];
     
@@ -125,7 +127,7 @@
     
     XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
     
-    XCTAssertTrue((result.pointsPossible == 2), @"result.pointsPossible %d should == 2",result.pointsPossible);
+    XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
 }
 
 @end
