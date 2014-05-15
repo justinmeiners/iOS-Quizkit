@@ -49,8 +49,8 @@
 
 @interface ISMultipleChoiceQuestion : ISQuestion
 
-@property(nonatomic, strong, readonly)NSArray* options;
-@property(nonatomic, strong, readonly)NSArray* correctOptions;
+@property(nonatomic, strong)NSArray* options;
+@property(nonatomic, strong)NSArray* correctOptions;
 @property(nonatomic, strong)NSNumber* selectableOptions;
 
 - (id)initWithCoder:(NSCoder *)aDecoder;

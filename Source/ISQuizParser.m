@@ -9,7 +9,7 @@
 #import "ISOpenQuestion.h"
 #import "ISMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
-
+#import "ISMultipleMultipleChoiceQuestion.h"
 @implementation ISQuizParser
 
 + (ISQuiz*)quizNamed:(NSString*)name
@@ -189,6 +189,55 @@
                 }
                 
                 [question addOption:option];
+            }
+            
+            [quiz addQuestion:question];
+            
+            newQuestion = question;
+        }
+        else if ([type isEqualToString:kISQuestionTypeMultipleMultipleChoice])
+        {
+            ISMultipleMultipleChoiceQuestion* question = [[ISMultipleMultipleChoiceQuestion alloc] init];
+            
+            if(questionDict[kISSelectableOptionsKey]) {
+                
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing multiple choice options");
+                return nil;
+            }
+            
+            for (NSArray* section in options) {
+            
+                ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
+                
+                multipleChoiceQuestion.selectableOptions = question.selectableOptions;
+                
+                for (NSDictionary* optionDict in section)
+                {
+                    ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
+                    option.text = optionDict[kISTextKey];
+                    
+                    if (optionDict[kISCorrectKey])
+                    {
+                        option.correct = [optionDict[kISCorrectKey] boolValue];
+                    }
+                    else
+                    {
+                        option.correct = false;
+                    }
+                    
+                    [multipleChoiceQuestion addOption:option];
+                }
+                
+                [question addQuestion:multipleChoiceQuestion];
+                
             }
             
             [quiz addQuestion:question];

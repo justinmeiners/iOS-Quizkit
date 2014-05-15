@@ -130,4 +130,82 @@
     XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
 }
 
+/*
+ Testing that the MultiMultiChoice questions deserialize corectly
+ */
+
+- (void)testQuizSessionGradeAllMultiMultiChoiceQuestionsCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multi_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@0] , @[@0] , @[@0] ]];
+    
+    [session setResponse:response atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 3), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)testQuizSessionGrade_AllMultiMultiChoiceQuestions_Incorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multi_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[ @[@1] , @[@2] , @[@3] ]] atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)test_MultiMultiChoiceQuestion_MultipleSelectableOptions_correct
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multiple_multi_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[ @[@0] , @[@0] , @[@0] ]] atIndex:0];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[ @[@0,@1] , @[@0,@1] , @[@0,@1] ]] atIndex:1];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 9), @"result.pointPercentage %d should == 9",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 9), @"result.pointsPossible %d should == 9",result.pointsPossible);
+}
+
+- (void)test_MultiMultiChoiceQuestion_MultipleSelectableOptions_incorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_multiple_multi_multi_choice.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[ @[@1] , @[@1] , @[@1] ]] atIndex:0];
+    
+    [session setResponse:[ISMultipleChoiceResponse responseWithIndexes:@[ @[@1,@2] , @[@1,@2] , @[@1,@2] ]] atIndex:1];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 9), @"result.pointsPossible %d should == 9",result.pointsPossible);
+}
+
 @end
