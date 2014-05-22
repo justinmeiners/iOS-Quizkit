@@ -14,6 +14,7 @@ static NSString * const kISQuestionTypeOpen = @"open";
 static NSString * const kISQuestionTypeMultipleChoice = @"multipleChoice";
 static NSString * const kISQuestionTypeMultipleMultipleChoice = @"multipleMultipleChoice";
 static NSString * const kISQuestionTypeTrueFalse = @"trueFalse";
+static NSString * const kISQuestionTypeMultipleMultipleChoiceSentence = @"multipleMultipleChoiceSentence";
 
 static NSString * const kISTypeKey = @"type";
 static NSString * const kISQuestionsKey = @"questions";

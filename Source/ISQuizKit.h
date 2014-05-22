@@ -19,5 +19,6 @@
 #import "ISQuizParser.h"
 #import "ISOpenQuestion.h"
 #import "ISMultipleChoiceQuestion.h"
+#import "ISMultipleMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
 #import "ISSession.h"

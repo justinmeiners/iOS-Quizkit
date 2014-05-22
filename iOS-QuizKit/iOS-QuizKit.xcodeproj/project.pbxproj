@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */; };
 		AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */; };
 		AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */; };
 		AA591A4F191399D3007A2113 /* iOS_QuizKitQuizParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multiple_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitQuizParserTests.m; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		AAC108F918EC5092003ED169 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */,
 				AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */,
 				AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */,
 				AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */,
@@ -314,6 +317,7 @@
 				AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */,
 				AAC108FD18EC5092003ED169 /* InfoPlist.strings in Resources */,
 				AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */,
+				AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */,
 				AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */,
 				AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */,
 			);

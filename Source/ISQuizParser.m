@@ -244,6 +244,71 @@
             
             newQuestion = question;
         }
+        else if ([type isEqualToString:kISQuestionTypeMultipleMultipleChoiceSentence])
+        {
+            ISMultipleMultipleChoiceQuestion* question = [[ISMultipleMultipleChoiceQuestion alloc] init];
+            
+            if(questionDict[kISSelectableOptionsKey]) {
+                
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing multiple choice options");
+                return nil;
+            }
+            
+            for (NSDictionary* option in options) {
+                
+                
+                NSString* optionText = option[kISTextKey];
+                
+                NSArray* optionWords = [optionText componentsSeparatedByString:@" "];
+                
+                NSString* correctText = option[kISCorrectKey];
+                
+                NSArray* correctWords = [correctText componentsSeparatedByString:@" "];
+                
+                ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
+                
+                multipleChoiceQuestion.selectableOptions = question.selectableOptions;
+                
+                
+                for (NSString* word in optionWords)
+                {
+                    ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
+                    option.text = word;
+                    
+                    NSUInteger index = [correctWords indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
+                        if([word isEqualToString:obj]){
+                            *stop = YES;
+                            return YES;
+                        }
+                        
+                        return NO;
+                    }];
+                    
+                    if(index != NSNotFound) {
+                        
+                        option.correct = YES;
+                        
+                    }
+                    
+                    [multipleChoiceQuestion addOption:option];
+                }
+                
+                [question addQuestion:multipleChoiceQuestion];
+                
+            }
+            
+            [quiz addQuestion:question];
+            
+            newQuestion = question;
+        }
         else if ([type isEqualToString:kISQuestionTypeTrueFalse])
         {
             ISTrueFalseQuestion* question = [[ISTrueFalseQuestion alloc] init];

@@ -208,4 +208,29 @@
     XCTAssertTrue((result.pointsPossible == 9), @"result.pointsPossible %d should == 9",result.pointsPossible);
 }
 
+/*
+ Testing that the Sentence Layout MultiMultiChoice questions deserialize corectly
+ */
+
+- (void)testQuizSessionGradeSentenceMultiMultiChoiceQuestionCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_sentence_multi_multi_choice.plist"];
+    
+    XCTAssertTrue(([quiz.questions[0] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISSession* session = [ISSession session];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3] , @[@0] , @[@4] ]];
+    
+    [session setResponse:response atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 3), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
 @end
