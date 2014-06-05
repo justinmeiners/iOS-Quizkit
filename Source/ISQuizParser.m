@@ -55,7 +55,7 @@
 + (ISQuiz*)quizFromContentsOfPlist:(NSString*)file
 {
     NSDictionary* plist = [[NSDictionary alloc] initWithContentsOfFile:file];
-
+    
     return [self quizFromDictionary:plist];
 }
 
@@ -174,6 +174,8 @@
                 return nil;
             }
             
+            NSInteger correctCount = 0;
+            
             for (NSDictionary* optionDict in options)
             {
                 ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
@@ -182,6 +184,11 @@
                 if (optionDict[kISCorrectKey])
                 {
                     option.correct = [optionDict[kISCorrectKey] boolValue];
+                    
+                    if(option.correct) {
+                        
+                        correctCount++;
+                    }
                 }
                 else
                 {
@@ -189,6 +196,11 @@
                 }
                 
                 [question addOption:option];
+            }
+            
+            if(question.selectableOptions.integerValue == 0) {
+                
+                question.selectableOptions = [NSNumber numberWithInteger:correctCount];
             }
             
             [quiz addQuestion:question];
@@ -219,6 +231,8 @@
                 
                 multipleChoiceQuestion.selectableOptions = question.selectableOptions;
                 
+                NSInteger correctCount = 0;
+                
                 for (NSDictionary* optionDict in section)
                 {
                     ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
@@ -227,6 +241,11 @@
                     if (optionDict[kISCorrectKey])
                     {
                         option.correct = [optionDict[kISCorrectKey] boolValue];
+                        
+                        if(option.correct) {
+                            
+                            correctCount++;
+                        }
                     }
                     else
                     {
@@ -235,6 +254,12 @@
                     
                     [multipleChoiceQuestion addOption:option];
                 }
+                
+                if(question.selectableOptions.integerValue == 0) {
+                    
+                    question.selectableOptions = [NSNumber numberWithInteger:correctCount];
+                }
+
                 
                 [question addQuestion:multipleChoiceQuestion];
                 
@@ -265,6 +290,10 @@
             for (NSDictionary* option in options) {
                 
                 
+                /*
+                 Need to remove the full stops and any other grammer that is not split 
+                 */
+                
                 NSString* optionText = option[kISTextKey];
                 
                 NSArray* optionWords = [optionText componentsSeparatedByString:@" "];
@@ -275,8 +304,10 @@
                 
                 ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
                 
+                
                 multipleChoiceQuestion.selectableOptions = question.selectableOptions;
                 
+                 NSInteger correctCount = 0;
                 
                 for (NSString* word in optionWords)
                 {
@@ -296,9 +327,16 @@
                         
                         option.correct = YES;
                         
+                        correctCount++;
+                        
                     }
                     
                     [multipleChoiceQuestion addOption:option];
+                }
+                
+                if(question.selectableOptions.integerValue == 0) {
+                    
+                    question.selectableOptions = [NSNumber numberWithInteger:correctCount];
                 }
                 
                 [question addQuestion:multipleChoiceQuestion];
