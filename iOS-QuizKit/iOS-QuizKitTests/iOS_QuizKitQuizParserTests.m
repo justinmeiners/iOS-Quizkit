@@ -50,8 +50,7 @@
     
     XCTAssertTrue(question.options.count == 3, @"should have 3 options");
     
-    
-
 }
+
 
 @end

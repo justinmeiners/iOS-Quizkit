@@ -210,9 +210,7 @@
     
     ISMultipleChoiceOption* question1option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
     
-    ISMultipleChoiceOption* question1option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
-    
-    [question1 addOptions:@[question1option1,question1option2,question1option3,question1option4]];
+    [question1 addOptions:@[question1option1,question1option2,question1option3]];
     
     ISMultipleMultipleChoiceQuestion* multipleMultipleChoiceQuestion = [ISMultipleMultipleChoiceQuestion questionWithQuestions:@[question,question1]];
     
@@ -220,13 +218,13 @@
     
     NSArray* options1 =  multipleMultipleChoiceQuestion.options[0];
     
-    NSArray* options2 =  multipleMultipleChoiceQuestion.options[0];
+    NSArray* options2 =  multipleMultipleChoiceQuestion.options[1];
     
     XCTAssertTrue(options1.count == 4, @"should have 4 options in 1 group");
     
-    XCTAssertTrue(options2.count == 4, @"should have 4 options in 2 group");
+    XCTAssertTrue(options2.count == 3, @"should have 4 options in 2 group");
     
-    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@1] , @[@3] ]];
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@1] , @[@2] ]];
     
     BOOL correct = [multipleMultipleChoiceQuestion responseCorrect:response];
     
