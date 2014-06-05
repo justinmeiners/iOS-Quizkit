@@ -247,6 +247,8 @@
     
     ISMultipleChoiceQuestion* question = quiz.questions[0];
     
+    XCTAssertTrue((question.selectableOptions.intValue == 2),@"selectableOptions incorrect");
+    
     BOOL correct = [question responseCorrect:response];
     
     XCTAssertFalse(correct, @"answer should be incorrect");
@@ -263,6 +265,8 @@
     
     ISMultipleChoiceQuestion* question = quiz.questions[0];
     
+     XCTAssertTrue((question.selectableOptions.intValue == 2),@"selectableOptions incorrect");
+    
     BOOL correct = [question responseCorrect:response];
     
     XCTAssertFalse(correct, @"answer should be incorrect");
@@ -278,6 +282,8 @@
     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @0 , @2 ]];
     
     ISMultipleChoiceQuestion* question = quiz.questions[0];
+    
+    XCTAssertTrue((question.selectableOptions.intValue == 2),@"selectableOptions incorrect");
     
     BOOL correct = [question responseCorrect:response];
     

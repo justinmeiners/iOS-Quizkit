@@ -9,19 +9,19 @@
 			<array>
 				<dict>
 					<key>text</key>
-					<string>This is the first sentence</string>
+					<string>This is the first sentence.</string>
 					<key>correct</key>
 					<string>first</string>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>Second sentence this is</string>
+					<string>Second sentence this is.</string>
 					<key>correct</key>
 					<string>Second</string>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>This is the sentence Third</string>
+					<string>This is the sentence Third.</string>
 					<key>correct</key>
 					<string>Third</string>
 				</dict>

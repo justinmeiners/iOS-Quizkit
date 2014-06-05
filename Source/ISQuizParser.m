@@ -289,11 +289,6 @@
             
             for (NSDictionary* option in options) {
                 
-                
-                /*
-                 Need to remove the full stops and any other grammer that is not split 
-                 */
-                
                 NSString* optionText = option[kISTextKey];
                 
                 NSArray* optionWords = [optionText componentsSeparatedByString:@" "];
@@ -304,18 +299,20 @@
                 
                 ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
                 
-                
                 multipleChoiceQuestion.selectableOptions = question.selectableOptions;
                 
-                 NSInteger correctCount = 0;
+                NSInteger correctCount = 0;
                 
                 for (NSString* word in optionWords)
                 {
                     ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
+                    
                     option.text = word;
                     
+                    NSString* strippedWord = [word stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    
                     NSUInteger index = [correctWords indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
-                        if([word isEqualToString:obj]){
+                        if([strippedWord isEqualToString:obj]){
                             *stop = YES;
                             return YES;
                         }
