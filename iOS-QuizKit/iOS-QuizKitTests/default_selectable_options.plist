@@ -37,6 +37,37 @@
 			<key>type</key>
 			<string>multipleChoice</string>
 		</dict>
+		<dict>
+			<key>options</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>This is the first sentence.</string>
+					<key>correct</key>
+					<string>first</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Second sentence this is.</string>
+					<key>correct</key>
+					<string>Second</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>This is the sentence Third.</string>
+					<key>correct</key>
+					<string>Third</string>
+				</dict>
+			</array>
+			<key>type</key>
+			<string>multipleMultipleChoiceSentence</string>
+			<key>text</key>
+			<string>select the number word option in each question</string>
+			<key>scoreValue</key>
+			<integer>0</integer>
+			<key>selectableOptions</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 </dict>
 </plist>

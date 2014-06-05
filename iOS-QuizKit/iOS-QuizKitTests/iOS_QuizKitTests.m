@@ -233,7 +233,7 @@
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
 
-
+#pragma mark - selctable options
 /*
  Should test that when selctable options in question plist is 0 or nil selctableOptions should equal number of correct answers
  */
@@ -288,6 +288,81 @@
     BOOL correct = [question responseCorrect:response];
     
     XCTAssertTrue(correct, @"answer should be correct");
+    
+}
+
+- (void)testSentenceMMCSelectableOptionsDefaultCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
+    
+    XCTAssertTrue(([quiz.questions[1] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3] , @[@0] , @[@4] ]];
+    
+    ISMultipleChoiceQuestion* question = quiz.questions[1];
+    
+    XCTAssertTrue((question.selectableOptions.intValue == 1),@"selectableOptions: %d incorrect",question.selectableOptions.intValue);
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertTrue(correct, @"answer should be correct");
+    
+    
+}
+
+- (void)testSentenceMMCSelectableOptionsDefaultCorrectPartialAnswer
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
+    
+    XCTAssertTrue(([quiz.questions[1] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@0] ]];
+    
+    ISMultipleChoiceQuestion* question = quiz.questions[1];
+    
+    XCTAssertTrue((question.selectableOptions.intValue == 1),@"selectableOptions: %d incorrect",question.selectableOptions.intValue);
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be correct");
+    
+    
+}
+
+- (void)testSentenceMMCSelectableOptionsDefaultIncorrectPartialAnswer
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
+    
+    XCTAssertTrue(([quiz.questions[1] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@2] ]];
+    
+    ISMultipleChoiceQuestion* question = quiz.questions[1];
+    
+    XCTAssertTrue((question.selectableOptions.intValue == 1),@"selectableOptions: %d incorrect",question.selectableOptions.intValue);
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be correct");
+    
+    
+}
+
+- (void)testSentenceMMCSelectableOptionsDefaultIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
+    
+    XCTAssertTrue(([quiz.questions[1] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@2] , @[@1] , @[@3] ]];
+    
+    ISMultipleChoiceQuestion* question = quiz.questions[1];
+    
+    XCTAssertTrue((question.selectableOptions.intValue == 1),@"selectableOptions: %d incorrect",question.selectableOptions.intValue);
+    
+    BOOL correct = [question responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be correct");
     
     
 }

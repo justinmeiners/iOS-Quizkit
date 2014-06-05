@@ -333,8 +333,11 @@
                 
                 if(question.selectableOptions.integerValue == 0) {
                     
-                    question.selectableOptions = [NSNumber numberWithInteger:correctCount];
+                    multipleChoiceQuestion.selectableOptions = [NSNumber numberWithInteger:correctCount];
                 }
+                
+                //for the moment this doesnt do anything, just for consistancy
+                question.selectableOptions = [NSNumber numberWithInteger:correctCount];
                 
                 [question addQuestion:multipleChoiceQuestion];
                 
