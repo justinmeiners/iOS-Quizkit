@@ -9,21 +9,21 @@
 			<array>
 				<dict>
 					<key>text</key>
-					<string>This is the first sentence.</string>
+					<string>This is the first sentence answer first.</string>
 					<key>correct</key>
-					<string>3</string>
+					<string>3 6</string>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>Second sentence this is.</string>
+					<string>Second sentence and second answer.</string>
 					<key>correct</key>
-					<string>0</string>
+					<string>0 3</string>
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>This is the third sentence.</string>
+					<string>This is the third sentence, third answer.</string>
 					<key>correct</key>
-					<string>3</string>
+					<string>3 6</string>
 				</dict>
 			</array>
 			<key>type</key>
@@ -33,7 +33,7 @@
 			<key>scoreValue</key>
 			<integer>3</integer>
 			<key>selectableOptions</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 </dict>

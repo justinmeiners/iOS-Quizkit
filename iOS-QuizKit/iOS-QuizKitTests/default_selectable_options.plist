@@ -44,19 +44,19 @@
 					<key>text</key>
 					<string>This is the first sentence.</string>
 					<key>correct</key>
-					<string>first</string>
+					<string>3</string>
 				</dict>
 				<dict>
 					<key>text</key>
 					<string>Second sentence this is.</string>
 					<key>correct</key>
-					<string>Second</string>
+					<string>0</string>
 				</dict>
 				<dict>
 					<key>text</key>
 					<string>This is the sentence Third.</string>
 					<key>correct</key>
-					<string>Third</string>
+					<string>4</string>
 				</dict>
 			</array>
 			<key>type</key>

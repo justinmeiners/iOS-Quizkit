@@ -295,7 +295,7 @@
                 
                 NSString* correctText = option[kISCorrectKey];
                 
-                NSArray* correctWords = [correctText componentsSeparatedByString:@" "];
+                NSArray* correctWordIndexes = [correctText componentsSeparatedByString:@" "];
                 
                 ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
                 
@@ -309,10 +309,8 @@
                     
                     option.text = word;
                     
-                    NSString* strippedWord = [word stringByReplacingOccurrencesOfString:@"." withString:@""];
-                    
-                    NSUInteger index = [correctWords indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
-                        if([strippedWord isEqualToString:obj]){
+                    NSUInteger index = [correctWordIndexes indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
+                        if([optionWords indexOfObject:word] == [obj intValue]){
                             *stop = YES;
                             return YES;
                         }

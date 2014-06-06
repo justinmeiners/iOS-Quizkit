@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA1A07DF1940912A00B53FA0 /* default_selectable_options.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */; };
+		AA1A07E31941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */; };
 		AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */; };
 		AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */; };
 		AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default_selectable_options.plist; sourceTree = "<group>"; };
+		AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice_multi_selection.plist; sourceTree = "<group>"; };
 		AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multiple_multi_multi_choice.plist; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */,
+				AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */,
 				AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */,
 				AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */,
 				AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */,
@@ -323,6 +326,7 @@
 				AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */,
 				AA1A07DF1940912A00B53FA0 /* default_selectable_options.plist in Resources */,
 				AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */,
+				AA1A07E31941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist in Resources */,
 				AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

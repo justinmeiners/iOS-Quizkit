@@ -220,7 +220,7 @@
     
     ISSession* session = [ISSession session];
     
-    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3] , @[@0] , @[@4] ]];
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3] , @[@0] , @[@3] ]];
     
     [session setResponse:response atIndex:0];
     
@@ -229,6 +229,72 @@
     XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
     
     XCTAssertTrue((result.points == 3), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+/*
+ Testing that the Sentence Layout MultiMultiChoice questions can have 2 selections in each
+ */
+- (void)testQuizSessionGradeSentenceMultiMultiChoiceQuestionMultipleAnswersCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_sentence_multi_multi_choice_multi_selection.plist"];
+    
+    XCTAssertTrue(([quiz.questions[0] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISSession* session = [ISSession session];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3,@6] , @[@0,@3] , @[@3,@6] ]];
+    
+    [session setResponse:response atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 3), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeSentenceMultiMultiChoiceQuestionMultipleAnswersIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_sentence_multi_multi_choice_multi_selection.plist"];
+    
+    XCTAssertTrue(([quiz.questions[0] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISSession* session = [ISSession session];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@1,@3] , @[@1,@4] , @[@2,@5] ]];
+    
+    [session setResponse:response atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeSentenceMultiMultiChoiceQuestionMultipleAnswersMixedIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_sentence_multi_multi_choice_multi_selection.plist"];
+    
+    XCTAssertTrue(([quiz.questions[0] isKindOfClass:[ISMultipleMultipleChoiceQuestion class]]),@"not correct class");
+    
+    ISSession* session = [ISSession session];
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3,@3] , @[@0,@4] , @[@2,@6] ]];
+    
+    [session setResponse:response atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
     
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
