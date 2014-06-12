@@ -30,9 +30,10 @@
 @end
 
 @interface ISMultipleChoiceOption : NSObject <NSCoding>
-@property(nonatomic, strong)NSDictionary* userData;
-@property(nonatomic, copy)NSString* text;
-@property(nonatomic, assign)BOOL correct;
+@property(nonatomic, strong) NSDictionary* userData;
+@property(nonatomic, copy) NSString* text;
+@property(nonatomic, assign) BOOL correct;
+@property(nonatomic, assign) BOOL preSelected;
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
@@ -49,6 +50,7 @@
 
 @interface ISMultipleChoiceQuestion : ISQuestion
 
+@property(nonatomic, strong)NSString* supplementaryText;
 @property(nonatomic, strong)NSArray* options;
 @property(nonatomic, strong)NSArray* correctOptions;
 @property(nonatomic, strong)NSNumber* selectableOptions;

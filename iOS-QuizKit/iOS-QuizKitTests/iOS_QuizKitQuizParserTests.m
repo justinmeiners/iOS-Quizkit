@@ -46,6 +46,20 @@
     
     ISMultipleMultipleChoiceQuestion* question = (ISMultipleMultipleChoiceQuestion*)quiz.questions[0];
 
+    XCTAssertTrue([question.questionType isEqualToString:@"multipleMultipleChoice"], @"type should be multipleMultipleChoice");
+    
+    XCTAssertTrue([question.questionSubType isEqualToString:@"list"], @"type should be multipleMultipleChoice");
+    
+    XCTAssertNotNil(question.supplementaryText, @"supplementaryText not set");
+    
+    
+    
+    ISMultipleChoiceQuestion* option1 = (ISMultipleChoiceQuestion*)question.questions[1];
+    
+    ISMultipleChoiceOption* option = option1.options[3];
+    
+    XCTAssertTrue(option.preSelected, @"option should be preselected");
+    
     XCTAssertTrue(question.questions.count == 3, @"should have 1 options");
     
     XCTAssertTrue(question.options.count == 3, @"should have 3 options");

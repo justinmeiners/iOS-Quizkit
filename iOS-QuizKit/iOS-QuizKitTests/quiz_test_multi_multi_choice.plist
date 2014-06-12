@@ -43,6 +43,8 @@
 						<string>Three</string>
 					</dict>
 					<dict>
+						<key>preSelected</key>
+						<integer>1</integer>
 						<key>text</key>
 						<string>Four</string>
 					</dict>
@@ -70,6 +72,10 @@
 			</array>
 			<key>type</key>
 			<string>multipleMultipleChoice</string>
+			<key>subType</key>
+			<string>list</string>
+			<key>supplementaryText</key>
+			<string>some extra text.</string>
 			<key>text</key>
 			<string>select first option in each</string>
 			<key>scoreValue</key>

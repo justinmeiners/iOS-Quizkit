@@ -166,6 +166,8 @@
                 
             }
             
+            question.supplementaryText = questionDict[kISupplementaryTextKey];
+            
             NSArray* options = questionDict[kISOptionsKey];
             
             if (![self verify:options class:[NSArray class]])
@@ -180,7 +182,7 @@
             {
                 ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
                 option.text = optionDict[kISTextKey];
-                
+                option.preSelected = [optionDict[kISPreSelectedKey] boolValue];
                 if (optionDict[kISCorrectKey])
                 {
                     option.correct = [optionDict[kISCorrectKey] boolValue];
@@ -217,6 +219,8 @@
                 
             }
             
+            question.supplementaryText = questionDict[kISupplementaryTextKey];
+            
             NSArray* options = questionDict[kISOptionsKey];
             
             if (![self verify:options class:[NSArray class]])
@@ -237,7 +241,7 @@
                 {
                     ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
                     option.text = optionDict[kISTextKey];
-                    
+                    option.preSelected = [optionDict[kISPreSelectedKey] boolValue];
                     if (optionDict[kISCorrectKey])
                     {
                         option.correct = [optionDict[kISCorrectKey] boolValue];
@@ -309,8 +313,13 @@
                     
                     option.text = word;
                     
+                    NSInteger currentIndex = [optionWords indexOfObjectIdenticalTo:word];
+                    
                     NSUInteger index = [correctWordIndexes indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
-                        if([optionWords indexOfObject:word] == [obj intValue]){
+                        
+                        NSInteger correctIndex = [obj integerValue];
+                        
+                        if(currentIndex == correctIndex){
                             *stop = YES;
                             return YES;
                         }
@@ -367,6 +376,10 @@
         }
                
         newQuestion.text = questionDict[kISTextKey];
+        
+        newQuestion.questionType = type;
+        
+        newQuestion.questionSubType = questionDict[kISSubTypeKey];
         
         if (questionDict[kISScoreValueKey])
         {

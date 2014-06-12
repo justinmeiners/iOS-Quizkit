@@ -25,6 +25,9 @@
 @property(nonatomic, copy)NSString* text;
 @property(nonatomic, strong)NSDictionary* userData;
 @property(nonatomic, assign)int scoreValue;
+@property(nonatomic, strong) NSString* questionType;
+@property(nonatomic, strong) NSString* questionSubType;
+
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
