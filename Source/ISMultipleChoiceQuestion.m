@@ -7,7 +7,7 @@
 
 #import "ISMultipleChoiceQuestion.h"
 
-static NSString * const _ISTextKey = @"text";
+
 static NSString * const _ISUserDataKey = @"userData";
 static NSString * const _ISCorrectKey = @"correct";
 static NSString * const _ISOptionsKey = @"options";

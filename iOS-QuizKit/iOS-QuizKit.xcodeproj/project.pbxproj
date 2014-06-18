@@ -13,6 +13,10 @@
 		AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */; };
 		AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */; };
 		AA591A4F191399D3007A2113 /* iOS_QuizKitQuizParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */; };
+		AAA555EB1950425400237F8E /* ISMatchingQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555EA1950425400237F8E /* ISMatchingQuestion.m */; };
+		AAA555EC1950425400237F8E /* ISMatchingQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555EA1950425400237F8E /* ISMatchingQuestion.m */; };
+		AAA555EE1950427700237F8E /* ISMatchingQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */; };
+		AAA555F01951893700237F8E /* quiz_test_matching.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAA555EF1951893700237F8E /* quiz_test_matching.plist */; };
 		AAC108DA18EC5092003ED169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108D918EC5092003ED169 /* Foundation.framework */; };
 		AAC108DC18EC5092003ED169 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DB18EC5092003ED169 /* CoreGraphics.framework */; };
 		AAC108DE18EC5092003ED169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DD18EC5092003ED169 /* UIKit.framework */; };
@@ -65,6 +69,10 @@
 		AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multiple_multi_multi_choice.plist; sourceTree = "<group>"; };
 		AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitQuizParserTests.m; sourceTree = "<group>"; };
 		AA591A501913A3E9007A2113 /* ISMultipleMultipleChoiceQuestion+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ISMultipleMultipleChoiceQuestion+Private.h"; sourceTree = "<group>"; };
+		AAA555E91950425400237F8E /* ISMatchingQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMatchingQuestion.h; sourceTree = "<group>"; };
+		AAA555EA1950425400237F8E /* ISMatchingQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMatchingQuestion.m; sourceTree = "<group>"; };
+		AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMatchingQuestionTests.m; sourceTree = "<group>"; };
+		AAA555EF1951893700237F8E /* quiz_test_matching.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_matching.plist; sourceTree = "<group>"; };
 		AAC108D618EC5092003ED169 /* iOS-QuizKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-QuizKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC108D918EC5092003ED169 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC108DB18EC5092003ED169 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +196,7 @@
 				AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */,
 				AACA44791911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m */,
 				AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */,
+				AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */,
 				AAC108F918EC5092003ED169 /* Supporting Files */,
 			);
 			path = "iOS-QuizKitTests";
@@ -196,6 +205,7 @@
 		AAC108F918EC5092003ED169 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAA555EF1951893700237F8E /* quiz_test_matching.plist */,
 				AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */,
 				AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */,
 				AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */,
@@ -230,6 +240,8 @@
 				AAC1093318EC5554003ED169 /* ISSession.m */,
 				AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */,
 				AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */,
+				AAA555E91950425400237F8E /* ISMatchingQuestion.h */,
+				AAA555EA1950425400237F8E /* ISMatchingQuestion.m */,
 			);
 			name = Source;
 			path = ../Source;
@@ -327,6 +339,7 @@
 				AA1A07DF1940912A00B53FA0 /* default_selectable_options.plist in Resources */,
 				AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */,
 				AA1A07E31941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist in Resources */,
+				AAA555F01951893700237F8E /* quiz_test_matching.plist in Resources */,
 				AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC1093C18EC5554003ED169 /* ISQuiz.m in Sources */,
+				AAA555EB1950425400237F8E /* ISMatchingQuestion.m in Sources */,
 				AAC1093618EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
 				AACA447719111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */,
 				AAC1093818EC5554003ED169 /* ISOpenQuestion.m in Sources */,
@@ -355,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA555EC1950425400237F8E /* ISMatchingQuestion.m in Sources */,
 				AAC1093718EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
 				AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */,
 				AACA447819111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */,
@@ -366,6 +381,7 @@
 				AAC1094118EC5554003ED169 /* ISSession.m in Sources */,
 				AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */,
 				AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */,
+				AAA555EE1950427700237F8E /* ISMatchingQuestionTests.m in Sources */,
 				AA591A4F191399D3007A2113 /* iOS_QuizKitQuizParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

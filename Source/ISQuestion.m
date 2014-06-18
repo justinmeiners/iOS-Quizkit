@@ -8,7 +8,7 @@
 #import "ISQuestion.h"
 
 static NSString * const _ISUserDataKey = @"userData";
-static NSString * const _ISTextKey = @"text";
+NSString * const _ISTextKey = @"text";
 static NSString * const _ISTypeKey = @"type";
 static NSString * const _ISScoreValueKey = @"scoreValue";
 

@@ -22,3 +22,4 @@
 #import "ISMultipleMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
 #import "ISSession.h"
+#import "ISMatchingQuestion.h"

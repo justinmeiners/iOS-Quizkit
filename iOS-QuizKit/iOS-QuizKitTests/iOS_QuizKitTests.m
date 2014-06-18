@@ -89,7 +89,7 @@
     
     XCTAssertTrue((result.pointsPossible == 6), @"result.pointsPossible %d should == 6",result.pointsPossible);
 }
-
+#pragma mark - MultiChoice deserialize
 /*
  Testing that the MultiChoice questions deserialize corectly
  */
@@ -129,7 +129,7 @@
     
     XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
 }
-
+#pragma mark - MultiMultiChoice questions deserialize
 /*
  Testing that the MultiMultiChoice questions deserialize corectly
  */
@@ -208,6 +208,7 @@
     XCTAssertTrue((result.pointsPossible == 9), @"result.pointsPossible %d should == 9",result.pointsPossible);
 }
 
+#pragma mark - Sentence Layout MultiMultiChoice  deserialize
 /*
  Testing that the Sentence Layout MultiMultiChoice questions deserialize corectly
  */
@@ -232,6 +233,8 @@
     
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
+
+#pragma mark - Layout MultiMultiChoice questions
 
 /*
  Testing that the Sentence Layout MultiMultiChoice questions can have 2 selections in each
@@ -431,6 +434,52 @@
     XCTAssertFalse(correct, @"answer should be correct");
     
     
+}
+
+
+#pragma mark - Matching deserialize
+
+
+- (void)testQuizSessionGradeAllMatchingQuestionsCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_matching.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    ISMatchingQuestion* question = quiz.questions[0];
+    
+    XCTAssertTrue(([question isKindOfClass:[ISMatchingQuestion class]]),@"not correct class");
+    
+    [session setResponse:[ISMatchingResponse responseWithOptions:@[question.answers[0],question.answers[1],question.answers[2]]] atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 1.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 3), @"result.pointPercentage %d should == 3",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeAllMatchingQuestionsIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_matching.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    ISMatchingQuestion* question = quiz.questions[0];
+    
+    XCTAssertTrue(([question isKindOfClass:[ISMatchingQuestion class]]),@"not correct class");
+    
+    [session setResponse:[ISMatchingResponse responseWithOptions:@[question.answers[1],question.answers[2],question.answers[0]]] atIndex:0];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
 
 @end

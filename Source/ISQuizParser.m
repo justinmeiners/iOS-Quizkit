@@ -10,6 +10,7 @@
 #import "ISMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
 #import "ISMultipleMultipleChoiceQuestion.h"
+#import "ISMatchingQuestion.h"
 @implementation ISQuizParser
 
 + (ISQuiz*)quizNamed:(NSString*)name
@@ -152,8 +153,6 @@
                 }
             }
             
-            [quiz addQuestion:question];
-            
             newQuestion = question;
         }
         else if ([type isEqualToString:kISQuestionTypeMultipleChoice])
@@ -204,8 +203,6 @@
                 
                 question.selectableOptions = [NSNumber numberWithInteger:correctCount];
             }
-            
-            [quiz addQuestion:question];
             
             newQuestion = question;
         }
@@ -268,8 +265,6 @@
                 [question addQuestion:multipleChoiceQuestion];
                 
             }
-            
-            [quiz addQuestion:question];
             
             newQuestion = question;
         }
@@ -349,9 +344,7 @@
                 [question addQuestion:multipleChoiceQuestion];
                 
             }
-            
-            [quiz addQuestion:question];
-            
+
             newQuestion = question;
         }
         else if ([type isEqualToString:kISQuestionTypeTrueFalse])
@@ -365,9 +358,56 @@
             }
             
             question.answer = [questionDict[kISAnswerKey] boolValue];
-            [quiz addQuestion:question];
+            
             
             newQuestion = question;
+        }
+        else if  ([type isEqualToString:kISQuestionTypeMatching])
+        {
+            ISMatchingQuestion* question = [[ISMatchingQuestion alloc] init];
+            
+            NSArray* answers = questionDict[kISAnswersKey];
+            
+            NSMutableArray* questionAnswers = [NSMutableArray array];
+            
+            if (![self verify:answers class:[NSArray class]])
+            {
+                NSLog(@"missing answers");
+                return nil;
+            }
+            
+            for (NSDictionary* answer in answers) {
+                
+                NSString* optionText = answer[kISTextKey];
+                
+                [questionAnswers addObject:[ISMatchingOption optionWithText:optionText]];
+            }
+            
+            question.answers = questionAnswers;
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            NSMutableArray* questionOptions = [NSMutableArray array];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing options");
+                return nil;
+            }
+            
+            for (NSDictionary* option in options) {
+                
+                NSString* optionText = option[kISTextKey];
+                
+                NSNumber* answerIndex = option[kISCorrectKey];
+                
+                [questionOptions addObject:[ISMatchingOption optionWithText:optionText matchingOption:question.answers[answerIndex.integerValue]]];
+            }
+            
+            question.options = questionOptions;
+            
+            newQuestion = question;
+            
         }
         else
         {
@@ -385,6 +425,8 @@
         {
             newQuestion.scoreValue = [questionDict[kISScoreValueKey] intValue];
         }
+        
+        [quiz addQuestion:newQuestion];
     }
     
     return quiz;

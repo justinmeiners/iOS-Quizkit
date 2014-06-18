@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const _ISTextKey;
+
 @interface ISQuestionResponse : NSObject <NSCoding>
 @property(nonatomic, strong)NSDictionary* userData;
 
