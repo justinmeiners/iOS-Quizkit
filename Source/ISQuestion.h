@@ -29,6 +29,7 @@ extern NSString * const _ISTextKey;
 @property(nonatomic, assign)int scoreValue;
 @property(nonatomic, strong) NSString* questionType;
 @property(nonatomic, strong) NSString* questionSubType;
+@property(nonatomic, strong)NSString* supplementaryText;
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder;

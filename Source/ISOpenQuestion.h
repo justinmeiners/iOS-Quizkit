@@ -36,7 +36,7 @@ typedef enum
 {
     NSMutableArray* _answers;
 }
-
+@property(nonatomic, strong)NSArray* options;
 @property(nonatomic, readonly)NSArray* answers;
 @property(nonatomic, assign)ISOpenQuestionMatchMode matchMode;
 @property(nonatomic, copy)ISMatchFunc_t customMatchFunc; // only works on custom match mode

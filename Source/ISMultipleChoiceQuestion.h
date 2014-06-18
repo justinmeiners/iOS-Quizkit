@@ -50,7 +50,6 @@
 
 @interface ISMultipleChoiceQuestion : ISQuestion
 
-@property(nonatomic, strong)NSString* supplementaryText;
 @property(nonatomic, strong)NSArray* options;
 @property(nonatomic, strong)NSArray* correctOptions;
 @property(nonatomic, strong)NSNumber* selectableOptions;

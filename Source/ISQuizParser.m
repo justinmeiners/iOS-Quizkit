@@ -116,6 +116,8 @@
         {
             ISOpenQuestion* question = [[ISOpenQuestion alloc] init];
             
+            question.options = questionDict[kISOptionsKey];
+            
             if (questionDict[kISAnswerKey])
             {
                 [question addAnswer:questionDict[kISAnswerKey]];
@@ -124,7 +126,7 @@
             {
                 [question addAnswers:questionDict[kISAnswersKey]];
             }
-            else
+            else // if contain options parse to answers
             {
                 NSLog(@"missing question answer");
                 return nil;
@@ -164,8 +166,6 @@
                 question.selectableOptions = questionDict[kISSelectableOptionsKey];
                 
             }
-            
-            question.supplementaryText = questionDict[kISupplementaryTextKey];
             
             NSArray* options = questionDict[kISOptionsKey];
             
@@ -416,6 +416,8 @@
         }
                
         newQuestion.text = questionDict[kISTextKey];
+        
+        newQuestion.supplementaryText = questionDict[kISupplementaryTextKey];
         
         newQuestion.questionType = type;
         
