@@ -234,7 +234,7 @@
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
 
-#pragma mark - Layout MultiMultiChoice questions
+#pragma mark -  MultiMultiChoice questions
 
 /*
  Testing that the Sentence Layout MultiMultiChoice questions can have 2 selections in each
@@ -324,6 +324,7 @@
     
 }
 
+
 - (void)testSelectableOptionsDefaultIncorrectOneSelection
 {
     ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
@@ -342,6 +343,8 @@
     
 }
 
+
+
 - (void)testSelectableOptionsDefaultCorrect
 {
     ISQuiz* quiz = [ISQuizParser quizNamed:@"default_selectable_options.plist"];
@@ -359,6 +362,8 @@
     XCTAssertTrue(correct, @"answer should be correct");
     
 }
+
+
 
 - (void)testSentenceMMCSelectableOptionsDefaultCorrect
 {
@@ -397,6 +402,8 @@
     
     
 }
+
+
 
 - (void)testSentenceMMCSelectableOptionsDefaultIncorrectPartialAnswer
 {
@@ -437,8 +444,10 @@
 }
 
 
-#pragma mark - Matching deserialize
-
+#pragma mark - Matching
+/*
+ Testing that the new Matching questions can be correct when sourced from plist
+ */
 
 - (void)testQuizSessionGradeAllMatchingQuestionsCorrect
 {
@@ -461,6 +470,12 @@
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
 }
 
+#pragma mark - Open
+
+/*
+ Testing that the new and old open questions can be sourced from plist and answered properly
+ */
+
 - (void)testQuizSessionGradeAllMatchingQuestionsIncorrect
 {
     ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_matching.plist"];
@@ -480,6 +495,52 @@
     XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
     
     XCTAssertTrue((result.pointsPossible == 3), @"result.pointsPossible %d should == 3",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeAllOpenQuestionsCorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_open.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"NSObject"] atIndex:0];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"gcd"] atIndex:1];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"NSOBJECT"] atIndex:2];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"one and two"] atIndex:3];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 1.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 5), @"result.pointPercentage %d should == 5",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
+}
+
+- (void)testQuizSessionGradeAllOpenQuestionsIncorrect
+{
+    ISQuiz* quiz = [ISQuizParser quizNamed:@"quiz_test_open.plist"];
+    
+    ISSession* session = [ISSession session];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"nsobbject"] atIndex:0];
+    
+     [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"not gcd"] atIndex:1];
+    
+     [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"nowhere near"] atIndex:2];
+    
+    [session setResponse:[ISOpenQuestionResponse responseWithResponse:@"four and five"] atIndex:3];
+    
+    ISGradingResult* result = [quiz gradeSession:session];
+    
+    XCTAssertTrue((result.pointPercentage == 0.00f), @"result.pointPercentage %f should == 0.00",result.pointPercentage);
+    
+    XCTAssertTrue((result.points == 0), @"result.pointPercentage %d should == 0",result.points);
+    
+    XCTAssertTrue((result.pointsPossible == 5), @"result.pointsPossible %d should == 5",result.pointsPossible);
 }
 
 @end

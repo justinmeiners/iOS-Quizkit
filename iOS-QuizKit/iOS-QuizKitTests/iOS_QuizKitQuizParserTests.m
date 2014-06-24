@@ -10,6 +10,7 @@
 #import "ISQuizParser.h"
 #import "ISMultipleMultipleChoiceQuestion.h"
 #import "ISMultipleMultipleChoiceQuestion+Private.h"
+#import "ISOpenQuestion.h"
 @interface iOS_QuizKitQuizParserTests : XCTestCase
 
 @end
@@ -66,5 +67,28 @@
     
 }
 
+//open question deserialization
+
+- (void)testOpenDeserialization {
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    
+    NSString* path = [bundle pathForResource:@"quiz_test_open" ofType:@"plist"];
+    
+    NSDictionary* quizData = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    ISQuiz* quiz = [ISQuizParser quizFromDictionary:quizData];
+    
+    XCTAssertNotNil(quiz, @"should have a quiz");
+    
+    XCTAssertTrue(quiz.questions.count == 4, @"should have 4 question");
+    
+    XCTAssertTrue([quiz.questions[3] isKindOfClass:[ISOpenQuestion class]], @"should have a Open question");
+    
+    ISOpenQuestion* question = (ISOpenQuestion*)quiz.questions[3];
+    
+    XCTAssertTrue([question.questionType isEqualToString:@"open"], @"type should be open");
+
+}
 
 @end

@@ -148,6 +148,10 @@
                 {
                     question.matchMode = kISOpenQuestionMatchModeCaseSensitive;
                 }
+                else if ([matchMode isEqualToString:@"contains"])
+                {
+                    question.matchMode = kISOpenQuestionContainsAll;
+                }
                 else
                 {
                     NSLog(@"unknown match mode: %@", matchMode);

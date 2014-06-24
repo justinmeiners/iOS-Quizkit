@@ -28,6 +28,7 @@ typedef enum
     kISOpenQuestionMatchModeClose = 0, // May ignore exact spelling DEFAULT
     kISOpenQuestionMatchModeExact, // Same characters - but not same case
     kISOpenQuestionMatchModeCaseSensitive, // Case sensitve Exact match
+    kISOpenQuestionContainsAll, // check if all the answers are present in the response
     kISOpenQuestionMatchModeCustom // code will use a custom match block
     
 } ISOpenQuestionMatchMode;

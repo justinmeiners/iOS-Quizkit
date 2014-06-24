@@ -103,6 +103,10 @@ static const ISMatchFunc_t _ISCloseMatchFunc = ^BOOL(NSString *answer, NSString 
     }
 };
 
+static const ISMatchFunc_t _ISContainsMatchFunc = ^BOOL(NSString *answer, NSString *response) {
+    return ([response rangeOfString:answer].location != NSNotFound);
+};
+
 @implementation ISOpenQuestion
 
 - (id)initWithAnswers:(NSArray*)answers
@@ -204,18 +208,40 @@ static const ISMatchFunc_t _ISCloseMatchFunc = ^BOOL(NSString *answer, NSString 
     {
         matchFunc = _customMatchFunc;
     }
+    else if (_matchMode == kISOpenQuestionContainsAll)
+    {
+        matchFunc = _ISContainsMatchFunc;
+    }
     else
     {
         NSLog(@"invalid match mode: %i", _matchMode);
         return NO;
     }
     
-    for (NSString* answer in _answers)
-    {
-        if (matchFunc(answer, casted.response))
+    if(_matchMode == kISOpenQuestionContainsAll) {
+        
+        BOOL correct = YES;
+        
+        for (NSString* answer in _answers)
         {
-            return YES;
+            if (!matchFunc(answer, casted.response))
+            {
+                return NO;
+            }
         }
+        
+        return correct;
+        
+    } else {
+    
+        for (NSString* answer in _answers)
+        {
+            if (matchFunc(answer, casted.response))
+            {
+                return YES;
+            }
+        }
+        
     }
     
     return NO;
