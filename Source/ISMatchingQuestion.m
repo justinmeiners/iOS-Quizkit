@@ -111,6 +111,12 @@ static NSString * const _ISMatchingOptionKey = @"MatchingOption";
     
     __block BOOL correct = YES;
     
+    if(matchingResponse.options.count != _options.count) {
+    
+        return NO;
+    
+    }
+    
     [_options enumerateObjectsUsingBlock:^(ISMatchingOption* obj, NSUInteger idx, BOOL *stop) {
         
         if(matchingResponse.options[idx] != obj.matchingOption){
