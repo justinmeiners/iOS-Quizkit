@@ -62,6 +62,11 @@
         
         NSUInteger idx = [_questions indexOfObject:question];
         
+        if(idx >= multipleChoiceResponse.answerIndexes.count) {
+            
+            return NO;
+        }
+        
         NSArray* answerIndexes = multipleChoiceResponse.answerIndexes[idx];
         
         correct = [question responseCorrect: [ISMultipleChoiceResponse responseWithIndexes:answerIndexes]];

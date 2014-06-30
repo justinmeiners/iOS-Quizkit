@@ -231,4 +231,53 @@
     XCTAssertFalse(correct, @"answer should be incorrect");
 }
 
+-(void)test_Incorrect_Number_Answers {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    question.selectableOptions = @1;
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:NO];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    ISMultipleChoiceQuestion* question1 = [ISMultipleChoiceQuestion new];
+    
+    question1.selectableOptions = @1;
+    
+    ISMultipleChoiceOption* question1option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:NO];
+    
+    ISMultipleChoiceOption* question1option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
+    
+    ISMultipleChoiceOption* question1option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
+    
+    [question1 addOptions:@[question1option1,question1option2,question1option3]];
+    
+    ISMultipleMultipleChoiceQuestion* multipleMultipleChoiceQuestion = [ISMultipleMultipleChoiceQuestion questionWithQuestions:@[question,question1]];
+    
+    multipleMultipleChoiceQuestion.selectableOptions = @1;
+    
+    XCTAssertTrue(multipleMultipleChoiceQuestion.options.count == 2, @"should have 2 option groups");
+    
+    NSArray* options1 =  multipleMultipleChoiceQuestion.options[0];
+    
+    NSArray* options2 =  multipleMultipleChoiceQuestion.options[1];
+    
+    XCTAssertTrue(options1.count == 4, @"should have 4 options in 1 group");
+    
+    XCTAssertTrue(options2.count == 3, @"should have 4 options in 2 group");
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@1] ]];
+    
+    BOOL correct = [multipleMultipleChoiceQuestion responseCorrect:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+}
+
 @end
