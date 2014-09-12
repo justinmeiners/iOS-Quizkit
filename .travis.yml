@@ -2,7 +2,7 @@ language: objective-c
 
 before_install:
   - brew update
-  - brew upgrade xctool
+  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
 script: 
 - xctool test -freshInstall -project iOS-QuizKit/iOS-QuizKit.xcodeproj -scheme iOS-QuizKitTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
