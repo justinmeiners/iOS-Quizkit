@@ -52,6 +52,7 @@
 
 @property(nonatomic, strong)NSArray* options;
 @property(nonatomic, strong)NSArray* correctOptions;
+@property(nonatomic, strong, readonly) NSArray* randomizedOptions;
 @property(nonatomic, strong)NSNumber* selectableOptions;
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
@@ -62,6 +63,8 @@
 - (void)removeAllOptions;
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response;
+
+- (BOOL)responseCorrectForRandomizedOptions:(ISQuestionResponse*)response;
 
 -(NSArray*)calculateCorrectFromOptions:(NSArray*)options;
 

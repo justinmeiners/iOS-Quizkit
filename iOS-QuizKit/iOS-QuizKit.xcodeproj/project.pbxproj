@@ -47,6 +47,7 @@
 		AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
 		AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC1094618EC62F8003ED169 /* quiz_test.plist */; };
 		AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */; };
+		AAC9314219C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */; };
 		AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */; };
 		AACA447719111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */; };
 		AACA447819111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */; };
@@ -110,6 +111,8 @@
 		AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
 		AAC1094618EC62F8003ED169 /* quiz_test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test.plist; sourceTree = "<group>"; };
 		AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitMultiChoiceGradeTests.m; sourceTree = "<group>"; };
+		AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestionTests.m; sourceTree = "<group>"; };
+		AAC9314319C2EC1500210CAD /* ISMultipleChoiceQuestion+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ISMultipleChoiceQuestion+Private.h"; sourceTree = "<group>"; };
 		AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_choice.plist; sourceTree = "<group>"; };
 		AACA447519111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleMultipleChoiceQuestion.h; sourceTree = "<group>"; };
 		AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleMultipleChoiceQuestion.m; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 				AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */,
 				AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */,
 				AA3B077C195884BA005FF945 /* ISOpenQuestionTests.m */,
+				AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */,
 				AAC108F918EC5092003ED169 /* Supporting Files */,
 			);
 			path = "iOS-QuizKitTests";
@@ -228,6 +232,7 @@
 		AAC1092618EC5554003ED169 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AAC9314319C2EC1500210CAD /* ISMultipleChoiceQuestion+Private.h */,
 				AAC1092718EC5554003ED169 /* ISMultipleChoiceQuestion.h */,
 				AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */,
 				AA591A501913A3E9007A2113 /* ISMultipleMultipleChoiceQuestion+Private.h */,
@@ -384,6 +389,7 @@
 				AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */,
 				AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */,
 				AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */,
+				AAC9314219C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m in Sources */,
 				AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */,
 				AAC1094118EC5554003ED169 /* ISSession.m in Sources */,
 				AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */,

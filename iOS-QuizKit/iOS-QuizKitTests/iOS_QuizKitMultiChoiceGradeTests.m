@@ -283,4 +283,169 @@
     XCTAssertFalse(correct, @"answer should be incorrect");
 }
 
+/**
+ Test for randomizing options
+ 
+ **/
+
+-(void)test_OneCorrect_fromRandomizedOptions {
+ 
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+
+    NSMutableArray* indexes = [NSMutableArray array];
+
+    for (ISMultipleChoiceOption* option in question.randomizedOptions) {
+        
+        if([option.text isEqualToString:@"One"]) {
+            
+            [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
+        }
+    }
+    
+     ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:indexes];
+    
+    BOOL correct = [question responseCorrectForRandomizedOptions:response];
+    
+    XCTAssertTrue(correct, @"answer should be correct");
+    
+}
+
+-(void)test_TwoCorrect_fromRandomizedOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:YES];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    NSMutableArray* indexes = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in question.randomizedOptions) {
+        
+        if([option.text isEqualToString:@"One"] || [option.text isEqualToString:@"Four"]) {
+            
+            [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
+        }
+    }
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:indexes];
+    
+    BOOL correct = [question responseCorrectForRandomizedOptions:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+    
+}
+
+-(void)test_OneIncorrect_fromRandomizedOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:NO];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    NSMutableArray* indexes = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in question.randomizedOptions) {
+        
+        if([option.text isEqualToString:@"Two"]) {
+            
+            [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
+        }
+    }
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:indexes];
+    
+    BOOL correct = [question responseCorrectForRandomizedOptions:response];
+    
+    XCTAssertFalse(correct, @"answer correct: %d should be incorrect selections: %@ | options: %@",correct,indexes,question.randomizedOptions);
+    
+}
+
+-(void)test_TwoIncorrect_fromRandomizedOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    NSMutableArray* indexes = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in question.randomizedOptions) {
+        
+        if([option.text isEqualToString:@"Two"] || [option.text isEqualToString:@"Four"]) {
+            
+            [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
+        }
+    }
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:indexes];
+    
+    BOOL correct = [question responseCorrectForRandomizedOptions:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+    
+}
+
+-(void)test_OneCorrect_OneIncorrect_fromRandomizedOptions {
+    
+    ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
+    
+    ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
+    
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    
+    ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
+    
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4]];
+    
+    NSMutableArray* indexes = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in question.randomizedOptions) {
+        
+        if([option.text isEqualToString:@"Three"] || [option.text isEqualToString:@"Four"]) {
+            
+            [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
+        }
+    }
+    
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:indexes];
+    
+    BOOL correct = [question responseCorrectForRandomizedOptions:response];
+    
+    XCTAssertFalse(correct, @"answer should be incorrect");
+    
+}
+
 @end

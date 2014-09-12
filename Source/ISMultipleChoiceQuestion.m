@@ -6,7 +6,7 @@
  */
 
 #import "ISMultipleChoiceQuestion.h"
-
+#import "ISMultipleChoiceQuestion+Private.h"
 
 static NSString * const _ISUserDataKey = @"userData";
 static NSString * const _ISCorrectKey = @"correct";
@@ -202,6 +202,7 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
             _selectableOptions = @1;
         }
         
+        [self randomizeOptions];
         
     }
     return self;
@@ -238,6 +239,8 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     _options = [_options arrayByAddingObject:option];
     
     _correctOptions = [self calculateCorrectFromOptions:_options];
+    
+    [self randomizeOptions];
 }
 
 - (void)addOptions:(NSArray*)options
@@ -245,6 +248,8 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     _options = [_options arrayByAddingObjectsFromArray:options];
     
     _correctOptions = [self calculateCorrectFromOptions:_options];
+    
+    [self randomizeOptions];
 }
 
 - (void)removeAllOptions
@@ -252,6 +257,32 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     _options = @[];
     
     _correctOptions = @[];
+}
+
+-(void)randomizeOptions {
+    
+    NSMutableArray* options = [NSMutableArray arrayWithArray:_options];
+    
+    NSMutableArray* randomOptions = [NSMutableArray array];
+    
+    NSMutableArray* randomizedMap = [NSMutableArray array];
+    
+    while (options.count > 0) {
+        
+        NSInteger randomNumber = arc4random() % options.count;
+        
+        id option = options[randomNumber];
+        
+        [randomOptions addObject:option];
+        
+        [randomizedMap addObject:[NSNumber numberWithInteger:[_options indexOfObject:option]]];
+        
+        [options removeObject:option];
+    }
+    
+    _randomizedIndexesMap = [NSArray arrayWithArray:randomizedMap];
+    
+    _randomizedOptions = [NSArray arrayWithArray:randomOptions];
 }
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response
@@ -290,6 +321,34 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     }
     
     return correct;
+}
+
+- (BOOL)responseCorrectForRandomizedOptions:(ISQuestionResponse*)response {
+    
+    
+    if (![response isKindOfClass:[ISMultipleChoiceResponse class]])
+    {
+        return NO;
+    }
+    
+    ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
+    
+    if(multipleChoiceResponse.answerIndexes.count < _selectableOptions.integerValue || multipleChoiceResponse.answerIndexes.count > _selectableOptions.integerValue ) {
+        
+        return NO;
+    }
+    
+    NSMutableArray* options = [NSMutableArray array];
+    
+    for (NSNumber *indexNumber in multipleChoiceResponse.answerIndexes) {
+        
+        NSNumber* origialIndex = _randomizedIndexesMap[indexNumber.integerValue];
+        
+        [options addObject:origialIndex];
+    }
+    
+    return [self responseCorrect:[ISMultipleChoiceResponse responseWithAnswerIndexes:options]];
+    
 }
 
 -(NSArray*)calculateCorrectFromOptions:(NSArray*)options {
