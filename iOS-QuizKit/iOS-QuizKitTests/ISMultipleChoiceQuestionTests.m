@@ -33,13 +33,21 @@
     
     ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
     
-    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
+    ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:YES];
     
     ISMultipleChoiceOption* option3 = [ISMultipleChoiceOption optionWithText:@"Three" correct:YES];
     
-    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:NO];
+    ISMultipleChoiceOption* option4 = [ISMultipleChoiceOption optionWithText:@"Four" correct:YES];
     
-    [question addOptions:@[option1,option2,option3,option4]];
+    ISMultipleChoiceOption* option5 = [ISMultipleChoiceOption optionWithText:@"Five" correct:NO];
+    
+    ISMultipleChoiceOption* option6 = [ISMultipleChoiceOption optionWithText:@"Six" correct:NO];
+    
+    ISMultipleChoiceOption* option7 = [ISMultipleChoiceOption optionWithText:@"Seven" correct:NO];
+    
+    ISMultipleChoiceOption* option8 = [ISMultipleChoiceOption optionWithText:@"Eight" correct:NO];
+    
+    [question addOptions:@[option1,option2,option3,option4,option5,option6,option7,option8]];
     
     NSInteger i = 0;
     
