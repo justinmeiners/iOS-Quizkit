@@ -368,7 +368,7 @@
         }
         else if  ([type isEqualToString:kISQuestionTypeMatching])
         {
-            ISMatchingQuestion* question = [[ISMatchingQuestion alloc] init];
+            
             
             NSArray* answers = questionDict[kISAnswersKey];
             
@@ -387,7 +387,7 @@
                 [questionAnswers addObject:[ISMatchingOption optionWithText:optionText]];
             }
             
-            question.answers = questionAnswers;
+           
             
             NSArray* options = questionDict[kISOptionsKey];
             
@@ -405,10 +405,10 @@
                 
                 NSNumber* answerIndex = option[kISCorrectKey];
                 
-                [questionOptions addObject:[ISMatchingOption optionWithText:optionText matchingOption:question.answers[answerIndex.integerValue]]];
+                [questionOptions addObject:[ISMatchingOption optionWithText:optionText matchingOption:questionAnswers[answerIndex.integerValue]]];
             }
             
-            question.options = questionOptions;
+            ISMatchingQuestion* question = [ISMatchingQuestion questionWithOptions:questionOptions answers:questionAnswers];
             
             newQuestion = question;
             

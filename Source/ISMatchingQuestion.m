@@ -7,6 +7,7 @@
 //
 
 #import "ISMatchingQuestion.h"
+#import "ISMultipleChoiceQuestion+Private.h"
 
 static NSString * const _ISAnswerOptionsKey = @"answerOptions";
 
@@ -78,10 +79,29 @@ static NSString * const _ISMatchingOptionKey = @"MatchingOption";
     return option;
 }
 
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, text: %@ >",
+            NSStringFromClass([self class]), self, _text];
+}
+
 @end
 
 @implementation ISMatchingQuestion
 
+
++ (instancetype)questionWithOptions:(NSArray*)options answers:(NSArray*)answers {
+    
+    ISMatchingQuestion* question = [[ISMatchingQuestion alloc] init];
+    
+    question.answers = answers;
+    
+    question.options = options;
+    
+    [question randomizeAnswers];
+    
+    return question;
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -89,6 +109,7 @@ static NSString * const _ISMatchingOptionKey = @"MatchingOption";
     {
         _options = [NSArray arrayWithArray:[aDecoder decodeObjectForKey:_ISMatchingOptionsKey]];
         _answers = [NSArray arrayWithArray:[aDecoder decodeObjectForKey:_ISMatchingAnswersKey]];
+        [self randomizeAnswers];
     }
     return self;
 }
@@ -98,6 +119,26 @@ static NSString * const _ISMatchingOptionKey = @"MatchingOption";
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:_options forKey:_ISMatchingOptionsKey];
     [aCoder encodeObject:_answers forKey:_ISMatchingAnswersKey];
+}
+
+-(void)randomizeAnswers {
+    
+    NSMutableArray* options = [NSMutableArray arrayWithArray:_answers];
+    
+    NSMutableArray* randomOptions = [NSMutableArray array];
+    
+    while (options.count > 0) {
+        
+        NSInteger randomNumber = arc4random() % options.count;
+        
+        id option = options[randomNumber];
+        
+        [randomOptions addObject:option];
+        
+        [options removeObject:option];
+    }
+    
+    _randomizedAnswers = [NSArray arrayWithArray:randomOptions];
 }
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response

@@ -50,4 +50,8 @@
 
 @property(nonatomic, strong) NSArray* answers;
 
+@property(nonatomic, strong) NSArray* randomizedAnswers;
+
++ (instancetype)questionWithOptions:(NSArray*)options answers:(NSArray*)answers;
+
 @end
