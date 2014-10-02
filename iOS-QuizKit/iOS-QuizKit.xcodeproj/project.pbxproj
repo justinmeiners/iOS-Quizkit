@@ -67,7 +67,6 @@
 /* Begin PBXFileReference section */
 		AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default_selectable_options.plist; sourceTree = "<group>"; };
 		AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice_multi_selection.plist; sourceTree = "<group>"; };
-		AA39312019D430F4005D8BA6 /* ISMultipleChoiceQuestion_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleChoiceQuestion_Private.h; sourceTree = "<group>"; };
 		AA3B077C195884BA005FF945 /* ISOpenQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOpenQuestionTests.m; sourceTree = "<group>"; };
 		AA3B077E195888D3005FF945 /* quiz_test_open.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_open.plist; sourceTree = "<group>"; };
 		AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice.plist; sourceTree = "<group>"; };
@@ -252,7 +251,6 @@
 				AAC1093318EC5554003ED169 /* ISSession.m */,
 				AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */,
 				AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */,
-				AA39312019D430F4005D8BA6 /* ISMultipleChoiceQuestion_Private.h */,
 				AAA555E91950425400237F8E /* ISMatchingQuestion.h */,
 				AAA555EA1950425400237F8E /* ISMatchingQuestion.m */,
 			);
