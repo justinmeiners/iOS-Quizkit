@@ -302,7 +302,7 @@
                 
                 ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
                 
-                multipleChoiceQuestion.selectableOptions = question.selectableOptions;
+                //multipleChoiceQuestion.selectableOptions = question.selectableOptions;
                 
                 NSInteger correctCount = 0;
                 
@@ -337,7 +337,7 @@
                     [multipleChoiceQuestion addOption:option];
                 }
                 
-                if(question.selectableOptions.integerValue == 0) {
+                if(multipleChoiceQuestion.selectableOptions.integerValue == 0) {
                     
                     multipleChoiceQuestion.selectableOptions = [NSNumber numberWithInteger:correctCount];
                 }
