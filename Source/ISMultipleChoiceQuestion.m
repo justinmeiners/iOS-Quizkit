@@ -199,7 +199,7 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
             _selectableOptions = [aDecoder decodeObjectForKey:_ISSelectableOptionsKey];
         } else {
             
-            _selectableOptions = @1;
+            _selectableOptions = @0;
         }
         
         [self randomizeOptions];
@@ -222,7 +222,7 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     {
         _options = [NSArray new];
         _correctOptions = [NSArray new];
-        _selectableOptions = @1;
+        _selectableOptions = @0;
     }
     return self;
 }
@@ -294,6 +294,10 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     
     ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
     
+    if (_selectableOptions.integerValue == 0) {
+        _selectableOptions = [NSNumber numberWithInteger: _correctOptions.count];
+    }
+    
     if(multipleChoiceResponse.answerIndexes.count < _selectableOptions.integerValue || multipleChoiceResponse.answerIndexes.count > _selectableOptions.integerValue ) {
         
         return NO;
@@ -329,6 +333,10 @@ static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
     if (![response isKindOfClass:[ISMultipleChoiceResponse class]])
     {
         return NO;
+    }
+    
+    if (_selectableOptions.integerValue == 0) {
+        _selectableOptions = [NSNumber numberWithInteger: _correctOptions.count];
     }
     
     ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
