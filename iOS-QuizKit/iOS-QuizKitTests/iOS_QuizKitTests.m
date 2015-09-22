@@ -247,7 +247,7 @@
     
     ISSession* session = [ISSession session];
     
-    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3,@6] , @[@0,@3] , @[@3,@6] ]];
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[ @[@3,@6] , @[@0,@3,@5] , @[@3,@6] ]];
     
     [session setResponse:response atIndex:0];
     

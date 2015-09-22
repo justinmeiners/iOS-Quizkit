@@ -15,9 +15,9 @@
 				</dict>
 				<dict>
 					<key>text</key>
-					<string>Second sentence and second answer.</string>
+					<string>Second sentence and second answer second correct.</string>
 					<key>correct</key>
-					<string>0 3</string>
+					<string>0 3 5</string>
 				</dict>
 				<dict>
 					<key>text</key>
@@ -33,7 +33,7 @@
 			<key>scoreValue</key>
 			<integer>3</integer>
 			<key>selectableOptions</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 	</array>
 </dict>

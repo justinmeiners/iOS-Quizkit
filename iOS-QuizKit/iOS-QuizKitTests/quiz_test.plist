@@ -72,6 +72,8 @@
 			</array>
 			<key>text</key>
 			<string>What is your favorite programming language?</string>
+			<key>selectableOptions</key>
+			<integer>1</integer>
 			<key>scoreValue</key>
 			<integer>2</integer>
 		</dict>

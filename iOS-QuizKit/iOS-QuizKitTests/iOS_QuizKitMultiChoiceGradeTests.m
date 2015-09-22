@@ -30,6 +30,8 @@
 {
     ISMultipleChoiceQuestion* question = [ISMultipleChoiceQuestion new];
     
+    question.selectableOptions = @1;
+    
     ISMultipleChoiceOption* option1 = [ISMultipleChoiceOption optionWithText:@"One" correct:YES];
     
     ISMultipleChoiceOption* option2 = [ISMultipleChoiceOption optionWithText:@"Two" correct:NO];
@@ -75,7 +77,7 @@
     
     [question addOptions:@[option1,option2]];
     
-    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0]];
+    ISMultipleChoiceResponse* response = [ISMultipleChoiceResponse responseWithIndexes:@[@0,@1]];
     
     BOOL correct = [question responseCorrect:response];
     
@@ -338,7 +340,7 @@
     
     for (ISMultipleChoiceOption* option in question.randomizedOptions) {
         
-        if([option.text isEqualToString:@"One"] || [option.text isEqualToString:@"Four"]) {
+        if([option.text isEqualToString:@"Two"] || [option.text isEqualToString:@"Four"]) {
             
             [indexes addObject:[NSNumber numberWithInt:[question.randomizedOptions indexOfObject: option]]];
         }
