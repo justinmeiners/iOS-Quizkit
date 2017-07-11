@@ -12,31 +12,24 @@ static NSString * const _ISQuestionsKey = @"questions";
 static NSString * const _ISTimeLimitKey = @"timeLimit";
 
 @implementation ISGradingResult
-@synthesize pointPercentage = _pointPercentage;
-@synthesize pointsPossible = _pointsPossible;
-@synthesize points = _points;
-@synthesize questionsCorrect = _questionsCorrect;
-@synthesize questionsPossible = _questionsPossible;
-@synthesize questionPercentage = _questionPercentage;
+
 @end
 
 
 @implementation ISQuiz
-@synthesize questions = _questions;
-@synthesize timeLimit = _timeLimit;
 
 + (ISGradingResult*)gradeSession:(ISSession*)session quiz:(ISQuiz*)quiz
 {
     int totalPoints = 0;
-    int totalQuestions = quiz.questions.count;
+    int totalQuestions = (int)quiz.questions.count;
     
     int correctQuestions = 0;
     int correctPoints = 0;
     
     for (int i = 0; i < totalQuestions; i ++)
     {
-        ISQuestion* question = [quiz.questions objectAtIndex:i];
-        ISQuestionResponse* response = [session.responses objectAtIndex:i];
+        ISQuestion* question = (quiz.questions)[i];
+        ISQuestionResponse* response = (session.responses)[i];
         
         BOOL correct = [question responseCorrect:response];
         
@@ -56,7 +49,7 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     result.questionsCorrect = correctQuestions;
     result.questionsPossible = totalQuestions;
     result.questionPercentage = (float)correctQuestions / (float)totalQuestions;
-    return [result autorelease];
+    return result;
 }
 
 - (id)init
@@ -69,11 +62,6 @@ static NSString * const _ISTimeLimitKey = @"timeLimit";
     return self;
 }
 
-- (void)dealloc
-{
-    [_questions release];
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)decoder
 {

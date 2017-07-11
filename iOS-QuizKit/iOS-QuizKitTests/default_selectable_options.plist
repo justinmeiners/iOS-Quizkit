@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>options</key>
+			<array>
+				<dict>
+					<key>correct</key>
+					<integer>1</integer>
+					<key>text</key>
+					<string>one</string>
+				</dict>
+				<dict>
+					<key>correct</key>
+					<integer>0</integer>
+					<key>text</key>
+					<string>two</string>
+				</dict>
+				<dict>
+					<key>correct</key>
+					<integer>1</integer>
+					<key>text</key>
+					<string>three</string>
+				</dict>
+			</array>
+			<key>ref</key>
+			<string>1</string>
+			<key>scoreValue</key>
+			<integer>0</integer>
+			<key>selectableOptions</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>select first and last option</string>
+			<key>type</key>
+			<string>multipleChoice</string>
+		</dict>
+		<dict>
+			<key>options</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>This is the first sentence.</string>
+					<key>correct</key>
+					<string>3</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Second sentence this is.</string>
+					<key>correct</key>
+					<string>0</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>This is the sentence Third.</string>
+					<key>correct</key>
+					<string>4</string>
+				</dict>
+			</array>
+			<key>type</key>
+			<string>multipleMultipleChoiceSentence</string>
+			<key>text</key>
+			<string>select the number word option in each question</string>
+			<key>scoreValue</key>
+			<integer>0</integer>
+			<key>selectableOptions</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

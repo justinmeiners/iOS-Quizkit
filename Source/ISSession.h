@@ -32,11 +32,16 @@
     NSTimer* _sessionTimer;
     ISQuiz* _currentQuiz;
 }
-@property(nonatomic, readonly)NSArray* responses;
-@property(nonatomic, retain)NSDictionary* userData;
+
+@property(nonatomic, strong) NSDate *startDate;
+@property(nonatomic, readonly)NSMutableArray* responses;
+@property(nonatomic, assign) NSTimeInterval time;
+@property(nonatomic, assign) NSTimeInterval bonusTime;
+@property(nonatomic, strong)NSDictionary* userData;
+@property(nonatomic, strong)NSTimer* sessionTimer;
 @property(nonatomic, readonly)BOOL inSession;
+@property(nonatomic, strong) ISQuiz* currentQuiz;
 @property(nonatomic, assign)id<ISSessionDelegate> delegate;
-@property(nonatomic, assign)NSTimeInterval bonusTime;
 
 + (ISSession*)session;
 

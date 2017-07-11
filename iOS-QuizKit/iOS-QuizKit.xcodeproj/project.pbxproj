@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA1A07DF1940912A00B53FA0 /* default_selectable_options.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */; };
+		AA1A07E31941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */; };
+		AA3B077D195884BA005FF945 /* ISOpenQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3B077C195884BA005FF945 /* ISOpenQuestionTests.m */; };
+		AA3B077F195888D3005FF945 /* quiz_test_open.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA3B077E195888D3005FF945 /* quiz_test_open.plist */; };
+		AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */; };
+		AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */; };
+		AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */; };
+		AA591A4F191399D3007A2113 /* iOS_QuizKitQuizParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */; };
+		AAA555EB1950425400237F8E /* ISMatchingQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555EA1950425400237F8E /* ISMatchingQuestion.m */; };
+		AAA555EC1950425400237F8E /* ISMatchingQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555EA1950425400237F8E /* ISMatchingQuestion.m */; };
+		AAA555EE1950427700237F8E /* ISMatchingQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */; };
+		AAA555F01951893700237F8E /* quiz_test_matching.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAA555EF1951893700237F8E /* quiz_test_matching.plist */; };
+		AAC108DA18EC5092003ED169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108D918EC5092003ED169 /* Foundation.framework */; };
+		AAC108DC18EC5092003ED169 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DB18EC5092003ED169 /* CoreGraphics.framework */; };
+		AAC108DE18EC5092003ED169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DD18EC5092003ED169 /* UIKit.framework */; };
+		AAC108E418EC5092003ED169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAC108E218EC5092003ED169 /* InfoPlist.strings */; };
+		AAC108E618EC5092003ED169 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC108E518EC5092003ED169 /* main.m */; };
+		AAC108EA18EC5092003ED169 /* ISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC108E918EC5092003ED169 /* ISAppDelegate.m */; };
+		AAC108EC18EC5092003ED169 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC108EB18EC5092003ED169 /* Images.xcassets */; };
+		AAC108F318EC5092003ED169 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108F218EC5092003ED169 /* XCTest.framework */; };
+		AAC108F418EC5092003ED169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108D918EC5092003ED169 /* Foundation.framework */; };
+		AAC108F518EC5092003ED169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC108DD18EC5092003ED169 /* UIKit.framework */; };
+		AAC108FD18EC5092003ED169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAC108FB18EC5092003ED169 /* InfoPlist.strings */; };
+		AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */; };
+		AAC1093618EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */; };
+		AAC1093718EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */; };
+		AAC1093818EC5554003ED169 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */; };
+		AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */; };
+		AAC1093A18EC5554003ED169 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092C18EC5554003ED169 /* ISQuestion.m */; };
+		AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092C18EC5554003ED169 /* ISQuestion.m */; };
+		AAC1093C18EC5554003ED169 /* ISQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092E18EC5554003ED169 /* ISQuiz.m */; };
+		AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1092E18EC5554003ED169 /* ISQuiz.m */; };
+		AAC1093E18EC5554003ED169 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093118EC5554003ED169 /* ISQuizParser.m */; };
+		AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093118EC5554003ED169 /* ISQuizParser.m */; };
+		AAC1094018EC5554003ED169 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093318EC5554003ED169 /* ISSession.m */; };
+		AAC1094118EC5554003ED169 /* ISSession.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093318EC5554003ED169 /* ISSession.m */; };
+		AAC1094218EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
+		AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */; };
+		AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAC1094618EC62F8003ED169 /* quiz_test.plist */; };
+		AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */; };
+		AAC9314219C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */; };
+		AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */ = {isa = PBXBuildFile; fileRef = AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */; };
+		AACA447719111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */; };
+		AACA447819111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */; };
+		AACA447A1911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AACA44791911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAC108F618EC5092003ED169 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAC108CE18EC5092003ED169 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAC108D518EC5092003ED169;
+			remoteInfo = "iOS-QuizKit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default_selectable_options.plist; sourceTree = "<group>"; };
+		AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice_multi_selection.plist; sourceTree = "<group>"; };
+		AA3B077C195884BA005FF945 /* ISOpenQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOpenQuestionTests.m; sourceTree = "<group>"; };
+		AA3B077E195888D3005FF945 /* quiz_test_open.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_open.plist; sourceTree = "<group>"; };
+		AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_sentence_multi_multi_choice.plist; sourceTree = "<group>"; };
+		AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_multi_choice.plist; sourceTree = "<group>"; };
+		AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multiple_multi_multi_choice.plist; sourceTree = "<group>"; };
+		AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitQuizParserTests.m; sourceTree = "<group>"; };
+		AA591A501913A3E9007A2113 /* ISMultipleMultipleChoiceQuestion+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ISMultipleMultipleChoiceQuestion+Private.h"; sourceTree = "<group>"; };
+		AAA555E91950425400237F8E /* ISMatchingQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMatchingQuestion.h; sourceTree = "<group>"; };
+		AAA555EA1950425400237F8E /* ISMatchingQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMatchingQuestion.m; sourceTree = "<group>"; };
+		AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMatchingQuestionTests.m; sourceTree = "<group>"; };
+		AAA555EF1951893700237F8E /* quiz_test_matching.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_matching.plist; sourceTree = "<group>"; };
+		AAC108D618EC5092003ED169 /* iOS-QuizKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-QuizKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC108D918EC5092003ED169 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AAC108DB18EC5092003ED169 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AAC108DD18EC5092003ED169 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AAC108E118EC5092003ED169 /* iOS-QuizKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-QuizKit-Info.plist"; sourceTree = "<group>"; };
+		AAC108E318EC5092003ED169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAC108E518EC5092003ED169 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAC108E718EC5092003ED169 /* iOS-QuizKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-QuizKit-Prefix.pch"; sourceTree = "<group>"; };
+		AAC108E818EC5092003ED169 /* ISAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISAppDelegate.h; sourceTree = "<group>"; };
+		AAC108E918EC5092003ED169 /* ISAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISAppDelegate.m; sourceTree = "<group>"; };
+		AAC108EB18EC5092003ED169 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AAC108F118EC5092003ED169 /* iOS-QuizKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-QuizKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC108F218EC5092003ED169 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AAC108FA18EC5092003ED169 /* iOS-QuizKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-QuizKitTests-Info.plist"; sourceTree = "<group>"; };
+		AAC108FC18EC5092003ED169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitTests.m; sourceTree = "<group>"; };
+		AAC1092718EC5554003ED169 /* ISMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleChoiceQuestion.h; sourceTree = "<group>"; };
+		AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestion.m; sourceTree = "<group>"; };
+		AAC1092918EC5554003ED169 /* ISOpenQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISOpenQuestion.h; sourceTree = "<group>"; };
+		AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISOpenQuestion.m; sourceTree = "<group>"; };
+		AAC1092B18EC5554003ED169 /* ISQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuestion.h; sourceTree = "<group>"; };
+		AAC1092C18EC5554003ED169 /* ISQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuestion.m; sourceTree = "<group>"; };
+		AAC1092D18EC5554003ED169 /* ISQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuiz.h; sourceTree = "<group>"; };
+		AAC1092E18EC5554003ED169 /* ISQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuiz.m; sourceTree = "<group>"; };
+		AAC1092F18EC5554003ED169 /* ISQuizKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizKit.h; sourceTree = "<group>"; };
+		AAC1093018EC5554003ED169 /* ISQuizParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISQuizParser.h; sourceTree = "<group>"; };
+		AAC1093118EC5554003ED169 /* ISQuizParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISQuizParser.m; sourceTree = "<group>"; };
+		AAC1093218EC5554003ED169 /* ISSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSession.h; sourceTree = "<group>"; };
+		AAC1093318EC5554003ED169 /* ISSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSession.m; sourceTree = "<group>"; };
+		AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTrueFalseQuestion.h; sourceTree = "<group>"; };
+		AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTrueFalseQuestion.m; sourceTree = "<group>"; };
+		AAC1094618EC62F8003ED169 /* quiz_test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test.plist; sourceTree = "<group>"; };
+		AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitMultiChoiceGradeTests.m; sourceTree = "<group>"; };
+		AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleChoiceQuestionTests.m; sourceTree = "<group>"; };
+		AAC9314319C2EC1500210CAD /* ISMultipleChoiceQuestion+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ISMultipleChoiceQuestion+Private.h"; sourceTree = "<group>"; };
+		AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quiz_test_multi_choice.plist; sourceTree = "<group>"; };
+		AACA447519111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMultipleMultipleChoiceQuestion.h; sourceTree = "<group>"; };
+		AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMultipleMultipleChoiceQuestion.m; sourceTree = "<group>"; };
+		AACA44791911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizKitMultipleMultipleChoiceTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAC108D318EC5092003ED169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC108DC18EC5092003ED169 /* CoreGraphics.framework in Frameworks */,
+				AAC108DE18EC5092003ED169 /* UIKit.framework in Frameworks */,
+				AAC108DA18EC5092003ED169 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC108EE18EC5092003ED169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC108F318EC5092003ED169 /* XCTest.framework in Frameworks */,
+				AAC108F518EC5092003ED169 /* UIKit.framework in Frameworks */,
+				AAC108F418EC5092003ED169 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAC108CD18EC5092003ED169 = {
+			isa = PBXGroup;
+			children = (
+				AAC1092618EC5554003ED169 /* Source */,
+				AAC108DF18EC5092003ED169 /* iOS-QuizKit */,
+				AAC108F818EC5092003ED169 /* iOS-QuizKitTests */,
+				AAC108D818EC5092003ED169 /* Frameworks */,
+				AAC108D718EC5092003ED169 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAC108D718EC5092003ED169 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAC108D618EC5092003ED169 /* iOS-QuizKit.app */,
+				AAC108F118EC5092003ED169 /* iOS-QuizKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAC108D818EC5092003ED169 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAC108D918EC5092003ED169 /* Foundation.framework */,
+				AAC108DB18EC5092003ED169 /* CoreGraphics.framework */,
+				AAC108DD18EC5092003ED169 /* UIKit.framework */,
+				AAC108F218EC5092003ED169 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAC108DF18EC5092003ED169 /* iOS-QuizKit */ = {
+			isa = PBXGroup;
+			children = (
+				AAC108E818EC5092003ED169 /* ISAppDelegate.h */,
+				AAC108E918EC5092003ED169 /* ISAppDelegate.m */,
+				AAC108EB18EC5092003ED169 /* Images.xcassets */,
+				AAC108E018EC5092003ED169 /* Supporting Files */,
+			);
+			path = "iOS-QuizKit";
+			sourceTree = "<group>";
+		};
+		AAC108E018EC5092003ED169 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAC108E118EC5092003ED169 /* iOS-QuizKit-Info.plist */,
+				AAC108E218EC5092003ED169 /* InfoPlist.strings */,
+				AAC108E518EC5092003ED169 /* main.m */,
+				AAC108E718EC5092003ED169 /* iOS-QuizKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAC108F818EC5092003ED169 /* iOS-QuizKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAC108FE18EC5092003ED169 /* iOS_QuizKitTests.m */,
+				AAC1094818EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m */,
+				AACA44791911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m */,
+				AA591A4E191399D3007A2113 /* iOS_QuizKitQuizParserTests.m */,
+				AAA555ED1950427700237F8E /* ISMatchingQuestionTests.m */,
+				AA3B077C195884BA005FF945 /* ISOpenQuestionTests.m */,
+				AAC9314119C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m */,
+				AAC108F918EC5092003ED169 /* Supporting Files */,
+			);
+			path = "iOS-QuizKitTests";
+			sourceTree = "<group>";
+		};
+		AAC108F918EC5092003ED169 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA3B077E195888D3005FF945 /* quiz_test_open.plist */,
+				AAA555EF1951893700237F8E /* quiz_test_matching.plist */,
+				AA1A07DE1940912A00B53FA0 /* default_selectable_options.plist */,
+				AA1A07E21941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist */,
+				AA5779291925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist */,
+				AA591A4C1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist */,
+				AA591A4819113BDC007A2113 /* quiz_test_multi_multi_choice.plist */,
+				AACA446A190FBDA800AD3704 /* quiz_test_multi_choice.plist */,
+				AAC1094618EC62F8003ED169 /* quiz_test.plist */,
+				AAC108FA18EC5092003ED169 /* iOS-QuizKitTests-Info.plist */,
+				AAC108FB18EC5092003ED169 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAC1092618EC5554003ED169 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AAC9314319C2EC1500210CAD /* ISMultipleChoiceQuestion+Private.h */,
+				AAC1092718EC5554003ED169 /* ISMultipleChoiceQuestion.h */,
+				AAC1092818EC5554003ED169 /* ISMultipleChoiceQuestion.m */,
+				AA591A501913A3E9007A2113 /* ISMultipleMultipleChoiceQuestion+Private.h */,
+				AACA447519111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.h */,
+				AACA447619111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m */,
+				AAC1092918EC5554003ED169 /* ISOpenQuestion.h */,
+				AAC1092A18EC5554003ED169 /* ISOpenQuestion.m */,
+				AAC1092B18EC5554003ED169 /* ISQuestion.h */,
+				AAC1092C18EC5554003ED169 /* ISQuestion.m */,
+				AAC1092D18EC5554003ED169 /* ISQuiz.h */,
+				AAC1092E18EC5554003ED169 /* ISQuiz.m */,
+				AAC1092F18EC5554003ED169 /* ISQuizKit.h */,
+				AAC1093018EC5554003ED169 /* ISQuizParser.h */,
+				AAC1093118EC5554003ED169 /* ISQuizParser.m */,
+				AAC1093218EC5554003ED169 /* ISSession.h */,
+				AAC1093318EC5554003ED169 /* ISSession.m */,
+				AAC1093418EC5554003ED169 /* ISTrueFalseQuestion.h */,
+				AAC1093518EC5554003ED169 /* ISTrueFalseQuestion.m */,
+				AAA555E91950425400237F8E /* ISMatchingQuestion.h */,
+				AAA555EA1950425400237F8E /* ISMatchingQuestion.m */,
+			);
+			name = Source;
+			path = ../Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAC108D518EC5092003ED169 /* iOS-QuizKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC1090218EC5092003ED169 /* Build configuration list for PBXNativeTarget "iOS-QuizKit" */;
+			buildPhases = (
+				AAC108D218EC5092003ED169 /* Sources */,
+				AAC108D318EC5092003ED169 /* Frameworks */,
+				AAC108D418EC5092003ED169 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-QuizKit";
+			productName = "iOS-QuizKit";
+			productReference = AAC108D618EC5092003ED169 /* iOS-QuizKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAC108F018EC5092003ED169 /* iOS-QuizKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC1090518EC5092003ED169 /* Build configuration list for PBXNativeTarget "iOS-QuizKitTests" */;
+			buildPhases = (
+				AAC108ED18EC5092003ED169 /* Sources */,
+				AAC108EE18EC5092003ED169 /* Frameworks */,
+				AAC108EF18EC5092003ED169 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAC108F718EC5092003ED169 /* PBXTargetDependency */,
+			);
+			name = "iOS-QuizKitTests";
+			productName = "iOS-QuizKitTests";
+			productReference = AAC108F118EC5092003ED169 /* iOS-QuizKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAC108CE18EC5092003ED169 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "inline-studios";
+				TargetAttributes = {
+					AAC108F018EC5092003ED169 = {
+						TestTargetID = AAC108D518EC5092003ED169;
+					};
+				};
+			};
+			buildConfigurationList = AAC108D118EC5092003ED169 /* Build configuration list for PBXProject "iOS-QuizKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AAC108CD18EC5092003ED169;
+			productRefGroup = AAC108D718EC5092003ED169 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAC108D518EC5092003ED169 /* iOS-QuizKit */,
+				AAC108F018EC5092003ED169 /* iOS-QuizKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAC108D418EC5092003ED169 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC108E418EC5092003ED169 /* InfoPlist.strings in Resources */,
+				AAC108EC18EC5092003ED169 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC108EF18EC5092003ED169 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA591A4D1912A0DD007A2113 /* quiz_test_multiple_multi_multi_choice.plist in Resources */,
+				AAC108FD18EC5092003ED169 /* InfoPlist.strings in Resources */,
+				AAC1094718EC62F8003ED169 /* quiz_test.plist in Resources */,
+				AA57792A1925179A005D4669 /* quiz_test_sentence_multi_multi_choice.plist in Resources */,
+				AA1A07DF1940912A00B53FA0 /* default_selectable_options.plist in Resources */,
+				AA591A4919113BDC007A2113 /* quiz_test_multi_multi_choice.plist in Resources */,
+				AA1A07E31941C60800B53FA0 /* quiz_test_sentence_multi_multi_choice_multi_selection.plist in Resources */,
+				AA3B077F195888D3005FF945 /* quiz_test_open.plist in Resources */,
+				AAA555F01951893700237F8E /* quiz_test_matching.plist in Resources */,
+				AACA446B190FBDA800AD3704 /* quiz_test_multi_choice.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC108D218EC5092003ED169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC1093C18EC5554003ED169 /* ISQuiz.m in Sources */,
+				AAA555EB1950425400237F8E /* ISMatchingQuestion.m in Sources */,
+				AAC1093618EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
+				AACA447719111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */,
+				AAC1093818EC5554003ED169 /* ISOpenQuestion.m in Sources */,
+				AAC108EA18EC5092003ED169 /* ISAppDelegate.m in Sources */,
+				AAC1093A18EC5554003ED169 /* ISQuestion.m in Sources */,
+				AAC1093E18EC5554003ED169 /* ISQuizParser.m in Sources */,
+				AAC1094218EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */,
+				AAC1094018EC5554003ED169 /* ISSession.m in Sources */,
+				AAC108E618EC5092003ED169 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC108ED18EC5092003ED169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA555EC1950425400237F8E /* ISMatchingQuestion.m in Sources */,
+				AAC1093718EC5554003ED169 /* ISMultipleChoiceQuestion.m in Sources */,
+				AAC108FF18EC5092003ED169 /* iOS_QuizKitTests.m in Sources */,
+				AACA447819111D0E00AD3704 /* ISMultipleMultipleChoiceQuestion.m in Sources */,
+				AACA447A1911206100AD3704 /* iOS_QuizKitMultipleMultipleChoiceTests.m in Sources */,
+				AAC1093D18EC5554003ED169 /* ISQuiz.m in Sources */,
+				AAC1093918EC5554003ED169 /* ISOpenQuestion.m in Sources */,
+				AAC1094918EC72D0003ED169 /* iOS_QuizKitMultiChoiceGradeTests.m in Sources */,
+				AAC9314219C2E9F700210CAD /* ISMultipleChoiceQuestionTests.m in Sources */,
+				AAC1093B18EC5554003ED169 /* ISQuestion.m in Sources */,
+				AAC1094118EC5554003ED169 /* ISSession.m in Sources */,
+				AAC1093F18EC5554003ED169 /* ISQuizParser.m in Sources */,
+				AAC1094318EC5554003ED169 /* ISTrueFalseQuestion.m in Sources */,
+				AAA555EE1950427700237F8E /* ISMatchingQuestionTests.m in Sources */,
+				AA591A4F191399D3007A2113 /* iOS_QuizKitQuizParserTests.m in Sources */,
+				AA3B077D195884BA005FF945 /* ISOpenQuestionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAC108F718EC5092003ED169 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAC108D518EC5092003ED169 /* iOS-QuizKit */;
+			targetProxy = AAC108F618EC5092003ED169 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAC108E218EC5092003ED169 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAC108E318EC5092003ED169 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AAC108FB18EC5092003ED169 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAC108FC18EC5092003ED169 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAC1090018EC5092003ED169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAC1090118EC5092003ED169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAC1090318EC5092003ED169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-QuizKit/iOS-QuizKit-Prefix.pch";
+				INFOPLIST_FILE = "iOS-QuizKit/iOS-QuizKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AAC1090418EC5092003ED169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-QuizKit/iOS-QuizKit-Prefix.pch";
+				INFOPLIST_FILE = "iOS-QuizKit/iOS-QuizKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AAC1090618EC5092003ED169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOS-QuizKit.app/iOS-QuizKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-QuizKit/iOS-QuizKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iOS-QuizKitTests/iOS-QuizKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AAC1090718EC5092003ED169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOS-QuizKit.app/iOS-QuizKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-QuizKit/iOS-QuizKit-Prefix.pch";
+				INFOPLIST_FILE = "iOS-QuizKitTests/iOS-QuizKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAC108D118EC5092003ED169 /* Build configuration list for PBXProject "iOS-QuizKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC1090018EC5092003ED169 /* Debug */,
+				AAC1090118EC5092003ED169 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC1090218EC5092003ED169 /* Build configuration list for PBXNativeTarget "iOS-QuizKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC1090318EC5092003ED169 /* Debug */,
+				AAC1090418EC5092003ED169 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC1090518EC5092003ED169 /* Build configuration list for PBXNativeTarget "iOS-QuizKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC1090618EC5092003ED169 /* Debug */,
+				AAC1090718EC5092003ED169 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAC108CE18EC5092003ED169 /* Project object */;
+}

@@ -4,19 +4,19 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "ISQuizKit.h"
-#import "QuizController.h"
+#import "BaseQuestionViewController.h"
 
-@interface OpenQuestionViewController : UIViewController <UITextFieldDelegate>
+@interface OpenQuestionViewController : BaseQuestionViewController <UITextFieldDelegate>
 {
-    IBOutlet UITextView* _questionTextView;
-    IBOutlet UITextField* _responseField;
     ISOpenQuestion* _question;
-    id <QuizController> _controller;
+    ISOpenQuestionResponse* _response;
 }
+@property (weak, nonatomic) IBOutlet UITextView *questionText;
+@property (weak, nonatomic) IBOutlet UITextField *responseField;
 
 - (id)initWithOpenQuestion:(ISOpenQuestion*)question
                   response:(ISOpenQuestionResponse*)response
-                controller:(id <QuizController>)controller;
+                controller:(id <QuizController>)controller
+             responceGiven:(ISQuestionResponseWasGiven)responceGiven;
 
 @end

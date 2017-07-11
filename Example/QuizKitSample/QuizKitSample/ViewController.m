@@ -30,10 +30,10 @@
 
 - (IBAction)startQuiz:(id)sender
 {
-    _quiz = [[ISQuizParser quizNamed:@"programming.plist"] retain];
+    _quiz = [ISQuizParser quizNamed:@"programming.plist"];
     
     _scoreLabel.text = @"";
-
+    
     _session = [[ISSession alloc] init];
     [_session start:_quiz];
     
@@ -60,31 +60,41 @@
         return;
     }
     
-    ISQuestion* question = [_quiz.questions objectAtIndex:_questionIndex];
+    ISQuestion* question = (_quiz.questions)[_questionIndex];
+    
+    int questionIndex = _questionIndex;
     
     if ([question isKindOfClass:[ISOpenQuestion class]])
     {
+       
         OpenQuestionViewController* controller = [[OpenQuestionViewController alloc] initWithOpenQuestion:(ISOpenQuestion*)question
-                                                                                                 response:NULL
-                                                                                               controller:self];
+                                                                                                 response:nil
+                                                                                               controller:self
+                                                                                            responceGiven:^(ISQuestionResponse *response) {
+            [_session setResponse:response atIndex:questionIndex];
+        }];
+                                                  
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     else if ([question isKindOfClass:[ISMultipleChoiceQuestion class]])
     {
         MultipleChoiceViewController* controller = [[MultipleChoiceViewController alloc] initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
                                                                                                                response:NULL
-                                                                                                             controller:self];
+                                                                                                             controller:self
+                                                                                                          responceGiven:^(ISQuestionResponse *response) {
+                                                                                                                 [_session setResponse:response atIndex:questionIndex];
+                                                                                                             }];
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     else if ([question isKindOfClass:[ISTrueFalseQuestion class]])
     {
         TrueFalseViewController* controller = [[TrueFalseViewController alloc] initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                                                                                                 response:NULL
-                                                                                              controller:self];
+                                                                                              controller:self
+                                                                                           responceGiven:^(ISQuestionResponse *response) {
+                                                                                                  [_session setResponse:response atIndex:questionIndex];
+                                                                                              }];
         [self.navigationController pushViewController:controller animated:true];
-        [controller release];
     }
     
     _questionIndex += 1;

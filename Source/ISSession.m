@@ -12,15 +12,10 @@ static NSString * const _ISTimeKey = @"time";
 static NSString * const _ISBonusTimeKey = @"bonusTime";
 
 @implementation ISSession
-@synthesize responses = _responses;
-@synthesize userData = _userData;
-@synthesize inSession = _inSession;
-@synthesize delegate = _delegate;
-@synthesize bonusTime = _bonusTime;
 
 + (ISSession*)session
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -55,11 +50,6 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
     return self;
 }
 
-- (void)dealloc
-{
-    [_responses release];
-    [super dealloc];
-}
 
 - (BOOL)start:(ISQuiz*)quiz
 {
@@ -69,7 +59,7 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
         return NO;
     }
     
-    _currentQuiz = [quiz retain];
+    _currentQuiz = quiz;
     
     if (_responses.count == 0)
     {
@@ -77,7 +67,6 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
         {
             ISEmptyQuestionResponse* emptyResponse = [[ISEmptyQuestionResponse alloc] init];
             [_responses addObject:emptyResponse];
-            [emptyResponse release];
         }
         
         _time = 0.0;
@@ -91,12 +80,12 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
         }
     }
     
-    _sessionTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+    _sessionTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                      target:self
                                                    selector:@selector(tick:)
-                                                   userInfo:nil repeats:YES] retain];
+                                                   userInfo:nil repeats:YES];
     
-    _startDate = [[NSDate date] retain];    
+    self.startDate = [NSDate date];
 
     _inSession = true;
     
@@ -141,14 +130,12 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
     }
     
     [_sessionTimer invalidate];
-    [_sessionTimer release];
     _sessionTimer = NULL;
         
     _time = [[NSDate date] timeIntervalSinceDate:_startDate];
     
     _inSession = false;
     
-    [_currentQuiz release];
     _currentQuiz = NULL;
     
     if (_delegate && [_delegate respondsToSelector:@selector(sessionStopped:)])
@@ -160,12 +147,12 @@ static NSString * const _ISBonusTimeKey = @"bonusTime";
 - (void)setResponse:(ISQuestionResponse*)response
             atIndex:(int)index
 {
-    [_responses replaceObjectAtIndex:index withObject:response];
+    _responses[index] = response;
 }
 
 - (void)clearResponseAtIndex:(int)index
 {
-    [_responses replaceObjectAtIndex:index withObject:[ISEmptyQuestionResponse emptyResponse]];
+    _responses[index] = [ISEmptyQuestionResponse emptyResponse];
 }
 
 - (NSTimeInterval)time

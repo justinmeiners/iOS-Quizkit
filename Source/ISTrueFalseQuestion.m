@@ -11,11 +11,10 @@ static NSString * const _ISAnswerKey = @"answer";
 static NSString * const _ISResponseKey = @"response";
 
 @implementation ISTrueFalseResponse
-@synthesize response = _response;
 
 + (ISTrueFalseResponse*)responseWithResponse:(BOOL)response
 {
-    return [[[self alloc] initWithResponse:response] autorelease];
+    return [[self alloc] initWithResponse:response];
 }
 
 - (id)initWithResponse:(BOOL)response
@@ -64,10 +63,6 @@ static NSString * const _ISResponseKey = @"response";
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

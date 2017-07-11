@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>NSObject</string>
+			<key>matchMode</key>
+			<string>caseSensitive</string>
+			<key>text</key>
+			<string>What is the base class of most objects in Foundation Objective-C projects?</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>gcd</string>
+			<key>matchMode</key>
+			<string>exact</string>
+			<key>text</key>
+			<string>What is the name of Apple&apos;s C threading API for Mac and iOS?</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>NSOBJECT</string>
+			<key>matchMode</key>
+			<string>close</string>
+			<key>text</key>
+			<string>What is your</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answers</key>
+			<array>
+				<string>two</string>
+				<string>one</string>
+			</array>
+			<key>matchMode</key>
+			<string>contains</string>
+			<key>text</key>
+			<string>type the words for 1 and 2</string>
+			<key>scoreValue</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

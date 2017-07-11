@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>NSObject</string>
+			<key>matchMode</key>
+			<string>caseSensitive</string>
+			<key>text</key>
+			<string>What is the base class of most objects in Foundation Objective-C projects?</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>gcd</string>
+			<key>matchMode</key>
+			<string>exact</string>
+			<key>text</key>
+			<string>What is the name of Apple&apos;s C threading API for Mac and iOS?</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>open</string>
+			<key>answer</key>
+			<string>NSOBJECT</string>
+			<key>matchMode</key>
+			<string>close</string>
+			<key>text</key>
+			<string>What is your</string>
+			<key>scoreValue</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>multipleChoice</string>
+			<key>options</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>C</string>
+					<key>correct</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>C++</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Java</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Ruby</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>Objective-C</string>
+					<key>correct</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+			<key>text</key>
+			<string>What is your favorite programming language?</string>
+			<key>selectableOptions</key>
+			<integer>1</integer>
+			<key>scoreValue</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>trueFalse</string>
+			<key>text</key>
+			<string>Is Xcode slow?</string>
+			<key>answer</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

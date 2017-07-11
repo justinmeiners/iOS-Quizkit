@@ -1,12 +1,20 @@
 iOS-Quizkit
 ===========
 
+A fork of [iOS-Quizkit](https://github.com/narpas/iOS-Quizkit) to further develop the project:
+- intending to add unit tests with travis integration
+- new question types
+- base view controllers for question types
+- hopefully a pull request back to the iOS-QuizKit repo or separate cocoa pod
+
+* Have added scoring to the demo project and will continue to develop as View Controllers are added.
+
+[![Build Status](https://travis-ci.org/LostStudent/iOS-Quizkit.svg?branch=master)](https://travis-ci.org/LostStudent/iOS-Quizkit)
+
 iOS-Quizkit is an Objective-C API for creating applications with quiz and test features. 
 For flexibility, the API focuses completely on the model layer and makes no attempt to offer a UI solution.
 
 Included is a quick sample app with the library integrated. It provides an example of how the API might be integrated into an application.
-
-**Note**: The sample app is not complete and does not work as expected :) 
 
 Features:
 - Multiple choice questions

@@ -6,16 +6,20 @@
 #import <UIKit/UIKit.h>
 #import "ISQuizKit.h"
 #import "QuizController.h"
+#import "BaseQuestionViewController.h"
 
-@interface TrueFalseViewController : UIViewController
+@interface TrueFalseViewController : BaseQuestionViewController
 {
-    IBOutlet UITextView* _questionTextView;
     ISTrueFalseQuestion* _question;
-    id <QuizController> _controller;
+    ISTrueFalseResponse* _response;
 }
+@property (weak, nonatomic) IBOutlet UITextView *questionText;
+@property (weak, nonatomic) IBOutlet UISwitch *answerSwitch;
 
 - (id)initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                        response:(ISTrueFalseResponse*)response
-                     controller:(id <QuizController>)controller;
+                     controller:(id <QuizController>)controller
+                  responceGiven:(ISQuestionResponseWasGiven)responceGiven;
+
 
 @end

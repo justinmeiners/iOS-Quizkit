@@ -7,6 +7,8 @@
 
 @interface OpenQuestionViewController ()
 
+- (void)scoreAndProgress;
+
 @end
 
 @implementation OpenQuestionViewController
@@ -14,11 +16,13 @@
 - (id)initWithOpenQuestion:(ISOpenQuestion*)question
                   response:(ISOpenQuestionResponse*)response
                 controller:(id <QuizController>)controller
+             responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {
-    if (self = [super initWithNibName:@"OpenQuestionViewController" bundle:NULL])
+
+    if (self = [super initWithController:controller responceGivenBlock:responceGiven])
     {
         _question = question;
-        _controller = controller;
+        _response = response;
     }
     return self;
 }
@@ -26,12 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _questionTextView.text = _question.text;
+    _questionText.text = _question.text;
     _responseField.delegate = self;
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -45,19 +48,30 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [_controller nextQuestion];
+    [self scoreAndProgress];
     return true;
 }
 
 - (void)next:(id)sender
 {
-    [_controller nextQuestion];
+    [self scoreAndProgress];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scoreAndProgress {
+    
+    if(_response) {
+        _response.response = _responseField.text;
+    } else {
+        _response = [ISOpenQuestionResponse responseWithResponse:_responseField.text];
+    }
+    
+    [super scoreAndProgressWithResponse:_response];
 }
 
 @end

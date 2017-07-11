@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAC1084018EAF250003ED169 /* BaseQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC1083F18EAF250003ED169 /* BaseQuestionViewController.m */; };
 		F4B5D4A916D52131009E8CF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4A816D52131009E8CF9 /* UIKit.framework */; };
 		F4B5D4AB16D52131009E8CF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4AA16D52131009E8CF9 /* Foundation.framework */; };
 		F4B5D4AD16D52131009E8CF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B5D4AC16D52131009E8CF9 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AAC1083E18EAF250003ED169 /* BaseQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseQuestionViewController.h; sourceTree = "<group>"; };
+		AAC1083F18EAF250003ED169 /* BaseQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseQuestionViewController.m; sourceTree = "<group>"; };
 		F4B5D4A516D52131009E8CF9 /* QuizKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B5D4A816D52131009E8CF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4B5D4AA16D52131009E8CF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +133,8 @@
 				F4B5D4C016D52132009E8CF9 /* ViewController.h */,
 				F4B5D4C116D52132009E8CF9 /* ViewController.m */,
 				F4B5D4C316D52132009E8CF9 /* ViewController.xib */,
+				AAC1083E18EAF250003ED169 /* BaseQuestionViewController.h */,
+				AAC1083F18EAF250003ED169 /* BaseQuestionViewController.m */,
 				F4B5D4E816D53C7A009E8CF9 /* OpenQuestionViewController.h */,
 				F4B5D4E916D53C7A009E8CF9 /* OpenQuestionViewController.m */,
 				F4B5D4EA16D53C7B009E8CF9 /* OpenQuestionViewController.xib */,
@@ -263,6 +268,7 @@
 				F4B5D4B516D52131009E8CF9 /* main.m in Sources */,
 				F4B5D4B916D52132009E8CF9 /* AppDelegate.m in Sources */,
 				F4B5D4C216D52132009E8CF9 /* ViewController.m in Sources */,
+				AAC1084018EAF250003ED169 /* BaseQuestionViewController.m in Sources */,
 				F4B5D4DE16D52154009E8CF9 /* ISMultipleChoiceQuestion.m in Sources */,
 				F4B5D4DF16D52154009E8CF9 /* ISOpenQuestion.m in Sources */,
 				F4B5D4E016D52154009E8CF9 /* ISQuestion.m in Sources */,
@@ -355,6 +361,7 @@
 		F4B5D4C916D52132009E8CF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
 				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";
@@ -366,6 +373,7 @@
 		F4B5D4CA16D52132009E8CF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuizKitSample/QuizKitSample-Prefix.pch";
 				INFOPLIST_FILE = "QuizKitSample/QuizKitSample-Info.plist";

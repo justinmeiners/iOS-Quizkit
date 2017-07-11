@@ -6,6 +6,8 @@
 
 @interface TrueFalseViewController ()
 
+- (void)scoreAndProgress;
+
 @end
 
 @implementation TrueFalseViewController
@@ -13,11 +15,13 @@
 - (id)initWithTrueFalseQuestion:(ISTrueFalseQuestion*)question
                        response:(ISTrueFalseResponse*)response
                      controller:(id <QuizController>)controller
+                  responceGiven:(ISQuestionResponseWasGiven)responceGiven
 {
-    if (self = [super initWithNibName:@"TrueFalseViewController" bundle:NULL])
+    
+    if (self = [super initWithController:controller responceGivenBlock:responceGiven])
     {
         _question = question;
-        _controller = controller;
+        _response = response;
     }
     return self;
 }
@@ -25,22 +29,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _questionTextView.text = _question.text;
+    _questionText.text = _question.text;
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
 }
 
 - (void)next:(id)sender
 {
-    [_controller nextQuestion];
+    [self scoreAndProgress];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scoreAndProgress {
+    
+    if(_response) {
+        _response.response = _answerSwitch.isOn;
+    } else {
+        _response = [ISTrueFalseResponse responseWithResponse:_answerSwitch.isOn];
+    }
+    
+    [super scoreAndProgressWithResponse:_response];
 }
 
 @end

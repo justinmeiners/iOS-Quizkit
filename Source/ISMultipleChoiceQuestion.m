@@ -6,26 +6,46 @@
  */
 
 #import "ISMultipleChoiceQuestion.h"
+#import "ISMultipleChoiceQuestion+Private.h"
 
-static NSString * const _ISTextKey = @"text";
 static NSString * const _ISUserDataKey = @"userData";
 static NSString * const _ISCorrectKey = @"correct";
 static NSString * const _ISOptionsKey = @"options";
 static NSString * const _ISAnswerIndexKey = @"answerIndex";
+static NSString * const _ISAnswerIndexesKey = @"answerIndexes";
+static NSString * const _ISSelectableOptionsKey = @"selectableOptions";
 
 @implementation ISMultipleChoiceResponse
-@synthesize answerIndex = _answerIndex;
+
+-(int)answerIndex {
+    
+    if(_answerIndexes.count > 0) {
+        
+        NSNumber* answerIndex = _answerIndexes[0];
+        
+        return answerIndex.intValue;
+        
+    } else {
+        
+        return -1;
+    }
+}
 
 + (ISMultipleChoiceResponse*)responseWithAnswerIndex:(int)answerIndex
 {
-    return [[[self alloc] initWithAnswerIndex:answerIndex] autorelease];
+    return [[self alloc] initWithAnswerIndexes:@[[NSNumber numberWithInt: answerIndex]]];
+}
+
++ (ISMultipleChoiceResponse*)responseWithAnswerIndexes:(NSArray*)answerIndexes
+{
+    return [[self alloc] initWithAnswerIndexes:answerIndexes];
 }
 
 - (id)init
 {
     if (self = [super init])
     {
-        _answerIndex = -1;
+        _answerIndexes = @[];
     }
     return self;
 }
@@ -34,7 +54,16 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     if (self = [super init])
     {
-        _answerIndex = answerIndex;
+        _answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+    }
+    return self;
+}
+
+- (id)initWithAnswerIndexes:(NSArray*)answerIndexes
+{
+    if (self = [super init])
+    {
+        _answerIndexes = answerIndexes;
     }
     return self;
 }
@@ -43,7 +72,17 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        self.answerIndex = [aDecoder decodeIntForKey:_ISAnswerIndexKey];
+        if([aDecoder decodeIntForKey:_ISAnswerIndexKey]) {
+        
+            int answerIndex = [aDecoder decodeIntForKey:_ISAnswerIndexKey];
+        
+            self.answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+            
+        } else {
+        
+            self.answerIndexes = [aDecoder decodeObjectForKey:_ISAnswerIndexesKey];
+            
+        }
     }
     return self;
 }
@@ -51,28 +90,40 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [super encodeWithCoder:aCoder];
-    [aCoder encodeInt:_answerIndex forKey:_ISAnswerIndexKey];
+    [aCoder encodeObject:_answerIndexes forKey:_ISAnswerIndexesKey];
 }
 
 - (id)initWithIndex:(int)answerIndex
 {
     if (self = [super init])
     {
-        _answerIndex = answerIndex;
+        _answerIndexes = @[[NSNumber numberWithInt: answerIndex]];
+    }
+    return self;
+}
+
+- (id)initWithIndexes:(NSArray*)answerIndexes
+{
+    if (self = [super init])
+    {
+        _answerIndexes = answerIndexes;
     }
     return self;
 }
 
 + (ISMultipleChoiceResponse*)responseWithIndex:(int)index
 {
-    return [[[self alloc] initWithIndex:index] autorelease];
+    return [[ISMultipleChoiceResponse alloc] initWithIndexes: @[[NSNumber numberWithInt: index]]];
 }
+
++ (ISMultipleChoiceResponse*)responseWithIndexes:(NSArray*)indexes
+{
+    return [[ISMultipleChoiceResponse alloc] initWithIndexes:indexes];
+}
+
 @end
 
 @implementation ISMultipleChoiceOption
-@synthesize text = _text;
-@synthesize correct = _correct;
-@synthesize userData = _userData;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -118,12 +169,6 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
     return self;
 }
 
-- (void)dealloc
-{
-    self.text = nil;
-    self.userData = nil;
-    [super dealloc];
-}
 
 - (NSString*)description
 {
@@ -134,20 +179,31 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 
 + (ISMultipleChoiceOption*)optionWithText:(NSString*)text correct:(BOOL)correct
 {
-    return [[[ISMultipleChoiceOption alloc] initWithText:text correct:correct] autorelease];
+    return [[ISMultipleChoiceOption alloc] initWithText:text correct:correct];
 }
 
 @end
 
 @implementation ISMultipleChoiceQuestion
-@synthesize options = _options;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder])
     {
-        _options = [[NSMutableArray alloc] init];
-        [_options addObjectsFromArray:[aDecoder decodeObjectForKey:_ISOptionsKey]];
+        _options = [NSArray arrayWithArray:[aDecoder decodeObjectForKey:_ISOptionsKey]];
+        
+        _correctOptions = [self calculateCorrectFromOptions:_options];
+        
+        if([aDecoder decodeObjectForKey:_ISSelectableOptionsKey]) {
+            
+            _selectableOptions = [aDecoder decodeObjectForKey:_ISSelectableOptionsKey];
+        } else {
+            
+            _selectableOptions = @0;
+        }
+        
+        [self randomizeOptions];
+        
     }
     return self;
 }
@@ -156,6 +212,7 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:_options forKey:_ISOptionsKey];
+    [aCoder encodeObject:_selectableOptions forKey:_ISSelectableOptionsKey];
 }
 
 
@@ -163,36 +220,69 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
 {
     if (self = [super init])
     {
-        _options = [[NSMutableArray alloc] init];
+        _options = [NSArray new];
+        _correctOptions = [NSArray new];
+        _selectableOptions = @0;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [_options release];
-    [super dealloc];
-}
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, option count: %i>",
-            NSStringFromClass([self class]), self, _options.count];
+    return [NSString stringWithFormat:@"<%@: %p, option count: %lu>",
+            NSStringFromClass([self class]), self, (unsigned long)_options.count];
 }
 
 - (void)addOption:(ISMultipleChoiceOption*)option
 {
-    [_options addObject:option];
+    _options = [_options arrayByAddingObject:option];
+    
+    _correctOptions = [self calculateCorrectFromOptions:_options];
+    
+    [self randomizeOptions];
 }
 
 - (void)addOptions:(NSArray*)options
 {
-    [_options addObjectsFromArray:options];
+    _options = [_options arrayByAddingObjectsFromArray:options];
+    
+    _correctOptions = [self calculateCorrectFromOptions:_options];
+    
+    [self randomizeOptions];
 }
 
 - (void)removeAllOptions
 {
-    [_options removeAllObjects];
+    _options = @[];
+    
+    _correctOptions = @[];
+}
+
+-(void)randomizeOptions {
+    
+    NSMutableArray* options = [NSMutableArray arrayWithArray:_options];
+    
+    NSMutableArray* randomOptions = [NSMutableArray array];
+    
+    NSMutableArray* randomizedMap = [NSMutableArray array];
+    
+    while (options.count > 0) {
+        
+        NSInteger randomNumber = arc4random() % options.count;
+        
+        id option = options[randomNumber];
+        
+        [randomOptions addObject:option];
+        
+        [randomizedMap addObject:[NSNumber numberWithInteger:[_options indexOfObject:option]]];
+        
+        [options removeObject:option];
+    }
+    
+    _randomizedIndexesMap = [NSArray arrayWithArray:randomizedMap];
+    
+    _randomizedOptions = [NSArray arrayWithArray:randomOptions];
 }
 
 - (BOOL)responseCorrect:(ISQuestionResponse*)response
@@ -202,17 +292,85 @@ static NSString * const _ISAnswerIndexKey = @"answerIndex";
         return NO;
     }
     
-    ISMultipleChoiceResponse* casted = (ISMultipleChoiceResponse*)response;
+    ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
     
-    int index = [casted answerIndex];
+    if (_selectableOptions.integerValue == 0) {
+        _selectableOptions = [NSNumber numberWithInteger: _correctOptions.count];
+    }
     
-    if (index < 0 || index > _options.count)
+    if(multipleChoiceResponse.answerIndexes.count < _selectableOptions.integerValue || multipleChoiceResponse.answerIndexes.count > _selectableOptions.integerValue ) {
+        
+        return NO;
+    }
+    
+    BOOL correct = YES;
+    
+    for (NSNumber *indexNumber in multipleChoiceResponse.answerIndexes) {
+        
+        int index = indexNumber.intValue;
+        
+        if (index < 0 || index > _options.count)
+        {
+            correct = NO;
+            break;
+        }
+        
+        ISMultipleChoiceOption* option = _options[index];
+        
+        if(!option.correct) {
+            
+            correct = NO;
+            break;
+        }
+    }
+    
+    return correct;
+}
+
+- (BOOL)responseCorrectForRandomizedOptions:(ISQuestionResponse*)response {
+    
+    
+    if (![response isKindOfClass:[ISMultipleChoiceResponse class]])
     {
         return NO;
     }
     
-    ISMultipleChoiceOption* option = [_options objectAtIndex:index];
-    return option.correct;
+    if (_selectableOptions.integerValue == 0) {
+        _selectableOptions = [NSNumber numberWithInteger: _correctOptions.count];
+    }
+    
+    ISMultipleChoiceResponse* multipleChoiceResponse = (ISMultipleChoiceResponse*)response;
+    
+    if(multipleChoiceResponse.answerIndexes.count < _selectableOptions.integerValue || multipleChoiceResponse.answerIndexes.count > _selectableOptions.integerValue ) {
+        
+        return NO;
+    }
+    
+    NSMutableArray* options = [NSMutableArray array];
+    
+    for (NSNumber *indexNumber in multipleChoiceResponse.answerIndexes) {
+        
+        NSNumber* origialIndex = _randomizedIndexesMap[indexNumber.integerValue];
+        
+        [options addObject:origialIndex];
+    }
+    
+    return [self responseCorrect:[ISMultipleChoiceResponse responseWithAnswerIndexes:options]];
+    
+}
+
+-(NSArray*)calculateCorrectFromOptions:(NSArray*)options {
+    
+    NSMutableArray* array = [NSMutableArray array];
+    
+    for (ISMultipleChoiceOption* option in options) {
+        if(option.correct) {
+        
+            [array addObject:option];
+        }
+    }
+    
+    return [NSArray arrayWithArray:array];
 }
 
 

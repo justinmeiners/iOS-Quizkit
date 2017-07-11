@@ -7,8 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const _ISTextKey;
+
 @interface ISQuestionResponse : NSObject <NSCoding>
-@property(nonatomic, retain)NSDictionary* userData;
+@property(nonatomic, strong)NSDictionary* userData;
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;
@@ -23,8 +25,12 @@
 
 @interface ISQuestion : NSObject <NSCoding>
 @property(nonatomic, copy)NSString* text;
-@property(nonatomic, retain)NSDictionary* userData;
+@property(nonatomic, strong)NSDictionary* userData;
 @property(nonatomic, assign)int scoreValue;
+@property(nonatomic, strong) NSString* questionType;
+@property(nonatomic, strong) NSString* questionSubType;
+@property(nonatomic, strong)NSString* supplementaryText;
+
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 - (void)encodeWithCoder:(NSCoder *)aCoder;

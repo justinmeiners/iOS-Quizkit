@@ -6,18 +6,20 @@
 #import <UIKit/UIKit.h>
 #import "ISQuizKit.h"
 #import "QuizController.h"
+#import "BaseQuestionViewController.h"
 
-@interface MultipleChoiceViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface MultipleChoiceViewController : BaseQuestionViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 {
     IBOutlet UITextView* _questionTextView;
     IBOutlet UIPickerView* _pickerView;
     ISMultipleChoiceQuestion* _question;
-    id <QuizController> _controller;
+    ISMultipleChoiceResponse* _response;
 }
 
 - (id)initWithMultipleChoiceQuestion:(ISMultipleChoiceQuestion*)question
                             response:(ISMultipleChoiceOption*)response
-                          controller:(id <QuizController>)controller;
+                          controller:(id <QuizController>)controller
+                       responceGiven:(ISQuestionResponseWasGiven)responceGiven;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 

@@ -9,13 +9,15 @@
 #import "ISOpenQuestion.h"
 #import "ISMultipleChoiceQuestion.h"
 #import "ISTrueFalseQuestion.h"
-
+#import "ISMultipleMultipleChoiceQuestion.h"
+#import "ISMatchingQuestion.h"
 @implementation ISQuizParser
 
 + (ISQuiz*)quizNamed:(NSString*)name
 {
     NSString* extension = [[name pathExtension] lowercaseString];
-    NSString* fullpath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString* fullpath = [bundle pathForResource:name ofType:nil];
     
     if ([extension isEqualToString:@"plist"])
     {
@@ -54,8 +56,8 @@
 + (ISQuiz*)quizFromContentsOfPlist:(NSString*)file
 {
     NSDictionary* plist = [[NSDictionary alloc] initWithContentsOfFile:file];
-
-    return [self quizFromDictionary:[plist autorelease]];
+    
+    return [self quizFromDictionary:plist];
 }
 
 + (ISQuiz*)quizFromContentsOfJSON:(NSString*)jsonFile
@@ -94,7 +96,7 @@
 
 + (ISQuiz*)quizFromDictionary:(NSDictionary*)dictionary
 {
-    NSArray* questions = [dictionary objectForKey:kISQuestionsKey];
+    NSArray* questions = dictionary[kISQuestionsKey];
     
     if (![self verify:questions class:[NSArray class]])
     {
@@ -106,7 +108,7 @@
     
     for (NSDictionary* questionDict in questions)
     {
-        NSString* type = [questionDict objectForKey:kISTypeKey];
+        NSString* type = questionDict[kISTypeKey];
         
         ISQuestion* newQuestion = nil;
         
@@ -114,23 +116,23 @@
         {
             ISOpenQuestion* question = [[ISOpenQuestion alloc] init];
             
-            if ([questionDict objectForKey:kISAnswerKey])
+            question.options = questionDict[kISOptionsKey];
+            
+            if (questionDict[kISAnswerKey])
             {
-                [question addAnswer:[questionDict objectForKey:kISAnswerKey]];
+                [question addAnswer:questionDict[kISAnswerKey]];
             }
-            else if ([questionDict objectForKey:kISAnswersKey])
+            else if (questionDict[kISAnswersKey])
             {
-                [question addAnswers:[questionDict objectForKey:kISAnswersKey]];
+                [question addAnswers:questionDict[kISAnswersKey]];
             }
-            else
+            else // if contain options parse to answers
             {
-                [quiz release];
-                [question release];
                 NSLog(@"missing question answer");
                 return nil;
             }
             
-            NSString* matchMode = [questionDict objectForKey:kISMatchModeKey];
+            NSString* matchMode = questionDict[kISMatchModeKey];
             
             if (matchMode)
             {
@@ -146,6 +148,10 @@
                 {
                     question.matchMode = kISOpenQuestionMatchModeCaseSensitive;
                 }
+                else if ([matchMode isEqualToString:@"contains"])
+                {
+                    question.matchMode = kISOpenQuestionContainsAll;
+                }
                 else
                 {
                     NSLog(@"unknown match mode: %@", matchMode);
@@ -153,32 +159,41 @@
                 }
             }
             
-            [quiz addQuestion:question];
-            [question release];
-            
             newQuestion = question;
         }
         else if ([type isEqualToString:kISQuestionTypeMultipleChoice])
         {
             ISMultipleChoiceQuestion* question = [[ISMultipleChoiceQuestion alloc] init];
         
-            NSArray* options = [questionDict objectForKey:kISOptionsKey];
+            if(questionDict[kISSelectableOptionsKey]) {
+            
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
+            NSArray* options = questionDict[kISOptionsKey];
             
             if (![self verify:options class:[NSArray class]])
             {
-                [question release];
                 NSLog(@"missing multiple choice options");
                 return nil;
             }
             
+            NSInteger correctCount = 0;
+            
             for (NSDictionary* optionDict in options)
             {
                 ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
-                option.text = [optionDict objectForKey:kISTextKey];
-                
-                if ([optionDict objectForKey:kISCorrectKey])
+                option.text = optionDict[kISTextKey];
+                option.preSelected = [optionDict[kISPreSelectedKey] boolValue];
+                if (optionDict[kISCorrectKey])
                 {
-                    option.correct = [[optionDict objectForKey:kISCorrectKey] boolValue];
+                    option.correct = [optionDict[kISCorrectKey] boolValue];
+                    
+                    if(option.correct) {
+                        
+                        correctCount++;
+                    }
                 }
                 else
                 {
@@ -186,30 +201,217 @@
                 }
                 
                 [question addOption:option];
-                [option release];
             }
             
-            [quiz addQuestion:question];
-            [question release];
+            if(question.selectableOptions.integerValue == 0) {
+                
+                question.selectableOptions = [NSNumber numberWithInteger:correctCount];
+            }
             
+            newQuestion = question;
+        }
+        else if ([type isEqualToString:kISQuestionTypeMultipleMultipleChoice])
+        {
+            ISMultipleMultipleChoiceQuestion* question = [[ISMultipleMultipleChoiceQuestion alloc] init];
+            
+            if(questionDict[kISSelectableOptionsKey]) {
+                
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
+            question.supplementaryText = questionDict[kISupplementaryTextKey];
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing multiple choice options");
+                return nil;
+            }
+            
+            for (NSArray* section in options) {
+            
+                ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
+                
+                multipleChoiceQuestion.selectableOptions = question.selectableOptions;
+                
+                NSInteger correctCount = 0;
+                
+                for (NSDictionary* optionDict in section)
+                {
+                    ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
+                    option.text = optionDict[kISTextKey];
+                    option.preSelected = [optionDict[kISPreSelectedKey] boolValue];
+                    if (optionDict[kISCorrectKey])
+                    {
+                        option.correct = [optionDict[kISCorrectKey] boolValue];
+                        
+                        if(option.correct) {
+                            
+                            correctCount++;
+                        }
+                    }
+                    else
+                    {
+                        option.correct = false;
+                    }
+                    
+                    [multipleChoiceQuestion addOption:option];
+                }
+                
+                if(question.selectableOptions.integerValue == 0) {
+                    
+                    question.selectableOptions = [NSNumber numberWithInteger:correctCount];
+                }
+
+                
+                [question addQuestion:multipleChoiceQuestion];
+                
+            }
+            
+            newQuestion = question;
+        }
+        else if ([type isEqualToString:kISQuestionTypeMultipleMultipleChoiceSentence])
+        {
+            ISMultipleMultipleChoiceQuestion* question = [[ISMultipleMultipleChoiceQuestion alloc] init];
+            
+            if(questionDict[kISSelectableOptionsKey]) {
+                
+                question.selectableOptions = questionDict[kISSelectableOptionsKey];
+                
+            }
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing multiple choice options");
+                return nil;
+            }
+            
+            for (NSDictionary* option in options) {
+                
+                NSString* optionText = option[kISTextKey];
+                
+                NSArray* optionWords = [optionText componentsSeparatedByString:@" "];
+                
+                NSString* correctText = option[kISCorrectKey];
+                
+                NSArray* correctWordIndexes = [correctText componentsSeparatedByString:@" "];
+                
+                ISMultipleChoiceQuestion* multipleChoiceQuestion = [[ISMultipleChoiceQuestion alloc] init];
+                
+                //multipleChoiceQuestion.selectableOptions = question.selectableOptions;
+                
+                NSInteger correctCount = 0;
+                
+                for (NSString* word in optionWords)
+                {
+                    ISMultipleChoiceOption* option = [[ISMultipleChoiceOption alloc] init];
+                    
+                    option.text = word;
+                    
+                    NSInteger currentIndex = [optionWords indexOfObjectIdenticalTo:word];
+                    
+                    NSUInteger index = [correctWordIndexes indexOfObjectPassingTest:^BOOL(NSString* obj, NSUInteger idx, BOOL *stop) {
+                        
+                        NSInteger correctIndex = [obj integerValue];
+                        
+                        if(currentIndex == correctIndex){
+                            *stop = YES;
+                            return YES;
+                        }
+                        
+                        return NO;
+                    }];
+                    
+                    if(index != NSNotFound) {
+                        
+                        option.correct = YES;
+                        
+                        correctCount++;
+                        
+                    }
+                    
+                    [multipleChoiceQuestion addOption:option];
+                }
+                
+                if(multipleChoiceQuestion.selectableOptions.integerValue == 0) {
+                    
+                    multipleChoiceQuestion.selectableOptions = [NSNumber numberWithInteger:correctCount];
+                }
+                
+                //for the moment this doesnt do anything, just for consistancy
+                question.selectableOptions = [NSNumber numberWithInteger:correctCount];
+                
+                [question addQuestion:multipleChoiceQuestion];
+                
+            }
+
             newQuestion = question;
         }
         else if ([type isEqualToString:kISQuestionTypeTrueFalse])
         {
             ISTrueFalseQuestion* question = [[ISTrueFalseQuestion alloc] init];
             
-            if (![self verify:[questionDict objectForKey:kISAnswerKey] class:[NSNumber class]])
+            if (![self verify:questionDict[kISAnswerKey] class:[NSNumber class]])
             {
-                [question release];
                 NSLog(@"missing annswer");
                 return nil;
             }
             
-            question.answer = [[questionDict objectForKey:kISAnswerKey] boolValue];
-            [quiz addQuestion:question];
-            [question release];
+            question.answer = [questionDict[kISAnswerKey] boolValue];
+            
             
             newQuestion = question;
+        }
+        else if  ([type isEqualToString:kISQuestionTypeMatching])
+        {
+            
+            
+            NSArray* answers = questionDict[kISAnswersKey];
+            
+            NSMutableArray* questionAnswers = [NSMutableArray array];
+            
+            if (![self verify:answers class:[NSArray class]])
+            {
+                NSLog(@"missing answers");
+                return nil;
+            }
+            
+            for (NSDictionary* answer in answers) {
+                
+                NSString* optionText = answer[kISTextKey];
+                
+                [questionAnswers addObject:[ISMatchingOption optionWithText:optionText]];
+            }
+            
+           
+            
+            NSArray* options = questionDict[kISOptionsKey];
+            
+            NSMutableArray* questionOptions = [NSMutableArray array];
+            
+            if (![self verify:options class:[NSArray class]])
+            {
+                NSLog(@"missing options");
+                return nil;
+            }
+            
+            for (NSDictionary* option in options) {
+                
+                NSString* optionText = option[kISTextKey];
+                
+                NSNumber* answerIndex = option[kISCorrectKey];
+                
+                [questionOptions addObject:[ISMatchingOption optionWithText:optionText matchingOption:questionAnswers[answerIndex.integerValue]]];
+            }
+            
+            ISMatchingQuestion* question = [ISMatchingQuestion questionWithOptions:questionOptions answers:questionAnswers];
+            
+            newQuestion = question;
+            
         }
         else
         {
@@ -217,15 +419,23 @@
             continue;
         }
                
-        newQuestion.text = [questionDict objectForKey:kISTextKey];
+        newQuestion.text = questionDict[kISTextKey];
         
-        if ([questionDict objectForKey:kISScoreValueKey])
+        newQuestion.supplementaryText = questionDict[kISupplementaryTextKey];
+        
+        newQuestion.questionType = type;
+        
+        newQuestion.questionSubType = questionDict[kISSubTypeKey];
+        
+        if (questionDict[kISScoreValueKey])
         {
-            newQuestion.scoreValue = [[questionDict objectForKey:kISScoreValueKey] intValue];
+            newQuestion.scoreValue = [questionDict[kISScoreValueKey] intValue];
         }
+        
+        [quiz addQuestion:newQuestion];
     }
     
-    return [quiz autorelease];
+    return quiz;
 }
 
 @end

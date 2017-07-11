@@ -8,12 +8,11 @@
 #import "ISQuestion.h"
 
 static NSString * const _ISUserDataKey = @"userData";
-static NSString * const _ISTextKey = @"text";
+NSString * const _ISTextKey = @"text";
 static NSString * const _ISTypeKey = @"type";
 static NSString * const _ISScoreValueKey = @"scoreValue";
 
 @implementation ISQuestionResponse
-@synthesize userData = _userData;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -35,15 +34,12 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
 
 + (ISEmptyQuestionResponse*)emptyResponse
 {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 @end
 
 @implementation ISQuestion
-@synthesize text = _text;
-@synthesize userData = _userData;
-@synthesize scoreValue = _scoreValue;
 
 - (id)init
 {
@@ -56,12 +52,6 @@ static NSString * const _ISScoreValueKey = @"scoreValue";
     return self;
 }
 
-- (void)dealloc
-{
-    self.text = nil;
-    self.userData = nil;
-    [super dealloc];
-}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
